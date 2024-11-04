@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://8xlgf17lwtjo"]
+
+[ext_resource type="Script" path="res://enemys/enemy_2.gd" id="1_kidd7"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8p1xx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bgmqi"]
+radius = 5.76334
+
+[node name="ENEMY1" type="CharacterBody2D" groups=["enemy2"]]
+collision_layer = 10
+script = ExtResource("1_kidd7")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+rotation = 1.5708
+scale = Vector2(24.8469, 24.8469)
+mesh = SubResource("CapsuleMesh_8p1xx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.36, 2.36)
+shape = SubResource("CircleShape2D_bgmqi")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+scale = Vector2(1, 5.88)
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+rotation = -0.114666
+scale = Vector2(1, 5.88)
+
+[node name="RayCast2D3" type="RayCast2D" parent="."]
+rotation = 0.15127
+scale = Vector2(1, 5.88)
+
+[node name="RayCast2D4" type="RayCast2D" parent="."]
+rotation = 3.13758
+scale = Vector2(1, 5.88)
+
+[node name="RayCast2D5" type="RayCast2D" parent="."]
+rotation = -2.98482
+scale = Vector2(1, 5.88)
+
+[node name="RayCast2D6" type="RayCast2D" parent="."]
+rotation = 2.90794
+scale = Vector2(1, 5.88)
+
+[node name="shotting_point_enemy" type="Marker2D" parent="."]
+unique_name_in_owner = true
+rotation = 1.69515
+
+[node name="right_point_enemy2" type="Marker2D" parent="."]
+unique_name_in_owner = true
+rotation = 3.048
+
+[node name="left_point_enemy3" type="Marker2D" parent="."]
+unique_name_in_owner = true
+rotation = -0.0903008
+
+[node name="up_point_enemy4" type="Marker2D" parent="."]
+unique_name_in_owner = true
+rotation = 4.76292
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="rotator" type="RayCast2D" parent="." groups=["enemy2"]]
+target_position = Vector2(225, -1)
+
+[node name="rotator2" type="RayCast2D" parent="."]
+target_position = Vector2(-277, -1)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

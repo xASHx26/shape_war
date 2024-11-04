@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://0i4a7vjvagpf"]
+
+[ext_resource type="Script" path="res://gun.gd" id="1_st3a4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1jgxd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vf75s"]
+
+[node name="gun" type="Area2D"]
+script = ExtResource("1_st3a4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(40.44, 40.44)
+shape = SubResource("CircleShape2D_1jgxd")
+
+[node name="wapon_pivit" type="Marker2D" parent="."]
+
+[node name="pistol" type="MeshInstance2D" parent="wapon_pivit"]
+position = Vector2(1, -2.23517e-08)
+rotation = -1.57698
+scale = Vector2(98.8314, -21.2347)
+mesh = SubResource("BoxMesh_vf75s")
+
+[node name="shotting_point" type="Marker2D" parent="wapon_pivit/pistol"]
+position = Vector2(0.495794, 0)

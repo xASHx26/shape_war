@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4j3s4jlwulqs"]
+
+[ext_resource type="PackedScene" uid="uid://cvdhc886iqgv8" path="res://spaceship.tscn" id="1_7v0c8"]
+[ext_resource type="Script" path="res://main.gd" id="1_llltd"]
+[ext_resource type="Script" path="res://control.gd" id="3_kybmt"]
+[ext_resource type="PackedScene" uid="uid://b2i47oqby6foq" path="res://walls.tscn" id="5_aljtq"]
+
+[sub_resource type="Curve2D" id="Curve2D_x6b6c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -99, -123, 0, 0, 0, 0, -104, 733, 0, 0, 0, 0, 1382, 731, 0, 0, 0, 0, 1362, -120, 0, 0, 0, 0, -101, -123, 0, 0, 0, 0, -126, -129)
+}
+point_count = 6
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_llltd")
+
+[node name="spaceship" parent="." instance=ExtResource("1_7v0c8")]
+position = Vector2(582, 428)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(575, 323)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(10, 0)
+transform = Transform2D(1, 0, 0, 1, 10, 0)
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_kybmt")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 53.0
+offset_right = 87.0
+offset_bottom = 76.0
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 931.0
+offset_top = 44.0
+offset_right = 971.0
+offset_bottom = 67.0
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-2, -31)
+curve = SubResource("Curve2D_x6b6c")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(-126, -129)
+rotation = -2.90605
+progress = 4685.31
+
+[node name="enemy1_timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="enemy2_timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="walls" parent="." instance=ExtResource("5_aljtq")]
+
+[connection signal="timeout" from="enemy1_timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="enemy2_timer" to="." method="_on_enemy_2_timer_timeout"]

@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://csgwj1bhasmsc"]
+
+[ext_resource type="Script" path="res://enemys/enemy_1.gd" id="1_wtnpe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uitw5"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_pun62"]
+radius = 1.49
+height = 1.18
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vb2cf"]
+
+[node name="ENEMY1" type="CharacterBody2D" groups=["enemy1"]]
+rotation = 4.70609
+collision_layer = 2
+script = ExtResource("1_wtnpe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 24)
+scale = Vector2(2.36, 2.36)
+shape = SubResource("CircleShape2D_uitw5")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(0.0126004, 24.0006)
+scale = Vector2(15.5467, 40.4339)
+mesh = SubResource("SphereMesh_pun62")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.151243, 23.9995)
+scale = Vector2(2.36, 2.36)
+shape = SubResource("CircleShape2D_vb2cf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-0.327695, 51.999)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
