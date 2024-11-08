@@ -45,7 +45,7 @@ func increase_speed():
 	speed=8000
 func dec_speed():
 	speed=100
-	print(speed)
+	
 func canon_look():
 	var Player_direction =player.global_position
 	if ray_cast_2d.is_colliding() and collision_layer ==10:
