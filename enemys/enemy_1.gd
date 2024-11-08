@@ -38,4 +38,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 # Handle collision with other areas
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("spaceship"):
+		Global.curr_health-=2
+		Global.total_enemy1-=1
 		queue_free()
+	
