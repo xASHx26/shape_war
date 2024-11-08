@@ -76,7 +76,7 @@ rotation = -2.90605
 progress = 4685.31
 
 [node name="enemy1_timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 4.0
 autostart = true
 
 [node name="enemy2_timer" type="Timer" parent="."]
@@ -90,7 +90,7 @@ position = Vector2(615, 539)
 rotation = 3.14462
 
 [node name="3rdenemy" type="Timer" parent="."]
-wait_time = 50.0
+wait_time = 70.0
 autostart = true
 
 [connection signal="timeout" from="enemy1_timer" to="." method="_on_timer_timeout"]
