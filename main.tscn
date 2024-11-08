@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4j3s4jlwulqs"]
+[gd_scene load_steps=7 format=3 uid="uid://c4j3s4jlwulqs"]
 
-[ext_resource type="PackedScene" uid="uid://cvdhc886iqgv8" path="res://spaceship.tscn" id="1_7v0c8"]
+[ext_resource type="PackedScene" uid="uid://cvdhc886iqgv8" path="res://spaceships/spaceship.tscn" id="1_7v0c8"]
 [ext_resource type="Script" path="res://main.gd" id="1_llltd"]
+[ext_resource type="PackedScene" uid="uid://q6hymwm3w6av" path="res://spaceships/spaceship1.tscn" id="3_3diel"]
 [ext_resource type="Script" path="res://control.gd" id="3_kybmt"]
 [ext_resource type="PackedScene" uid="uid://b2i47oqby6foq" path="res://walls.tscn" id="5_aljtq"]
 
@@ -13,9 +14,7 @@ point_count = 6
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_llltd")
-
-[node name="spaceship" parent="." instance=ExtResource("1_7v0c8")]
-position = Vector2(582, 428)
+player = Array[PackedScene]([ExtResource("1_7v0c8"), ExtResource("3_3diel"), null, null, null])
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(575, 323)
@@ -45,6 +44,27 @@ offset_top = 44.0
 offset_right = 971.0
 offset_bottom = 67.0
 
+[node name="Label3" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 931.0
+offset_top = 107.0
+offset_right = 971.0
+offset_bottom = 130.0
+
+[node name="Label4" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 931.0
+offset_top = 188.0
+offset_right = 971.0
+offset_bottom = 211.0
+
+[node name="Label5" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 931.0
+offset_top = 329.0
+offset_right = 971.0
+offset_bottom = 352.0
+
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(-2, -31)
 curve = SubResource("Curve2D_x6b6c")
@@ -65,5 +85,14 @@ autostart = true
 
 [node name="walls" parent="." instance=ExtResource("5_aljtq")]
 
+[node name="spaceship_spwaner" type="Marker2D" parent="."]
+position = Vector2(615, 539)
+rotation = 3.14462
+
+[node name="3rdenemy" type="Timer" parent="."]
+wait_time = 50.0
+autostart = true
+
 [connection signal="timeout" from="enemy1_timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="enemy2_timer" to="." method="_on_enemy_2_timer_timeout"]
+[connection signal="timeout" from="3rdenemy" to="." method="_on_rdenemy_timeout"]

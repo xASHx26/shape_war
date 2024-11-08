@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_bgmqi"]
 radius = 5.76334
 
-[node name="ENEMY1" type="CharacterBody2D" groups=["enemy2"]]
+[node name="ENEMY2" type="CharacterBody2D" groups=["enemy2"]]
 collision_layer = 10
 script = ExtResource("1_kidd7")
 
@@ -47,26 +47,33 @@ scale = Vector2(1, 5.88)
 unique_name_in_owner = true
 rotation = 1.69515
 
-[node name="right_point_enemy2" type="Marker2D" parent="."]
-unique_name_in_owner = true
-rotation = 3.048
-
-[node name="left_point_enemy3" type="Marker2D" parent="."]
-unique_name_in_owner = true
-rotation = -0.0903008
-
 [node name="up_point_enemy4" type="Marker2D" parent="."]
 unique_name_in_owner = true
-rotation = 4.76292
+position = Vector2(1, -6)
+rotation = 4.57093
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
 
-[node name="rotator" type="RayCast2D" parent="." groups=["enemy2"]]
-target_position = Vector2(225, -1)
+[node name="left_2D" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-23, -1)
+rotation = 6.28319
 
-[node name="rotator2" type="RayCast2D" parent="."]
-target_position = Vector2(-277, -1)
+[node name="right_2D" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(20, 1)
+rotation = 9.49872
+
+[node name="left_side" type="RayCast2D" parent="."]
+rotation = 1.57952
+scale = Vector2(2.425, 2.425)
+target_position = Vector2(1.69556, 99.7828)
+
+[node name="right_side" type="RayCast2D" parent="."]
+rotation = 4.70354
+scale = Vector2(2.425, 2.425)
+target_position = Vector2(-0.631338, 117.937)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

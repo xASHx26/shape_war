@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://v1jm5cperky5"]
+[gd_scene load_steps=4 format=3 uid="uid://b1hf8yau4saqq"]
+
+[ext_resource type="Script" path="res://bullets/bullets.gd" id="1_bd622"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_f623w"]
 
@@ -7,6 +9,7 @@
 [node name="bullets" type="Area2D"]
 top_level = true
 collision_mask = 10
+script = ExtResource("1_bd622")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 scale = Vector2(18.6302, 18.6302)
