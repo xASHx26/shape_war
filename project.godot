@@ -94,6 +94,8 @@ rotate_down={
 
 2d_physics/layer_1="spaceship"
 2d_physics/layer_4="enemy2"
+2d_physics/layer_7="Enemy4"
+2d_physics/layer_14="enemy_clear"
 
 [rendering]
 
