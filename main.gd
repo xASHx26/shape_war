@@ -18,7 +18,7 @@ var next_threshold = 50  # Start with the first threshold at 50 points
 var player_spawned = false
 var player2_spawn :=false
 var player1_spawn :=false
-
+@export var player_no:int=0
 var spawn3_called = false  # Track if spawn3 has been called
 var spawn4_called = false 
 func _ready() -> void:
@@ -26,7 +26,7 @@ func _ready() -> void:
 	Global.curr_health=10
 func _process(delta: float) -> void:
 	
-	player_spawner(1)
+	player_spawner(player_no)
 	deff_manager()
 	#printt(enemy_1_timer.wait_time,enemy_2_timer.wait_time,_3_rdenemy.wait_time,_3_rdenemy.time_left,enemy_4_timer.wait_time,enemy_4_timer.time_left,next_threshold)
 func spawn()->void:
