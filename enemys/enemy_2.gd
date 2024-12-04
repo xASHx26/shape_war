@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	if Global.curr_health>0 and follow==false:
 		var direction =global_position.direction_to(player.global_position)
 		velocity=direction*speed*delta
-		var tween=create_tween()
+		
 		move_and_slide()
 		
 		
