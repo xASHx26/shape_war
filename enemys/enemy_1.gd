@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var rotation_speed = 5.0
 @export var speed = 4000
-@export var dead_zone_threshold = 0.1  # Small angle in radians to define the dead zone
+@export var dead_zone_threshold = 0.1 
 
 @onready var player = get_node("/root/main/spaceship/rocket/rotation")
 @onready var marker_2d: Marker2D = $Marker2D

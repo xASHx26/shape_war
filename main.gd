@@ -14,12 +14,12 @@ var range_score=randi_range(10,15)
 var enemy1_def:int=range_score
 var enemy2_def:int
 var enemy3_def:int
-var next_threshold = 50  # Start with the first threshold at 50 points
+var next_threshold = 50  
 var player_spawned = false
 var player2_spawn :=false
 var player1_spawn :=false
 @export var player_no:int=0
-var spawn3_called = false  # Track if spawn3 has been called
+var spawn3_called = false 
 var spawn4_called = false 
 func _ready() -> void:
 	Global.count =0
@@ -70,14 +70,14 @@ func spawn4()->void:
 
 func deff_manager() -> void:
 	
-	# Check if the global score has reached the next threshold
+	
 	if Global.count >= next_threshold:
-		# Reduce enemy timers with a minimum limit to avoid excessive speed
+		
 		enemy_1_timer.wait_time = max(enemy_1_timer.wait_time - 0.5, 1.0)
 		enemy_2_timer.wait_time = max(enemy_2_timer.wait_time - 0.5, 2.0)
 		_3_rdenemy.wait_time = max(_3_rdenemy.wait_time - 5, 10.0)
 		enemy_4_timer.wait_time=max(enemy_4_timer.wait_time - 5,10.0)
-		# Update the next threshold to 50 points ahead
+		
 		next_threshold += 50
 
 	
