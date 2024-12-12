@@ -9,7 +9,8 @@ extends Node2D
 @onready var enemy_4_timer: Timer = $enemy4_timer
 @onready var enemy_4_marker: Marker2D = $enemy4_marker
 
-@export var spcaeNumber:int=0
+
+@export var spcaeNumber:int=1
 var range_score=randi_range(10,15)
 var enemy1_def:int=range_score
 var enemy2_def:int
