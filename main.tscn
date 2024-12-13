@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://c4j3s4jlwulqs"]
 
-[ext_resource type="PackedScene" uid="uid://cvdhc886iqgv8" path="res://spaceship.tscn" id="1_7v0c8"]
 [ext_resource type="Script" path="res://main.gd" id="1_llltd"]
-[ext_resource type="PackedScene" uid="uid://cvdhc886iqgv8" path="res://spaceships/spaceship.tscn" id="3_1waod"]
+[ext_resource type="PackedScene" uid="uid://cvdhc886iqgv8" path="res://spaceships/spaceship.tscn" id="3_cib60"]
 [ext_resource type="Script" path="res://control.gd" id="3_kybmt"]
 [ext_resource type="PackedScene" uid="uid://b2i47oqby6foq" path="res://walls.tscn" id="5_aljtq"]
 [ext_resource type="PackedScene" uid="uid://cjdwac0mv6exv" path="res://audiovis.tscn" id="6_dr5t2"]
+[ext_resource type="PackedScene" uid="uid://c4q8pur2gk84e" path="res://touchcontrol.tscn" id="6_sxmq2"]
 
 [sub_resource type="Curve2D" id="Curve2D_x6b6c"]
 _data = {
@@ -15,7 +15,7 @@ point_count = 6
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_llltd")
-player = Array[PackedScene]([ExtResource("1_7v0c8"), ExtResource("3_1waod"), null, null])
+player = Array[PackedScene]([ExtResource("3_cib60"), ExtResource("3_cib60"), null, null])
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(575, 323)
@@ -115,6 +115,14 @@ offset_left = 578.0
 offset_top = 319.0
 offset_right = 578.0
 offset_bottom = 319.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="touchcontrol" parent="Control" instance=ExtResource("6_sxmq2")]
 
 [connection signal="timeout" from="enemy1_timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="enemy2_timer" to="." method="_on_enemy_2_timer_timeout"]

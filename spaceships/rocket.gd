@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 # Adjustable rotation speed for smooth turning
+@export var joy:PackedScene
 @export var rotation_speed = 5.0
 @export var dead_zone_threshold = 0  # Minimum mouse velocity length to rotate
 @onready var gun: MeshInstance2D = $gun
