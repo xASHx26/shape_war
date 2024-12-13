@@ -12,8 +12,8 @@ extends CharacterBody2D
 @onready var enemy2=get_tree().get_nodes_in_group("enemy2")
 @onready var area_2d: Area2D = $'../Area2D'
 @onready var area_2d_2: Area2D = $Area2D2
-
-		
+@export var joy:PackedScene
+	
 var rs_look = Vector2(0,0)
 var deadzone = 0.2
 func _ready() -> void:

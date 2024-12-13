@@ -90,6 +90,11 @@ rotate_down={
 ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+pointing/emulate_mouse_from_touch=false
+
 [layer_names]
 
 2d_physics/layer_1="spaceship"
@@ -100,3 +105,4 @@ rotate_down={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true
