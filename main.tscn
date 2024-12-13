@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4j3s4jlwulqs"]
+[gd_scene load_steps=9 format=3 uid="uid://c4j3s4jlwulqs"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_llltd"]
-[ext_resource type="PackedScene" uid="uid://cvdhc886iqgv8" path="res://spaceships/spaceship.tscn" id="3_cib60"]
+[ext_resource type="PackedScene" uid="uid://cvdhc886iqgv8" path="res://spaceships/spaceship.tscn" id="2_m6e3i"]
+[ext_resource type="PackedScene" uid="uid://cvdhc886iqgv8" path="res://spaceship.tscn" id="3_cib60"]
 [ext_resource type="Script" path="res://control.gd" id="3_kybmt"]
 [ext_resource type="PackedScene" uid="uid://b2i47oqby6foq" path="res://walls.tscn" id="5_aljtq"]
 [ext_resource type="PackedScene" uid="uid://cjdwac0mv6exv" path="res://audiovis.tscn" id="6_dr5t2"]
@@ -15,7 +16,9 @@ point_count = 6
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_llltd")
-player = Array[PackedScene]([ExtResource("3_cib60"), ExtResource("3_cib60"), null, null])
+player = Array[PackedScene]([ExtResource("2_m6e3i"), ExtResource("3_cib60"), null, null])
+spcaeNumber = 0
+player_no = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(575, 323)
