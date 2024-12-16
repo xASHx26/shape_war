@@ -23,6 +23,7 @@ var player1_spawn :=false
 var spawn3_called = false 
 var spawn4_called = false 
 func _ready() -> void:
+	var save=SaveGame.read_save()
 	Global.count =0
 	Global.curr_health=10
 	
@@ -34,6 +35,10 @@ func _process(delta: float) -> void:
 
 func  _physics_process(delta: float) -> void:
 	if Global.curr_health<=0:
+		if Global.count>SaveGame.data["score"]:
+			SaveGame.data["score"]=(Global.count)
+			SaveGame.Write_save(SaveGame.data)
+		
 		get_tree().reload_current_scene()	
 #printt(enemy_1_timer.wait_time,enemy_2_timer.wait_time,_3_rdenemy.wait_time,_3_rdenemy.time_left,enemy_4_timer.wait_time,enemy_4_timer.time_left,next_threshold)
 func spawn()->void:

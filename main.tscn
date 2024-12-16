@@ -39,6 +39,13 @@ offset_top = 53.0
 offset_right = 87.0
 offset_bottom = 76.0
 
+[node name="Top Score" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 528.0
+offset_top = 25.0
+offset_right = 568.0
+offset_bottom = 48.0
+
 [node name="Label2" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 0
 offset_left = 931.0
