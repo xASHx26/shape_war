@@ -23,9 +23,7 @@ func _physics_process(delta: float) -> void:
 		# Move the rocket towards the player's position
 		velocity = direction * speed*delta	
 		move_and_slide()
-	else:
-		# Reload the current scene if health is depleted
-		get_tree().reload_current_scene()
+	
 
 func increase_speed():
 	speed = 8000  # Increase speed when called

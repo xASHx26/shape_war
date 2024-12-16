@@ -32,8 +32,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		
 		
-	else :
-		get_tree().reload_current_scene()
+	
 func increase_speed():
 	speed=8000
 func dec_speed():
