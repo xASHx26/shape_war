@@ -7,3 +7,4 @@ extends Node
 var curr_health:int:
 	set(health_in):
 		curr_health=health_in
+var active =SaveGame.data.get(["player_ship"])
