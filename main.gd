@@ -10,7 +10,8 @@ extends Node2D
 @onready var enemy_4_marker: Marker2D = $enemy4_marker
 
 
-@export var spcaeNumber:int=1
+
+
 var range_score=randi_range(10,15)
 var enemy1_def:int=range_score
 var enemy2_def:int
@@ -22,14 +23,33 @@ var player1_spawn :=false
 
 var spawn3_called = false 
 var spawn4_called = false 
-func _ready() -> void:
-	var save=SaveGame.read_save()
-	Global.count =0
-	Global.curr_health=10
-	
+var spcaeNumber = 0  # Default value, will be replaced after loading
 
-func _process(delta: float) -> void:
+func _ready() -> void:
+	var save_data = SaveGame.read_save()  # Read save data from JSON
+	if save_data:
+		SaveGame.data = save_data  # Store the data globally
+		spcaeNumber = SaveGame.data.get("player_ship", 0)  # Get saved value
+
+	print("Loaded player_ship:", spcaeNumber)  # Debugging print
+	player_spawner(spcaeNumber)  # Spawn the correct ship based on saved data
+
 	
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed(&"change"):  # Ensures it triggers once per press
+		SaveGame.data["player_ship"] = 1  # Change the value in-memory
+		SaveGame.Write_save(SaveGame.data)  # Save to JSON file
+		
+		# Reload the JSON file to reflect real-time changes
+		var updated_data = SaveGame.read_save()
+		if updated_data:
+			SaveGame.data = updated_data  # Update global data storage
+			spcaeNumber = updated_data.get("player_ship", 0)  # Get updated value
+
+		print("Saved player_ship:", SaveGame.data["player_ship"])  # Debugging
+		print("Updated spcaeNumber:", spcaeNumber)  # Debugging
+
+	# Call player_spawner with the updated spcaeNumber
 	player_spawner(spcaeNumber)
 	deff_manager()
 
