@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://csgwj1bhasmsc"]
+[gd_scene load_steps=11 format=3 uid="uid://csgwj1bhasmsc"]
 
 [ext_resource type="Script" path="res://enemys/enemy_1.gd" id="1_wtnpe"]
+[ext_resource type="PackedScene" uid="uid://tg55eqghou71" path="res://Partickle/Enemy1DistroyParticle.tscn" id="2_i0t81"]
 [ext_resource type="Texture2D" uid="uid://buk5kqtkgnyjl" path="res://SPRITE/PLAYER/BOMB.png" id="2_l0bfh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uitw5"]
@@ -48,6 +49,7 @@ rotation = 4.70609
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_wtnpe")
+deathPrticle = ExtResource("2_i0t81")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 24)
@@ -70,6 +72,8 @@ scale = Vector2(0.271096, 0.271096)
 sprite_frames = SubResource("SpriteFrames_hsxec")
 autoplay = "default"
 frame_progress = 0.311697
+
+[node name="GPUParticles2D" parent="." instance=ExtResource("2_i0t81")]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

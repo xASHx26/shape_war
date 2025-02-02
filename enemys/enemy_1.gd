@@ -3,10 +3,17 @@ extends CharacterBody2D
 @export var rotation_speed = 5.0
 @export var speed = 4000
 @export var dead_zone_threshold = 0.1 
+@export var deathPrticle:PackedScene
+@onready var area_2d: Area2D = $Area2D
+@onready var gpu_particles_2d: GPUParticles2D = $GPUParticles2D
 
 @onready var player = get_node("/root/main/spaceship/rocket/rotation")
 @onready var marker_2d: Marker2D = $Marker2D
-
+@onready var health 
+func _ready() -> void:
+	health=1
+func _process(delta: float) -> void:
+	kill()
 func _physics_process(delta: float) -> void:
 	if Global.curr_health > 0:
 		# Calculate direction vector from the rocket to the player's position
@@ -33,10 +40,24 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("spaceship"):
 		queue_free()
 
-# Handle collision with other areas
+func explo():
+	var explosion = deathPrticle.instantiate()
+	get_parent().add_child(explosion)  # Attach to scene
+	explosion.global_position = global_position  # Set explosion position
+	explosion.emitting = true
+func kill():
+	if health<=0:
+		explo()
+		queue_free()
+		
+	
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("spaceship"):
-		Global.curr_health-=2
-		Global.total_enemy1-=1
-		queue_free()
-	
+		Global.curr_health -= 2
+		Global.total_enemy1 -= 1
+		
+		explo()
+		# Create a new explosion particle effect
+		
+		
+		queue_free()  # Remove enemy
