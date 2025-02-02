@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SaveGame="*res://scripts/save_game.gd"
 Global="*res://global/global.gd"
+Enemy="*res://global/Enemy.gd"
 
 [display]
 

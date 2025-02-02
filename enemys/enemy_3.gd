@@ -26,20 +26,23 @@ extends CharacterBody2D
 @onready var left_canon: MeshInstance2D = $left_canon
 
 @export var rotation_speed = 10.0 
-
+@onready  var health
 var follow:=false
 
 		
 func _ready() -> void:
-	pass
+	health=4
 func _physics_process(delta: float) -> void:
 	if Global.curr_health>0 and follow==false:
 		
 		
 		pass
 		
-	
-		
+func _process(delta: float) -> void:
+	kill()	
+func kill():
+	if health<=0:
+		queue_free()		
 func increase_speed():
 	speed=8000
 func dec_speed():

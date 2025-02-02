@@ -37,10 +37,13 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed(&"change"):  # Ensures it triggers once per press
-		SaveGame.data["player_ship"] = 1  # Change the value in-memory
-		SaveGame.Write_save(SaveGame.data)  # Save to JSON file
-		
-		# Reload the JSON file to reflect real-time changes
+		if SaveGame.data["player_ship"] ==0: 
+			SaveGame.data["player_ship"] = 1  # Change the value in-memory
+			SaveGame.Write_save(SaveGame.data)  # Save to JSON file
+		elif SaveGame.data["player_ship"] ==1: 
+			SaveGame.data["player_ship"] = 0  # Change the value in-memory
+			SaveGame.Write_save(SaveGame.data)  # Save to JSON file
+		get_tree().reload_current_scene()
 		var updated_data = SaveGame.read_save()
 		if updated_data:
 			SaveGame.data = updated_data  # Update global data storage

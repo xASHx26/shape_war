@@ -16,10 +16,10 @@ var topLeftArray = $circcle/left/top.get_children()
 var bottomLeftArray = $circcle/left/bottom.get_children()
  
 const VU_COUNT = 20
-const HEIGHT = 60
+const HEIGHT = 80
 const FREQ_MAX = 11050.0
  
-const MIN_DB = 60
+const MIN_DB = 80
  
 # Called when the node enters the scene tree for the first time.
 func _ready():
