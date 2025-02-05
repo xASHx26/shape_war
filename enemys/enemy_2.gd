@@ -20,12 +20,10 @@ extends CharacterBody2D
 @export var rotation_speed = 10.0 
 
 var follow:=false
-@onready var health
+
 		
 func _ready() -> void:
-	health=2
-func _process(delta: float) -> void:
-	kill()
+	pass
 func _physics_process(delta: float) -> void:
 	if Global.curr_health>0 and follow==false:
 		var direction =global_position.direction_to(player.global_position)
@@ -63,9 +61,7 @@ func shoot_right():
 	new_bullet.global_position=%right_2D.global_position
 	new_bullet.global_rotation=%right_2D.global_rotation
 	add_child(new_bullet)	
-func kill():
-	if health<=0:
-		queue_free()
+
 func _on_timer_timeout() -> void:
 	if Global.curr_health>0:
 		if ray_cast_2d.is_colliding() and collision_layer ==10:

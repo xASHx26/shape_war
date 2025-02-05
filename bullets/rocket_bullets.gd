@@ -15,21 +15,20 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy1"):
 		Global.count += 1
-		print(body.health)
-		body.health-=1
+		
+		body.queue_free()
 		
 		queue_free()
 	
 	if body.is_in_group("enemy2"):
 		Global.count += 3
 		
-		body.health-=1
+		body.queue_free()
 		
 		queue_free()
 	if body.is_in_group("enemy3"):
 		Global.count += 5
-		Enemy.enemy3_health-=1
+		body.queue_free()
 		
 		Global.total_enemy3-=1
-		queue_free()
 	

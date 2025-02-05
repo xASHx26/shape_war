@@ -1,5 +1,5 @@
 extends Node
-@export var count: int = 80
+@export var count: int = 35
 @export var total_enemy3:int=1
 @export var total_enemy1:int=1
 @export var total_enemy2:int=1

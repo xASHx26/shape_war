@@ -1,17 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://8xlgf17lwtjo"]
+[gd_scene load_steps=9 format=3 uid="uid://8xlgf17lwtjo"]
 
 [ext_resource type="Script" path="res://enemys/enemy_2.gd" id="1_kidd7"]
+[ext_resource type="Texture2D" uid="uid://bqslqvv3whxtp" path="res://SPRITE/PLAYER/Enemy2.png" id="2_uinxs"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8p1xx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bgmqi"]
 radius = 5.76334
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qv7p"]
+atlas = ExtResource("2_uinxs")
+region = Rect2(400, 160, 400, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h25x"]
+atlas = ExtResource("2_uinxs")
+region = Rect2(400, 320, 400, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlrq3"]
+atlas = ExtResource("2_uinxs")
+region = Rect2(400, 480, 400, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v16yl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qv7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4h25x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlrq3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="ENEMY2" type="CharacterBody2D" groups=["enemy2"]]
 collision_layer = 10
 script = ExtResource("1_kidd7")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+visible = false
 rotation = 1.5708
 scale = Vector2(24.8469, 24.8469)
 mesh = SubResource("CapsuleMesh_8p1xx")
@@ -45,11 +76,12 @@ scale = Vector2(1, 5.88)
 
 [node name="shotting_point_enemy" type="Marker2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(0, 28)
 rotation = 1.69515
 
 [node name="up_point_enemy4" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(1, -6)
+position = Vector2(1, -27)
 rotation = 4.57093
 
 [node name="Timer" type="Timer" parent="."]
@@ -58,13 +90,13 @@ autostart = true
 
 [node name="left_2D" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-23, -1)
-rotation = 6.28319
+position = Vector2(41, -1)
+rotation = 6.28437
 
 [node name="right_2D" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(20, 1)
-rotation = 9.49872
+position = Vector2(-39, -1)
+rotation = 9.41237
 
 [node name="left_side" type="RayCast2D" parent="."]
 rotation = 1.57952
@@ -75,5 +107,13 @@ target_position = Vector2(1.69556, 99.7828)
 rotation = 4.70354
 scale = Vector2(2.425, 2.425)
 target_position = Vector2(-0.631338, 117.937)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(21, 5)
+scale = Vector2(0.566881, 0.566881)
+sprite_frames = SubResource("SpriteFrames_v16yl")
+autoplay = "default"
+frame = 2
+frame_progress = 1.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
