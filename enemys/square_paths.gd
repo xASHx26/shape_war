@@ -14,8 +14,8 @@ func _process(delta: float) -> void:
 	path_follow_2d.progress_ratio += delta * speed
 	
 	# Wrap the progress_ratio if it exceeds 1 (for continuous looping)
-	if path_follow_2d.progress_ratio >= 1.0:
-		path_follow_2d.progress_ratio = 0.0995
+	if path_follow_2d.progress_ratio >= 1:
+		path_follow_2d.progress_ratio = 0.2155
 	if enemy.is_queued_for_deletion():
 		path_follow_2d.progress_ratio=0
 func spawn() -> void:

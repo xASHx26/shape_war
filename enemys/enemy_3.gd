@@ -10,8 +10,7 @@ extends CharacterBody2D
 @onready var left_side_3: RayCast2D = $left_side3
 @onready var right_side_2: RayCast2D = $right_side2
 @onready var right_side_3: RayCast2D = $right_side3
-
-
+@export var deathPrticle:PackedScene
 @onready var ray_cast_2d_4: RayCast2D = $RayCast2D4
 @onready var ray_cast_2d_5: RayCast2D = $RayCast2D5
 @onready var ray_cast_2d_6: RayCast2D = $RayCast2D6
@@ -24,14 +23,17 @@ extends CharacterBody2D
 @onready var down_canon: MeshInstance2D = $down_canon
 @onready var right_canon: MeshInstance2D = $right_canon
 @onready var left_canon: MeshInstance2D = $left_canon
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 @export var rotation_speed = 10.0 
 
 var follow:=false
 
-		
+var health:=1		
 func _ready() -> void:
 	pass
+func _process(delta: float) -> void:
+	kill()
 func _physics_process(delta: float) -> void:
 	if Global.curr_health>0 and follow==false:
 		
@@ -39,7 +41,17 @@ func _physics_process(delta: float) -> void:
 		pass
 		
 	
+func kill():
+	if health<=0:
+		Global.count += 5
+		explo()
+		queue_free()
 		
+func explo():
+	var explosion = deathPrticle.instantiate()
+	get_parent().add_child(explosion)  # Attach to scene
+	explosion.global_position = collision_shape_2d.global_position  # Set explosion position
+	explosion.emitting = true
 func increase_speed():
 	speed=8000
 func dec_speed():

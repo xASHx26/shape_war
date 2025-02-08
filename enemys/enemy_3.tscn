@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://csq487qhooag1"]
+[gd_scene load_steps=7 format=3 uid="uid://csq487qhooag1"]
 
 [ext_resource type="Script" path="res://enemys/enemy_3.gd" id="1_phdwi"]
+[ext_resource type="PackedScene" uid="uid://cdy8vkh4mnv1" path="res://Partickle/enemy_3_particle.tscn" id="2_i0buv"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_raa8l"]
 
@@ -11,8 +12,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgjti"]
 
 [node name="ENEMY3" type="CharacterBody2D" groups=["enemy3"]]
+position = Vector2(13, 0)
 collision_layer = 10
 script = ExtResource("1_phdwi")
+speed = 0
+deathPrticle = ExtResource("2_i0buv")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 rotation = 1.5708

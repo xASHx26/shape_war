@@ -26,28 +26,33 @@ var spawn4_called = false
 var spcaeNumber = 0  # Default value, will be replaced after loading
 
 func _ready() -> void:
+	
 	var save_data = SaveGame.read_save()  # Read save data from JSON
 	if save_data:
 		SaveGame.data = save_data  # Store the data globally
 		spcaeNumber = SaveGame.data.get("player_ship", 0)  # Get saved value
 
-	print("Loaded player_ship:", spcaeNumber)  # Debugging print
+
 	player_spawner(spcaeNumber)  # Spawn the correct ship based on saved data
 
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed(&"change"):  # Ensures it triggers once per press
-		SaveGame.data["player_ship"] = 1  # Change the value in-memory
-		SaveGame.Write_save(SaveGame.data)  # Save to JSON file
-		
+		if SaveGame.data["player_ship"] ==1:
+			SaveGame.data["player_ship"] = 0  # Change the value in-memory
+			SaveGame.Write_save(SaveGame.data)  # Save to JSON file
+			get_tree().reload_current_scene()	
+		elif SaveGame.data["player_ship"] ==0:
+			SaveGame.data["player_ship"] = 1  # Change the value in-memory
+			SaveGame.Write_save(SaveGame.data)  # Save to JSON file
+			get_tree().reload_current_scene()	
 		# Reload the JSON file to reflect real-time changes
 		var updated_data = SaveGame.read_save()
 		if updated_data:
 			SaveGame.data = updated_data  # Update global data storage
 			spcaeNumber = updated_data.get("player_ship", 0)  # Get updated value
 
-		print("Saved player_ship:", SaveGame.data["player_ship"])  # Debugging
-		print("Updated spcaeNumber:", spcaeNumber)  # Debugging
+	
 
 	# Call player_spawner with the updated spcaeNumber
 	player_spawner(spcaeNumber)
@@ -68,7 +73,7 @@ func spawn()->void:
 		new_enemy1.global_position=%PathFollow2D.global_position
 		player1_spawn=true
 		add_child(new_enemy1)
-	
+		
 func player_spawner(n:int)->void:
 	if not player_spawned:
 		var new_space = player[n].instantiate()
@@ -82,6 +87,7 @@ func spawn2()->void:
 		new_enemy1.global_position=%PathFollow2D.global_position
 		player2_spawn=true
 		add_child(new_enemy1)
+		
 func spawn3() -> void:
 	if Global.count>=70:
 		
@@ -98,6 +104,7 @@ func spawn4()->void:
 			new_enemy4.global_position=enemy_4_marker.global_position
 			add_child(new_enemy4)
 			spawn4_called=true
+			
 	
 
 func deff_manager() -> void:

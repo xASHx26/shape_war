@@ -20,6 +20,7 @@ player = Array[PackedScene]([ExtResource("2_xs7jt"), ExtResource("3_q4vk3"), nul
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(575, 323)
+zoom = Vector2(0.42, 0.42)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 offset = Vector2(10, 0)

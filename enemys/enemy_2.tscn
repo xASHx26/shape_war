@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://8xlgf17lwtjo"]
+[gd_scene load_steps=10 format=3 uid="uid://8xlgf17lwtjo"]
 
 [ext_resource type="Script" path="res://enemys/enemy_2.gd" id="1_kidd7"]
+[ext_resource type="PackedScene" uid="uid://dju2d58v4gsbn" path="res://Partickle/enemy_2_particle.tscn" id="2_d5ma8"]
 [ext_resource type="Texture2D" uid="uid://bqslqvv3whxtp" path="res://SPRITE/PLAYER/Enemy2.png" id="2_uinxs"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8p1xx"]
@@ -40,6 +41,7 @@ animations = [{
 [node name="ENEMY2" type="CharacterBody2D" groups=["enemy2"]]
 collision_layer = 10
 script = ExtResource("1_kidd7")
+deathPrticle = ExtResource("2_d5ma8")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 visible = false

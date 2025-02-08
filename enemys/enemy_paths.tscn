@@ -12,19 +12,20 @@ point_count = 8
 [node name="EnemyPaths" type="Node2D" groups=["enemy3_path"]]
 
 [node name="SquarePaths" type="Path2D" parent="."]
+position = Vector2(0, 2)
 curve = SubResource("Curve2D_r0k1l")
 script = ExtResource("1_lgwl1")
 speed = 0.1
 enemy = ExtResource("2_ot1ur")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="SquarePaths"]
-position = Vector2(107.933, 134.711)
-rotation = 1.8749
-progress = 1206.69
+position = Vector2(534.002, 71.9999)
+rotation = 3.07274
+progress = 3554.31
 loop = false
 
 [node name="Timer" type="Timer" parent="SquarePaths"]
-wait_time = 5.0
+wait_time = 70.0
 autostart = true
 
 [connection signal="timeout" from="SquarePaths/Timer" to="SquarePaths" method="_on_timer_timeout"]

@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var left_side: RayCast2D = $left_side
 @onready var right_side: RayCast2D = $right_side
 
-
+@export var deathPrticle:PackedScene
 @onready var ray_cast_2d_4: RayCast2D = $RayCast2D4
 @onready var ray_cast_2d_5: RayCast2D = $RayCast2D5
 @onready var ray_cast_2d_6: RayCast2D = $RayCast2D6
@@ -18,12 +18,14 @@ extends CharacterBody2D
 @onready var right_2d: Marker2D = $right_2D
 
 @export var rotation_speed = 10.0 
-
+var health:=2
 var follow:=false
 
 		
 func _ready() -> void:
 	pass
+func _process(delta: float) -> void:
+	kill()
 func _physics_process(delta: float) -> void:
 	if Global.curr_health>0 and follow==false:
 		var direction =global_position.direction_to(player.global_position)
@@ -31,13 +33,23 @@ func _physics_process(delta: float) -> void:
 		
 		move_and_slide()
 		
-		
-	
+
+func kill():
+	if health<=0:
+		Global.count += 3
+		explo()
+		queue_free()
+
+func explo():
+	var explosion = deathPrticle.instantiate()
+	get_parent().add_child(explosion)  # Attach to scene
+	explosion.global_position = global_position  # Set explosion position
+	explosion.emitting = true	
 func increase_speed():
 	speed=8000
 func dec_speed():
 	speed=100
-	print(speed)
+	
 
 func shoot():
 	var new_bullet=preload('res://bullets/enemy2_bullets.tscn').instantiate()

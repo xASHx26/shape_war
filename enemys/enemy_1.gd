@@ -4,9 +4,12 @@ extends CharacterBody2D
 @export var speed = 4000
 @export var dead_zone_threshold = 0.1 
 
+@export var deathPrticle:PackedScene
 @onready var player = get_node("/root/main/spaceship/rocket/rotation")
 @onready var marker_2d: Marker2D = $Marker2D
-
+var health:=1
+func  _process(delta: float) -> void:
+	kill()
 func _physics_process(delta: float) -> void:
 	if Global.curr_health > 0:
 		# Calculate direction vector from the rocket to the player's position
@@ -24,7 +27,18 @@ func _physics_process(delta: float) -> void:
 		velocity = direction * speed*delta	
 		move_and_slide()
 	
-
+func kill():
+	if health<=0:
+		Global.count += 1
+		
+		explo()
+		queue_free()
+		
+func explo():
+	var explosion = deathPrticle.instantiate()
+	get_parent().add_child(explosion)  # Attach to scene
+	explosion.global_position = global_position  # Set explosion position
+	explosion.emitting = true
 func increase_speed():
 	speed = 8000  # Increase speed when called
 
@@ -37,6 +51,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("spaceship"):
 		Global.curr_health-=2
-		Global.total_enemy1-=1
-		queue_free()
+		health-=1
+		
 	
