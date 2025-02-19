@@ -1,0 +1,146 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3obu1i6pc5uu"]
+
+[ext_resource type="Script" path="res://home_screen.gd" id="1_6batb"]
+[ext_resource type="FontFile" uid="uid://cuqfjgcbkfsmf" path="res://Comic_Neue/ComicNeue-LightItalic.ttf" id="1_llsq5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5a80l"]
+
+[node name="HomeScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6batb")
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -574.0
+offset_top = -67.0
+offset_right = 9404.0
+offset_bottom = 2233.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.0316713, 0.0228034)
+theme_override_colors/font_hover_color = Color(0.593134, 0.593134, 0.593134, 1)
+theme_override_colors/font_pressed_color = Color(0.93845, 0.93845, 0.93845, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_llsq5")
+theme_override_font_sizes/font_size = 1110
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5a80l")
+text = "Start Game"
+
+[node name="Option" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -543.0
+offset_top = -17.0
+offset_right = 5145.0
+offset_bottom = 2283.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.0395862, 0.0285021)
+theme_override_colors/font_hover_color = Color(0.593134, 0.593134, 0.593134, 1)
+theme_override_colors/font_pressed_color = Color(0.93845, 0.93845, 0.93845, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_llsq5")
+theme_override_font_sizes/font_size = 1110
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5a80l")
+text = "Option"
+
+[node name="Credits" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -548.0
+offset_top = 42.0
+offset_right = 5500.0
+offset_bottom = 2342.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.0389986, 0.028079)
+theme_override_colors/font_hover_color = Color(0.593134, 0.593134, 0.593134, 1)
+theme_override_colors/font_pressed_color = Color(0.93845, 0.93845, 0.93845, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_llsq5")
+theme_override_font_sizes/font_size = 1110
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5a80l")
+text = "Credits"
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -503.0
+offset_top = 91.0
+offset_right = 2725.0
+offset_bottom = 2391.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.0404534, 0.0291264)
+theme_override_colors/font_hover_color = Color(0.593134, 0.593134, 0.593134, 1)
+theme_override_colors/font_pressed_color = Color(0.93845, 0.93845, 0.93845, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_llsq5")
+theme_override_font_sizes/font_size = 1110
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5a80l")
+text = "Exit
+"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
