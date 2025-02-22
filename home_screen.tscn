@@ -1,0 +1,162 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3obu1i6pc5uu"]
+
+[ext_resource type="Script" path="res://home_screen.gd" id="1_6batb"]
+[ext_resource type="FontFile" uid="uid://cuqfjgcbkfsmf" path="res://Comic_Neue/ComicNeue-LightItalic.ttf" id="1_llsq5"]
+[ext_resource type="Texture2D" uid="uid://dljbk2gtsjlaf" path="res://SPRITE/Pink and Black Retro Gaming Desktop Wallpaper.png" id="2_ruakm"]
+[ext_resource type="AudioStream" uid="uid://cgw8ip50kf8lk" path="res://audio/mixkit-space-game-668.mp3" id="4_13n3i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5a80l"]
+
+[node name="HomeScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6batb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PinkAndBlackRetroGamingDesktopWallpaper" type="Sprite2D" parent="."]
+position = Vector2(576.75, 322)
+scale = Vector2(0.192083, 0.193185)
+texture = ExtResource("2_ruakm")
+
+[node name="Start" type="Button" parent="PinkAndBlackRetroGamingDesktopWallpaper"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5606.94
+offset_top = -2432.9
+offset_right = 13145.1
+offset_bottom = 1683.1
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.0316713, 0.0228034)
+theme_override_colors/font_hover_color = Color(0.593134, 0.593134, 0.593134, 1)
+theme_override_colors/font_pressed_color = Color(0.93845, 0.93845, 0.93845, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_llsq5")
+theme_override_font_sizes/font_size = 2500
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5a80l")
+text = "Start Game"
+
+[node name="Option" type="Button" parent="PinkAndBlackRetroGamingDesktopWallpaper"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5455.96
+offset_top = -2163.73
+offset_right = 1656.04
+offset_bottom = 753.273
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.0395862, 0.0285021)
+theme_override_colors/font_hover_color = Color(0.593134, 0.593134, 0.593134, 1)
+theme_override_colors/font_pressed_color = Color(0.93845, 0.93845, 0.93845, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_llsq5")
+theme_override_font_sizes/font_size = 2500
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5a80l")
+text = "Option"
+
+[node name="Credits" type="Button" parent="PinkAndBlackRetroGamingDesktopWallpaper"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5455.96
+offset_top = -1884.2
+offset_right = 2106.04
+offset_bottom = 1032.8
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.0389986, 0.028079)
+theme_override_colors/font_hover_color = Color(0.593134, 0.593134, 0.593134, 1)
+theme_override_colors/font_pressed_color = Color(0.93845, 0.93845, 0.93845, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_llsq5")
+theme_override_font_sizes/font_size = 2500
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5a80l")
+text = "Credits"
+
+[node name="Exit" type="Button" parent="PinkAndBlackRetroGamingDesktopWallpaper"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5409.11
+offset_top = -1609.85
+offset_right = -1374.11
+offset_bottom = 1307.15
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.0404534, 0.0291264)
+theme_override_colors/font_hover_color = Color(0.593134, 0.593134, 0.593134, 1)
+theme_override_colors/font_pressed_color = Color(0.93845, 0.93845, 0.93845, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_llsq5")
+theme_override_font_sizes/font_size = 2500
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5a80l")
+text = "Exit
+"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_13n3i")
+autoplay = true
+parameters/looping = false
+
+[connection signal="pressed" from="PinkAndBlackRetroGamingDesktopWallpaper/Start" to="." method="_on_start_pressed"]

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlanb2y28iue3"]
+
+[ext_resource type="Script" path="res://bullets/enemy_2_bullets.gd" id="1_v3lde"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_u6ufe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8wr7c"]
+
+[node name="bullets" type="Area2D"]
+top_level = true
+collision_mask = 3
+script = ExtResource("1_v3lde")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+rotation = 1.55421
+scale = Vector2(-8.91634, 11.9539)
+mesh = SubResource("SphereMesh_u6ufe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.61057
+scale = Vector2(0.4708, 0.579251)
+shape = SubResource("CircleShape2D_8wr7c")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

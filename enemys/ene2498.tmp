@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpbtndpi20kw2"]
+
+[ext_resource type="Script" path="res://enemys/enemy_4.gd" id="1_gywmn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pgjjd"]
+albedo_color = Color(2.88785e-07, 0.751208, 0.768837, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_74s6v"]
+material = SubResource("StandardMaterial3D_pgjjd")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_orm0x"]
+
+[node name="enemy4" type="Area2D" groups=["enemy4"]]
+collision_layer = 64
+collision_mask = 11
+script = ExtResource("1_gywmn")
+
+[node name="first" type="MeshInstance2D" parent="."]
+position = Vector2(-1.39382, -0.342121)
+scale = Vector2(-91.3158, -91.3158)
+mesh = SubResource("SphereMesh_74s6v")
+
+[node name="first_C" type="CollisionShape2D" parent="."]
+position = Vector2(-1.39382, -0.342121)
+scale = Vector2(4.56, 4.56)
+shape = SubResource("CircleShape2D_orm0x")
+debug_color = Color(0.928008, 0.257225, 0.197489, 0.42)
+
+[node name="2nd" type="MeshInstance2D" parent="."]
+position = Vector2(-1.39382, 98.3158)
+scale = Vector2(-91.3158, -91.3158)
+mesh = SubResource("SphereMesh_74s6v")
+
+[node name="2nd_C" type="CollisionShape2D" parent="."]
+position = Vector2(0, 98.6579)
+scale = Vector2(4.56, 4.56)
+shape = SubResource("CircleShape2D_orm0x")
+debug_color = Color(0.928008, 0.257225, 0.197489, 0.42)
+
+[node name="3rd" type="MeshInstance2D" parent="."]
+position = Vector2(0, 196.658)
+scale = Vector2(-91.3158, -91.3158)
+mesh = SubResource("SphereMesh_74s6v")
+
+[node name="3rd_c" type="CollisionShape2D" parent="."]
+position = Vector2(0, 196.658)
+scale = Vector2(4.56, 4.56)
+shape = SubResource("CircleShape2D_orm0x")
+debug_color = Color(0.928008, 0.257225, 0.197489, 0.42)
+
+[node name="4th" type="MeshInstance2D" parent="."]
+position = Vector2(0, 296.658)
+scale = Vector2(-91.3158, -91.3158)
+mesh = SubResource("SphereMesh_74s6v")
+
+[node name="4th_c" type="CollisionShape2D" parent="."]
+position = Vector2(0, 296.658)
+scale = Vector2(4.56, 4.56)
+shape = SubResource("CircleShape2D_orm0x")
+debug_color = Color(0.928008, 0.257225, 0.197489, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

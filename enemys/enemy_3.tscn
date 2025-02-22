@@ -1,0 +1,138 @@
+[gd_scene load_steps=7 format=3 uid="uid://csq487qhooag1"]
+
+[ext_resource type="Script" path="res://enemys/enemy_3.gd" id="1_phdwi"]
+[ext_resource type="PackedScene" uid="uid://cdy8vkh4mnv1" path="res://Partickle/enemy_3_particle.tscn" id="2_i0buv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_raa8l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pxme"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0g0r6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgjti"]
+
+[node name="ENEMY3" type="CharacterBody2D" groups=["enemy3"]]
+position = Vector2(13, 0)
+collision_layer = 10
+script = ExtResource("1_phdwi")
+speed = 0
+deathPrticle = ExtResource("2_i0buv")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+rotation = 1.5708
+scale = Vector2(143.817, 143.817)
+mesh = SubResource("BoxMesh_raa8l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(6.67, 6.67)
+shape = SubResource("RectangleShape2D_8pxme")
+
+[node name="RayCast2D4" type="RayCast2D" parent="."]
+rotation = 3.13758
+scale = Vector2(3.23, 18.992)
+
+[node name="RayCast2D5" type="RayCast2D" parent="."]
+rotation = -2.98482
+scale = Vector2(3.23, 18.992)
+
+[node name="RayCast2D6" type="RayCast2D" parent="."]
+rotation = 2.90794
+scale = Vector2(3.23, 18.992)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="left_side" type="RayCast2D" parent="."]
+rotation = 1.57952
+scale = Vector2(8.445, 8.445)
+target_position = Vector2(1.69556, 99.7828)
+
+[node name="left_side2" type="RayCast2D" parent="."]
+rotation = 1.87632
+scale = Vector2(8.445, 8.445)
+target_position = Vector2(1.69556, 99.7828)
+
+[node name="left_side3" type="RayCast2D" parent="."]
+rotation = 1.30685
+scale = Vector2(8.445, 8.445)
+target_position = Vector2(1.69556, 99.7828)
+
+[node name="right_side" type="RayCast2D" parent="."]
+rotation = 4.70354
+scale = Vector2(9.785, 9.785)
+target_position = Vector2(-0.631338, 117.937)
+
+[node name="right_side2" type="RayCast2D" parent="."]
+rotation = 4.5299
+scale = Vector2(9.785, 9.785)
+target_position = Vector2(-0.631338, 117.937)
+
+[node name="right_side3" type="RayCast2D" parent="."]
+rotation = 4.83487
+scale = Vector2(2.425, 2.425)
+target_position = Vector2(-0.631338, 117.937)
+
+[node name="up_canon" type="MeshInstance2D" parent="."]
+z_index = -1
+position = Vector2(2, -56)
+rotation = -1.5708
+scale = Vector2(57.4537, -11.7175)
+mesh = SubResource("CylinderMesh_0g0r6")
+
+[node name="up_point_enemy4" type="Marker2D" parent="up_canon"]
+unique_name_in_owner = true
+position = Vector2(0.469943, 0.0853423)
+rotation = 0.609564
+scale = Vector2(0.0210166, -0.0845255)
+skew = -0.580528
+
+[node name="down_canon" type="MeshInstance2D" parent="."]
+z_index = -1
+position = Vector2(2, 58)
+rotation = 1.5708
+scale = Vector2(57.4537, -11.7175)
+mesh = SubResource("CylinderMesh_0g0r6")
+
+[node name="shotting_point_enemy" type="Marker2D" parent="down_canon"]
+unique_name_in_owner = true
+position = Vector2(0.400322, -0.170685)
+rotation = -0.549849
+scale = Vector2(0.0202567, -0.0847109)
+skew = 0.524362
+
+[node name="right_canon" type="MeshInstance2D" parent="."]
+z_index = -1
+position = Vector2(64, 0)
+scale = Vector2(57.4537, -11.7175)
+mesh = SubResource("CylinderMesh_0g0r6")
+
+[node name="right_2D" type="Marker2D" parent="right_canon"]
+unique_name_in_owner = true
+position = Vector2(0.382917, -0.0853424)
+rotation = 2.79319
+scale = Vector2(0.0184673, -0.0851189)
+skew = 0.333295
+
+[node name="left_canon" type="MeshInstance2D" parent="."]
+z_index = -1
+position = Vector2(-59, 0)
+rotation = 3.13968
+scale = Vector2(57.4537, -11.7175)
+mesh = SubResource("CylinderMesh_0g0r6")
+
+[node name="left_2D" type="Marker2D" parent="left_canon"]
+unique_name_in_owner = true
+position = Vector2(0.435099, -0.089414)
+rotation = 3.13221
+scale = Vector2(0.017406, -0.0853422)
+skew = 0.0089891
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_xgjti")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
