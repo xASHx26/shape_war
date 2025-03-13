@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://csgwj1bhasmsc"]
+
+[ext_resource type="Script" path="res://enemys/enemy_1.gd" id="1_wtnpe"]
+[ext_resource type="Texture2D" uid="uid://buk5kqtkgnyjl" path="res://SPRITE/PLAYER/BOMB.png" id="2_l0bfh"]
+[ext_resource type="PackedScene" uid="uid://tg55eqghou71" path="res://Partickle/Enemy1DistroyParticle.tscn" id="2_vn48i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uitw5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vb2cf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cox3n"]
+atlas = ExtResource("2_l0bfh")
+region = Rect2(0, 0, 233, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtwy4"]
+atlas = ExtResource("2_l0bfh")
+region = Rect2(233, 0, 233, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwe02"]
+atlas = ExtResource("2_l0bfh")
+region = Rect2(466, 0, 233, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8r30e"]
+atlas = ExtResource("2_l0bfh")
+region = Rect2(699, 0, 233, 375)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hsxec"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cox3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtwy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwe02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8r30e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="ENEMY1" type="CharacterBody2D" groups=["enemy1"]]
+rotation = 4.70609
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_wtnpe")
+deathPrticle = ExtResource("2_vn48i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 24)
+scale = Vector2(2.36, 2.36)
+shape = SubResource("CircleShape2D_uitw5")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.151243, 23.9995)
+scale = Vector2(2.36, 2.36)
+shape = SubResource("CircleShape2D_vb2cf")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-0.327695, 51.999)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.29603, 46.9928)
+scale = Vector2(0.271096, 0.271096)
+sprite_frames = SubResource("SpriteFrames_hsxec")
+autoplay = "default"
+frame_progress = 0.311697
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
