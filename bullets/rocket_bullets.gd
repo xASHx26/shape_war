@@ -23,7 +23,11 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy2"):
 		
 		body.health-=1
+<<<<<<< HEAD
 		body.animation_player.play("damage")
+=======
+		
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
 		
 		queue_free()
 	if body.is_in_group("enemy3"):

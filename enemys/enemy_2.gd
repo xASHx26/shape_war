@@ -6,8 +6,11 @@ extends CharacterBody2D
 @onready var ray_cast_2d_3: RayCast2D = $RayCast2D3
 @onready var left_side: RayCast2D = $left_side
 @onready var right_side: RayCast2D = $right_side
+<<<<<<< HEAD
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
 
 @export var deathPrticle:PackedScene
 @onready var ray_cast_2d_4: RayCast2D = $RayCast2D4
@@ -39,8 +42,11 @@ func _physics_process(delta: float) -> void:
 func kill():
 	if health<=0:
 		Global.count += 3
+<<<<<<< HEAD
 		SaveGame.data["Points"]+=3
 		SaveGame.Write_save(SaveGame.data)
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
 		explo()
 		queue_free()
 

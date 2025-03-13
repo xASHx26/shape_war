@@ -1,6 +1,10 @@
 {
 	"score":0,
+<<<<<<< HEAD
 	"player_ship":0,
 	"Points":0
 	
+=======
+	"player_ship":0
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
 }

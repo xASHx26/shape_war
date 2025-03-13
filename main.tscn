@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=16 format=3 uid="uid://c4j3s4jlwulqs"]
+=======
+[gd_scene load_steps=9 format=3 uid="uid://c4j3s4jlwulqs"]
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
 
 [ext_resource type="Script" path="res://main.gd" id="1_llltd"]
 [ext_resource type="PackedScene" uid="uid://q6hymwm3w6av" path="res://spaceships/spaceship1.tscn" id="2_xs7jt"]
@@ -7,10 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://b2i47oqby6foq" path="res://walls.tscn" id="5_aljtq"]
 [ext_resource type="PackedScene" uid="uid://cjdwac0mv6exv" path="res://audiovis.tscn" id="6_dr5t2"]
 [ext_resource type="PackedScene" uid="uid://c4q8pur2gk84e" path="res://touchcontrol.tscn" id="6_sxmq2"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://5qud46qbmwi7" path="res://SPRITE/PLAYER/C (4).png" id="8_36xlw"]
 [ext_resource type="Texture2D" uid="uid://88kw37tossbb" path="res://SPRITE/PLAYER/C (5).png" id="9_5r25o"]
 [ext_resource type="Texture2D" uid="uid://degyt2khnp4ia" path="res://SPRITE/PLAYER/glow.png" id="10_j3ney"]
 [ext_resource type="Texture2D" uid="uid://cp2skvwhq1mp7" path="res://SPRITE/PLAYER/Warning.png" id="11_q2mai"]
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
 
 [sub_resource type="Curve2D" id="Curve2D_x6b6c"]
 _data = {
@@ -18,6 +25,7 @@ _data = {
 }
 point_count = 6
 
+<<<<<<< HEAD
 [sub_resource type="Animation" id="Animation_yyds5"]
 length = 0.001
 tracks/0/type = "value"
@@ -55,6 +63,8 @@ _data = {
 "warning": SubResource("Animation_ou57l")
 }
 
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
 [node name="main" type="Node2D"]
 script = ExtResource("1_llltd")
 player = Array[PackedScene]([ExtResource("2_xs7jt"), ExtResource("3_q4vk3"), null, null])
@@ -82,6 +92,7 @@ offset_bottom = 76.0
 
 [node name="Top Score" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 0
+<<<<<<< HEAD
 offset_left = 1003.0
 offset_top = 48.0
 offset_right = 1043.0
@@ -93,6 +104,47 @@ offset_left = 944.0
 offset_top = 92.0
 offset_right = 984.0
 offset_bottom = 115.0
+=======
+offset_left = 528.0
+offset_top = 25.0
+offset_right = 568.0
+offset_bottom = 48.0
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 931.0
+offset_top = 44.0
+offset_right = 971.0
+offset_bottom = 67.0
+
+[node name="Label3" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 931.0
+offset_top = 107.0
+offset_right = 971.0
+offset_bottom = 130.0
+
+[node name="Label4" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 931.0
+offset_top = 188.0
+offset_right = 971.0
+offset_bottom = 211.0
+
+[node name="Label5" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 931.0
+offset_top = 329.0
+offset_right = 971.0
+offset_bottom = 352.0
+
+[node name="health" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 207.0
+offset_right = 58.0
+offset_bottom = 230.0
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(-2, -31)
@@ -150,6 +202,7 @@ z_index = -2
 position = Vector2(535, 427)
 scale = Vector2(0.29946, 0.416317)
 
+<<<<<<< HEAD
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 offset_left = 20.0
 offset_top = 8.0
@@ -176,6 +229,8 @@ libraries = {
 "": SubResource("AnimationLibrary_vespo")
 }
 
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
 [connection signal="timeout" from="enemy1_timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="enemy2_timer" to="." method="_on_enemy_2_timer_timeout"]
 [connection signal="timeout" from="3rdenemy" to="." method="_on_rdenemy_timeout"]

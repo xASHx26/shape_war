@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=13 format=3 uid="uid://8xlgf17lwtjo"]
+=======
+[gd_scene load_steps=10 format=3 uid="uid://8xlgf17lwtjo"]
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
 
 [ext_resource type="Script" path="res://enemys/enemy_2.gd" id="1_kidd7"]
 [ext_resource type="PackedScene" uid="uid://dju2d58v4gsbn" path="res://Partickle/enemy_2_particle.tscn" id="2_d5ma8"]
@@ -38,6 +42,7 @@ animations = [{
 "speed": 5.0
 }]
 
+<<<<<<< HEAD
 [sub_resource type="Animation" id="Animation_53cgh"]
 length = 0.001
 tracks/0/type = "value"
@@ -75,6 +80,8 @@ _data = {
 "damage": SubResource("Animation_ll28j")
 }
 
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
 [node name="ENEMY2" type="CharacterBody2D" groups=["enemy2"]]
 collision_layer = 10
 script = ExtResource("1_kidd7")
@@ -87,7 +94,11 @@ scale = Vector2(24.8469, 24.8469)
 mesh = SubResource("CapsuleMesh_8p1xx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+<<<<<<< HEAD
 scale = Vector2(5.16, 2.36)
+=======
+scale = Vector2(2.36, 2.36)
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
 shape = SubResource("CircleShape2D_bgmqi")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
@@ -155,9 +166,12 @@ autoplay = "default"
 frame = 2
 frame_progress = 1.0
 
+<<<<<<< HEAD
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_lh0bf")
 }
 
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

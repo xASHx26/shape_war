@@ -8,8 +8,11 @@ extends Node2D
 @onready var _3_rdenemy: Timer = $'3rdenemy'
 @onready var enemy_4_timer: Timer = $enemy4_timer
 @onready var enemy_4_marker: Marker2D = $enemy4_marker
+<<<<<<< HEAD
 @onready var Player_health: TextureProgressBar = $TextureProgressBar
 @onready var warning: AnimationPlayer = $AnimationPlayer
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
 
 
 
@@ -28,12 +31,20 @@ var spawn4_called = false
 var spcaeNumber = 0  # Default value, will be replaced after loading
 
 func _ready() -> void:
+<<<<<<< HEAD
 	print(SaveGame.data["Points"])
+=======
+	
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
 	var save_data = SaveGame.read_save()  # Read save data from JSON
 	if save_data:
 		SaveGame.data = save_data  # Store the data globally
 		spcaeNumber = SaveGame.data.get("player_ship", 0)  # Get saved value
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
 
 	player_spawner(spcaeNumber)  # Spawn the correct ship based on saved data
 
@@ -53,8 +64,13 @@ func _process(delta: float) -> void:
 		if updated_data:
 			SaveGame.data = updated_data  # Update global data storage
 			spcaeNumber = updated_data.get("player_ship", 0)  # Get updated value
+<<<<<<< HEAD
 	player_Health()
 	save_points()
+=======
+
+	
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
 
 	# Call player_spawner with the updated spcaeNumber
 	player_spawner(spcaeNumber)
@@ -65,7 +81,10 @@ func  _physics_process(delta: float) -> void:
 		if Global.count>SaveGame.data["score"]:
 			SaveGame.data["score"]=(Global.count)
 			SaveGame.Write_save(SaveGame.data)
+<<<<<<< HEAD
 			
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
 		
 		get_tree().reload_current_scene()	
 #printt(enemy_1_timer.wait_time,enemy_2_timer.wait_time,_3_rdenemy.wait_time,_3_rdenemy.time_left,enemy_4_timer.wait_time,enemy_4_timer.time_left,next_threshold)
@@ -103,7 +122,10 @@ func spawn3() -> void:
 func spawn4()->void:
 	if Global.count>=40:
 		if not spawn3_called:
+<<<<<<< HEAD
 			warning.play("warning")
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
 			var new_enemy4=preload('res://enemys/enemy_4.tscn').instantiate()
 			new_enemy4.global_position=enemy_4_marker.global_position
 			add_child(new_enemy4)
@@ -168,6 +190,7 @@ func _on_rdenemy_timeout() -> void:
 
 func _on_enemy_4_timer_timeout() -> void:
 	spawn4()
+<<<<<<< HEAD
 	
 func player_Health():
 	Player_health.max_value=Global.max_heath
@@ -177,3 +200,5 @@ func save_points():
 		
 		SaveGame.data["Points"]+=Global.count
 		SaveGame.Write_save(SaveGame.data)
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e

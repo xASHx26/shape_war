@@ -44,8 +44,11 @@ func _physics_process(delta: float) -> void:
 func kill():
 	if health<=0:
 		Global.count += 5
+<<<<<<< HEAD
 		SaveGame.data["Points"]+=5
 		SaveGame.Write_save(SaveGame.data)
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
 		explo()
 		queue_free()
 		

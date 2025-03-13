@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 [gd_scene load_steps=8 format=3 uid="uid://cvdhc886iqgv8"]
+=======
+[gd_scene load_steps=7 format=3 uid="uid://cvdhc886iqgv8"]
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
 
 [ext_resource type="Script" path="res://spaceships/roocket0.gd" id="1_nb7l1"]
 [ext_resource type="PackedScene" uid="uid://v1jm5cperky5" path="res://bullets/rocket_bullets.tscn" id="2_l278s"]
 [ext_resource type="Texture2D" uid="uid://dbmut5h65ekye" path="res://SPRITE/PLAYER/player0.png" id="3_t2462"]
+<<<<<<< HEAD
 [ext_resource type="AudioStream" uid="uid://cmyor4w48qgf2" path="res://audio/laser-45816.mp3" id="4_0mw0x"]
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0b30h"]
 height = 37.5
@@ -73,9 +80,12 @@ position = Vector2(0, -25)
 rotation = -1.56458
 scale = Vector2(17, 8.95992)
 
+<<<<<<< HEAD
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="rocket"]
 stream = ExtResource("4_0mw0x")
 
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.7
 autostart = true
