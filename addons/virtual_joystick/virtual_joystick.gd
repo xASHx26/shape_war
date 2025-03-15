@@ -75,9 +75,13 @@ func _ready() -> void:
 	
 	if visibility_mode == Visibility_mode.WHEN_TOUCHED:
 		hide()
+<<<<<<< HEAD
 func _process(delta: float) -> void:
 	if Global.curr_health<=0:
 		set_process(false) 
+=======
+
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		if event.pressed:

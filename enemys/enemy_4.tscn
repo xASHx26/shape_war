@@ -61,6 +61,13 @@ shape = SubResource("CircleShape2D_orm0x")
 debug_color = Color(0.928008, 0.257225, 0.197489, 0.42)
 
 [node name="Timer" type="Timer" parent="."]
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+wait_time = 2.0
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
 autostart = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

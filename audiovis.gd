@@ -1,7 +1,12 @@
 extends Control
+<<<<<<< HEAD
 @onready var music_player: AudioStreamPlayer = $musicPlayer
 
 
+=======
+ 
+@onready
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
 var spectrum = AudioServer.get_bus_effect_instance(1,0)
  
 @onready
@@ -30,10 +35,14 @@ func _ready():
  
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+<<<<<<< HEAD
 	if Global.curr_health<=0:
 		set_process(false) 
 		music_player.stop()
 		
+=======
+ 
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
 	var prev_hz = 0
 	for i in range(1,VU_COUNT+1):   
 		var hz = i * FREQ_MAX / VU_COUNT;

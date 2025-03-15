@@ -1,5 +1,12 @@
 extends CharacterBody2D
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+# Adjustable rotation speed for smooth turning
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
 @export var rotation_speed = 5.0
 @export var dead_zone_threshold = 0  # Minimum mouse velocity length to rotate
 @onready var gun: MeshInstance2D = $gun
@@ -12,26 +19,53 @@ extends CharacterBody2D
 @onready var area_2d: Area2D = $'../Area2D'
 @onready var area_2d_2: Area2D = $Area2D2
 @export var joy:PackedScene
+<<<<<<< HEAD
 @export var shooting:PackedScene
 @onready var rocket: CharacterBody2D = $'.'
 @onready var spaceship: Node2D = $'..'
 
 
+=======
+<<<<<<< HEAD
+@export var shooting:PackedScene
+
+
+=======
+	
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
 var rs_look = Vector2(0,0)
 var deadzone = 0.2
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Global.curr_health=Global.max_heath
+<<<<<<< HEAD
 	#$AudioStreamPlayer2D.play()
+=======
+<<<<<<< HEAD
+	#$AudioStreamPlayer2D.play()
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
 	
 	
 func take_damage()->void:
 	Global.curr_health-=2
 	if Global.curr_health<=0:
+<<<<<<< HEAD
 		spaceship.queue_free()
 func _process(delta: float) -> void:
 	if Global.curr_health<=0:
 		set_process(false) 	
+=======
+<<<<<<< HEAD
+		
+		
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+		queue_free()
+	
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
 func _physics_process(delta: float) -> void:
 	# Get input direction for movement
 	var direction = Input.get_vector("left", "right", "up", "down")
@@ -54,7 +88,11 @@ func _physics_process(delta: float) -> void:
 	rotation = lerp_angle(rotation, target_angle, rotation_speed * delta)
 
 	# Toggle mouse visibility when pressing 'end'
+<<<<<<< HEAD
 	if Input.is_action_just_pressed("end") :
+=======
+	if Input.is_action_just_pressed("end"):
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
@@ -82,8 +120,16 @@ func shoot()->void:
 	new_bullet.global_position=%shotting_point.global_position
 	new_bullet.global_rotation=%shotting_point.global_rotation
 	
+<<<<<<< HEAD
 	
 
+=======
+<<<<<<< HEAD
+	
+
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
 		
 	%shotting_point.add_child(new_bullet)
 		
@@ -95,10 +141,21 @@ func _on_timer_timeout() -> void:
 		
 		shoot()
 	elif  ray_cast_2d_2.is_colliding() :
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
 		
 		shoot()
 	elif  ray_cast_2d_3.is_colliding() :
 		
+<<<<<<< HEAD
+=======
+=======
+		shoot()
+	elif  ray_cast_2d_3.is_colliding() :
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
 		shoot()
 
 
