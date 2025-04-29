@@ -8,10 +8,24 @@ extends Node2D
 @onready var _3_rdenemy: Timer = $'3rdenemy'
 @onready var enemy_4_timer: Timer = $enemy4_timer
 @onready var enemy_4_marker: Marker2D = $enemy4_marker
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 @onready var Player_health: TextureProgressBar = $TextureProgressBar
 @onready var warning: AnimationPlayer = $AnimationPlayer
 @onready var end_game: CanvasLayer = $End_game
 
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+@onready var Player_health: TextureProgressBar = $TextureProgressBar
+@onready var warning: AnimationPlayer = $AnimationPlayer
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 
 
 
@@ -30,6 +44,7 @@ var spawn4_called = false
 var spcaeNumber = 0  # Default value, will be replaced after loading
 
 func _ready() -> void:
+<<<<<<< HEAD
 	print(OS.get_data_dir())
 	
 	Global.curr_health=10
@@ -40,6 +55,32 @@ func _ready() -> void:
 		spcaeNumber = SaveGame.data.get("player_ship", 1)  # Get saved value
 	
 	
+=======
+<<<<<<< HEAD
+	end_game.visible=false
+	print(SaveGame.data["Points"])
+=======
+<<<<<<< HEAD
+	print(SaveGame.data["Points"])
+=======
+	
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+	var save_data = SaveGame.read_save()  # Read save data from JSON
+	if save_data:
+		SaveGame.data = save_data  # Store the data globally
+		spcaeNumber = SaveGame.data.get("player_ship", 0)  # Get saved value
+<<<<<<< HEAD
+	
+=======
+<<<<<<< HEAD
+	
+=======
+
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 	player_spawner(spcaeNumber)  # Spawn the correct ship based on saved data
 
 	
@@ -58,11 +99,28 @@ func _process(delta: float) -> void:
 		if updated_data:
 			SaveGame.data = updated_data  # Update global data storage
 			spcaeNumber = updated_data.get("player_ship", 0)  # Get updated value
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 	player_Health()
 	save_points()
 	
 	if Global.curr_health<=0:
 		set_process(false) 
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+	player_Health()
+	save_points()
+=======
+
+	
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 	# Call player_spawner with the updated spcaeNumber
 	player_spawner(spcaeNumber)
 	deff_manager()
@@ -72,9 +130,24 @@ func  _physics_process(delta: float) -> void:
 		if Global.count>SaveGame.data["score"]:
 			SaveGame.data["score"]=(Global.count)
 			SaveGame.Write_save(SaveGame.data)
+<<<<<<< HEAD
 			
 		
 		end()
+=======
+<<<<<<< HEAD
+			
+		
+		end()
+=======
+<<<<<<< HEAD
+			
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+		
+		get_tree().reload_current_scene()	
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 #printt(enemy_1_timer.wait_time,enemy_2_timer.wait_time,_3_rdenemy.wait_time,_3_rdenemy.time_left,enemy_4_timer.wait_time,enemy_4_timer.time_left,next_threshold)
 func spawn()->void:
 	
@@ -110,7 +183,18 @@ func spawn3() -> void:
 func spawn4()->void:
 	if Global.count>=40:
 		if not spawn3_called:
+<<<<<<< HEAD
 			warning.play("warning")
+=======
+<<<<<<< HEAD
+			warning.play("warning")
+=======
+<<<<<<< HEAD
+			warning.play("warning")
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 			var new_enemy4=preload('res://enemys/enemy_4.tscn').instantiate()
 			new_enemy4.global_position=enemy_4_marker.global_position
 			add_child(new_enemy4)
@@ -175,6 +259,13 @@ func _on_rdenemy_timeout() -> void:
 
 func _on_enemy_4_timer_timeout() -> void:
 	spawn4()
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 	
 func player_Health():
 	Player_health.max_value=Global.max_heath
@@ -184,9 +275,21 @@ func save_points():
 		
 		SaveGame.data["Points"]+=Global.count
 		SaveGame.Write_save(SaveGame.data)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 func  end():
 	if Global.curr_health<=0:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 		set_process(false)
+<<<<<<< HEAD
 		get_tree().change_scene_to_file("res://end_game.tscn")
+=======
+	end_game.visible=true
+=======
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e

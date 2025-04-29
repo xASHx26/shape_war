@@ -5,16 +5,25 @@ extends CanvasLayer
 @onready var score: Label = $Label
 const API_URL = "https://quotes15.p.rapidapi.com/quotes/random/?language_code=en"
 const API_KEY = "e82f230f93msh830350f1f860b8ep104e91jsn63ab3e3c99a4"
+<<<<<<< HEAD
 @onready var total_point = $total_point
+=======
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 
 @onready var api_good: Label = $Api_good
 
 @onready var http_request: HTTPRequest = $HTTPRequest
 
 func _ready() -> void:
+<<<<<<< HEAD
 	
 	score.text = str( Global.count)
 	total_point.text=str(SaveGame.data["Points"])
+=======
+	label.text = "Game Over"
+	score.text = str("Your score: ", Global.count)
+	 
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 	_request_quote() 
 
 func _request_quote() -> void:

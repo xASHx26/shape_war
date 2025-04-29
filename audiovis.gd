@@ -1,7 +1,18 @@
 extends Control
+<<<<<<< HEAD
 @onready var music_player: AudioStreamPlayer = $musicPlayer
 
 
+=======
+<<<<<<< HEAD
+@onready var music_player: AudioStreamPlayer = $musicPlayer
+
+
+=======
+ 
+@onready
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 var spectrum = AudioServer.get_bus_effect_instance(1,0)
  
 @onready
@@ -19,13 +30,20 @@ var bottomLeftArray = $circcle/left/bottom.get_children()
 const VU_COUNT = 20
 const HEIGHT = 60
 const FREQ_MAX = 11050.0
+<<<<<<< HEAD
 var data = {}
 const MIN_DB = 60
 
+=======
+ 
+const MIN_DB = 60
+ 
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	bottomLeftArray.reverse()
 	topLeftArray.reverse()
+<<<<<<< HEAD
 	var saved_volume = SaveGame.data.get("Sound")
 	var linear = clamp(saved_volume / 100.0, 0.0, 1.0)
 	music_player.volume_linear = linear
@@ -59,6 +77,20 @@ func _process(delta):
 	var linear = clamp(saved_volume / 100.0, 0.0, 1.0)
 	music_player.volume_linear = linear
 
+=======
+ 
+ 
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+<<<<<<< HEAD
+	if Global.curr_health<=0:
+		set_process(false) 
+		music_player.stop()
+		
+=======
+ 
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 	var prev_hz = 0
 	for i in range(1,VU_COUNT+1):   
 		var hz = i * FREQ_MAX / VU_COUNT;
@@ -85,6 +117,7 @@ func _process(delta):
 		tween.tween_property(topLeftRect, "size", Vector2(topLeftRect.size.x, height), 0.05)
  
 		tween.tween_property(bottomLeftRect, "size", Vector2(bottomLeftRect.size.x, height), 0.05)
+<<<<<<< HEAD
 		var music_choice = SaveGame.data.get("Music")
 
 		var stream: Resource = null
@@ -96,3 +129,5 @@ func _process(delta):
 				stream = load("res://audio/mixkit-space-game-668.mp3")
 			3:
 				stream = load("uid://your_music3_uid_here")
+=======
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e

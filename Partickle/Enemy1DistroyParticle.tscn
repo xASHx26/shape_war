@@ -1,6 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://tg55eqghou71"]
 
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://bkjsx0hyedt2x" path="res://Partickle/enemy_1_distroy_particle.gd" id="1_obenk"]
+=======
+[ext_resource type="Script" path="res://Partickle/enemy_1_distroy_particle.gd" id="1_obenk"]
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 
 [sub_resource type="Gradient" id="Gradient_n626x"]
 offsets = PackedFloat32Array(0.540984, 1)
@@ -34,9 +38,16 @@ anim_speed_max = 5.43
 modulate = Color(0.07, 0.07, 0.07, 1)
 emitting = false
 amount = 50
+<<<<<<< HEAD
+=======
+process_material = SubResource("ParticleProcessMaterial_udvyc")
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
 randomness = 0.5
+<<<<<<< HEAD
 process_material = SubResource("ParticleProcessMaterial_udvyc")
+=======
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 script = ExtResource("1_obenk")

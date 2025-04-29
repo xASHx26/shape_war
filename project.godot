@@ -12,19 +12,29 @@ config_version=5
 
 config/name="space"
 run/main_scene="res://home_screen.tscn"
+<<<<<<< HEAD
 config/features=PackedStringArray("4.4", "Forward Plus")
+=======
+config/features=PackedStringArray("4.3", "Forward Plus")
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 config/icon="res://icon.svg"
 
 [autoload]
 
 SaveGame="*res://scripts/save_game.gd"
 Global="*res://global/global.gd"
+<<<<<<< HEAD
 Functions="*res://Functions.gd"
+=======
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 
 [display]
 
 window/stretch/mode="canvas_items"
+<<<<<<< HEAD
 window/stretch/aspect="expand"
+=======
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 
 [input]
 
@@ -115,6 +125,19 @@ pointing/emulate_mouse_from_touch=false
 
 textures/canvas_textures/default_texture_filter=0
 textures/vram_compression/import_etc2_astc=true
+<<<<<<< HEAD
 viewport/hdr_2d=true
 anti_aliasing/screen_space_roughness_limiter/enabled=false
 environment/defaults/default_clear_color=Color(0.125913, 0.12591, 0.125911, 1)
+=======
+anti_aliasing/screen_space_roughness_limiter/enabled=false
+environment/defaults/default_clear_color=Color(0.125913, 0.12591, 0.125911, 1)
+<<<<<<< HEAD
+viewport/hdr_2d=true
+=======
+<<<<<<< HEAD
+viewport/hdr_2d=true
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e

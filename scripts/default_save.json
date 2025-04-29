@@ -1,5 +1,6 @@
 {
 	"score":0,
+<<<<<<< HEAD
 	"player_ship":0,
 	"Points":0,
 	"Sound":100,
@@ -8,4 +9,19 @@
 	"Music": [1, 3]
 
 
+=======
+<<<<<<< HEAD
+	"player_ship":0,
+	"Points":0
+	
+=======
+<<<<<<< HEAD
+	"player_ship":0,
+	"Points":0
+	
+=======
+	"player_ship":0
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 }

@@ -1,16 +1,35 @@
+<<<<<<< HEAD
 [gd_scene load_steps=7 format=3 uid="uid://d3obu1i6pc5uu"]
 
 [ext_resource type="Script" uid="uid://ff2cnk306pg5" path="res://home_screen.gd" id="1_6batb"]
 [ext_resource type="FontFile" uid="uid://cuqfjgcbkfsmf" path="res://Comic_Neue/ComicNeue-LightItalic.ttf" id="1_llsq5"]
 [ext_resource type="Texture2D" uid="uid://cmjcetaho5y8b" path="res://SPRITE/homescreen.png" id="2_fm0op"]
+=======
+[gd_scene load_steps=6 format=3 uid="uid://d3obu1i6pc5uu"]
+
+[ext_resource type="Script" path="res://home_screen.gd" id="1_6batb"]
+[ext_resource type="FontFile" uid="uid://cuqfjgcbkfsmf" path="res://Comic_Neue/ComicNeue-LightItalic.ttf" id="1_llsq5"]
+<<<<<<< HEAD
+[ext_resource type="Texture2D" uid="uid://iyyeeml0uea" path="res://SPRITE/PLAYER/Pink and Black Retro Gaming Desktop Wallpaper (1).png" id="3_ryox1"]
+=======
+<<<<<<< HEAD
+[ext_resource type="Texture2D" uid="uid://iyyeeml0uea" path="res://SPRITE/PLAYER/Pink and Black Retro Gaming Desktop Wallpaper (1).png" id="3_ryox1"]
+=======
+[ext_resource type="Texture2D" uid="uid://dljbk2gtsjlaf" path="res://SPRITE/Pink and Black Retro Gaming Desktop Wallpaper.png" id="2_ruakm"]
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 [ext_resource type="AudioStream" uid="uid://cgw8ip50kf8lk" path="res://audio/mixkit-space-game-668.mp3" id="4_13n3i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5a80l"]
 
+<<<<<<< HEAD
 [sub_resource type="CircleShape2D" id="CircleShape2D_fm0op"]
 custom_solver_bias = 0.218
 radius = 91.1
 
+=======
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 [node name="HomeScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -29,9 +48,23 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PinkAndBlackRetroGamingDesktopWallpaper" type="Sprite2D" parent="."]
+<<<<<<< HEAD
 position = Vector2(579, 325)
 scale = Vector2(0.192083, 0.193185)
 texture = ExtResource("2_fm0op")
+=======
+position = Vector2(576.75, 322)
+scale = Vector2(0.192083, 0.193185)
+<<<<<<< HEAD
+texture = ExtResource("3_ryox1")
+=======
+<<<<<<< HEAD
+texture = ExtResource("3_ryox1")
+=======
+texture = ExtResource("2_ruakm")
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 
 [node name="Start" type="Button" parent="PinkAndBlackRetroGamingDesktopWallpaper"]
 anchors_preset = 8
@@ -39,16 +72,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+<<<<<<< HEAD
 offset_left = -4134.0
 offset_top = -1625.5
 offset_right = 12439.0
 offset_bottom = 20166.5
+=======
+offset_left = -5606.94
+offset_top = -2432.9
+offset_right = 13145.1
+offset_bottom = 1683.1
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.0316713, 0.0228034)
 theme_override_colors/font_hover_color = Color(0.593134, 0.593134, 0.593134, 1)
+<<<<<<< HEAD
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.93845, 0.93845, 0.93845, 1)
+=======
+theme_override_colors/font_pressed_color = Color(0.93845, 0.93845, 0.93845, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 theme_override_fonts/font = ExtResource("1_llsq5")
 theme_override_font_sizes/font_size = 2500
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5a80l")
@@ -62,11 +107,15 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_5a80l")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5a80l")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5a80l")
+<<<<<<< HEAD
 
 [node name="Start" type="TouchScreenButton" parent="PinkAndBlackRetroGamingDesktopWallpaper/Start"]
 position = Vector2(8847.21, 11355.1)
 scale = Vector2(131.471, -129.34)
 shape = SubResource("CircleShape2D_fm0op")
+=======
+text = "Start Game"
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 
 [node name="Option" type="Button" parent="PinkAndBlackRetroGamingDesktopWallpaper"]
 anchors_preset = 8
@@ -74,16 +123,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+<<<<<<< HEAD
 offset_left = -3292.0
 offset_top = -1651.5
 offset_right = 12226.0
 offset_bottom = 17244.5
+=======
+offset_left = -5455.96
+offset_top = -2163.73
+offset_right = 1656.04
+offset_bottom = 753.273
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.0395862, 0.0285021)
 theme_override_colors/font_hover_color = Color(0.593134, 0.593134, 0.593134, 1)
+<<<<<<< HEAD
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.93845, 0.93845, 0.93845, 1)
+=======
+theme_override_colors/font_pressed_color = Color(0.93845, 0.93845, 0.93845, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 theme_override_fonts/font = ExtResource("1_llsq5")
 theme_override_font_sizes/font_size = 2500
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5a80l")
@@ -97,6 +158,10 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_5a80l")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5a80l")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5a80l")
+<<<<<<< HEAD
+=======
+text = "Option"
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 
 [node name="Credits" type="Button" parent="PinkAndBlackRetroGamingDesktopWallpaper"]
 anchors_preset = 8
@@ -104,16 +169,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+<<<<<<< HEAD
 offset_left = -798.0
 offset_top = -336.5
 offset_right = 10820.0
 offset_bottom = 5009.5
+=======
+offset_left = -5455.96
+offset_top = -1884.2
+offset_right = 2106.04
+offset_bottom = 1032.8
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.0389986, 0.028079)
 theme_override_colors/font_hover_color = Color(0.593134, 0.593134, 0.593134, 1)
+<<<<<<< HEAD
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.93845, 0.93845, 0.93845, 1)
+=======
+theme_override_colors/font_pressed_color = Color(0.93845, 0.93845, 0.93845, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 theme_override_fonts/font = ExtResource("1_llsq5")
 theme_override_font_sizes/font_size = 2500
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5a80l")
@@ -127,6 +204,10 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_5a80l")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5a80l")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5a80l")
+<<<<<<< HEAD
+=======
+text = "Credits"
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 
 [node name="Exit" type="Button" parent="PinkAndBlackRetroGamingDesktopWallpaper"]
 anchors_preset = 8
@@ -134,16 +215,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+<<<<<<< HEAD
 offset_left = -2339.0
 offset_top = -1620.5
 offset_right = 12727.0
 offset_bottom = 15980.5
+=======
+offset_left = -5409.11
+offset_top = -1609.85
+offset_right = -1374.11
+offset_bottom = 1307.15
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.0404534, 0.0291264)
 theme_override_colors/font_hover_color = Color(0.593134, 0.593134, 0.593134, 1)
+<<<<<<< HEAD
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.93845, 0.93845, 0.93845, 1)
+=======
+theme_override_colors/font_pressed_color = Color(0.93845, 0.93845, 0.93845, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 theme_override_fonts/font = ExtResource("1_llsq5")
 theme_override_font_sizes/font_size = 2500
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5a80l")
@@ -157,6 +250,7 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_5a80l")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5a80l")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5a80l")
+<<<<<<< HEAD
 text = "
 "
 
@@ -169,11 +263,40 @@ scale = Vector2(7.62155, 7.37592)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 visible = false
+=======
+text = "Exit
+"
+
+<<<<<<< HEAD
+[node name="Label" type="Label" parent="PinkAndBlackRetroGamingDesktopWallpaper"]
+offset_left = 2666.82
+offset_top = -1226.8
+offset_right = 2706.82
+offset_bottom = -1203.8
+scale = Vector2(7.62155, 7.37592)
+
+=======
+<<<<<<< HEAD
+[node name="Label" type="Label" parent="PinkAndBlackRetroGamingDesktopWallpaper"]
+offset_left = 2687.64
+offset_top = -1242.33
+offset_right = 2727.64
+offset_bottom = -1219.33
+scale = Vector2(7.62155, 7.37592)
+
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 stream = ExtResource("4_13n3i")
 autoplay = true
 parameters/looping = false
 
 [connection signal="pressed" from="PinkAndBlackRetroGamingDesktopWallpaper/Start" to="." method="_on_start_pressed"]
+<<<<<<< HEAD
 [connection signal="pressed" from="PinkAndBlackRetroGamingDesktopWallpaper/Start/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="PinkAndBlackRetroGamingDesktopWallpaper/Option" to="." method="_on_option_pressed"]
 [connection signal="pressed" from="PinkAndBlackRetroGamingDesktopWallpaper/Exit" to="." method="_on_exit_pressed"]
+=======
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e

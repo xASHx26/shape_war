@@ -1,12 +1,34 @@
+<<<<<<< HEAD
 [gd_scene load_steps=4 format=3 uid="uid://cc2gxj5ppg2b3"]
+=======
+<<<<<<< HEAD
+[gd_scene load_steps=5 format=3 uid="uid://cc2gxj5ppg2b3"]
+=======
+<<<<<<< HEAD
+[gd_scene load_steps=5 format=3 uid="uid://cc2gxj5ppg2b3"]
+=======
+[gd_scene load_steps=4 format=3 uid="uid://cc2gxj5ppg2b3"]
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 
 [sub_resource type="GDScript" id="GDScript_tiuci"]
 script/source = "extends Area2D
 var  traved_dis=0
 @export var speed=1000
+<<<<<<< HEAD
 func _process(delta: float) -> void:
 	if Global.curr_health<=0:
 		set_process(false) 
+=======
+<<<<<<< HEAD
+func _process(delta: float) -> void:
+	if Global.curr_health<=0:
+		set_process(false) 
+=======
+
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 
 func _physics_process(delta: float) -> void:
 	
@@ -43,25 +65,85 @@ func _on_body_entered(body: Node2D) -> void:
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_armrp"]
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+[sub_resource type="Environment" id="Environment_k68ve"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 1
+
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 [node name="bullets" type="Area2D"]
 top_level = true
 rotation = 0.0012722
 scale = Vector2(-0.196878, 0.36705)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+[node name="bullets" type="Area2D"]
+top_level = true
+rotation = 0.0012722
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 collision_mask = 10
 script = SubResource("GDScript_tiuci")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+<<<<<<< HEAD
 self_modulate = Color(0.47, 0.646667, 1, 1)
+=======
+<<<<<<< HEAD
+self_modulate = Color(12, 12, 12, 1)
+=======
+<<<<<<< HEAD
+self_modulate = Color(12, 12, 12, 1)
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 position = Vector2(-0.0519475, 6.58035e-05)
 rotation = 1.57578
 scale = Vector2(5.02957, 18.6302)
 mesh = SubResource("BoxMesh_7k40p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+<<<<<<< HEAD
 visible = false
+=======
+<<<<<<< HEAD
+visible = false
+=======
+<<<<<<< HEAD
+visible = false
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 position = Vector2(-0.0571423, 7.34329e-05)
 rotation = 1.60443
 scale = Vector2(0.34762, 1.10762)
 shape = SubResource("RectangleShape2D_armrp")
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_k68ve")
+
+=======
+<<<<<<< HEAD
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_k68ve")
+
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

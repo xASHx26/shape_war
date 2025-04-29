@@ -25,9 +25,19 @@ func take_damage()->void:
 	Global.curr_health-=2
 	if Global.curr_health<=0:
 		queue_free()
+<<<<<<< HEAD
 func _process(delta: float) -> void:
 	if Global.curr_health<=0:
 		set_process(false) 	
+=======
+<<<<<<< HEAD
+func _process(delta: float) -> void:
+	if Global.curr_health<=0:
+		set_process(false) 	
+=======
+	
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 func _physics_process(delta: float) -> void:
 	# Get input direction for movement
 	var direction = Input.get_vector("left", "right", "up", "down")

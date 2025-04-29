@@ -1,10 +1,17 @@
+<<<<<<< HEAD
 [gd_scene load_steps=11 format=3 uid="uid://c3jjwmqgbprao"]
 
 [ext_resource type="Script" uid="uid://b57ic7b1wx3rs" path="res://end_game.gd" id="1_2fkjc"]
+=======
+[gd_scene load_steps=7 format=3 uid="uid://c3jjwmqgbprao"]
+
+[ext_resource type="Script" path="res://end_game.gd" id="1_2fkjc"]
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 [ext_resource type="FontFile" uid="uid://b4fsryac36o7k" path="res://AlfaSlabOne-Regular.ttf" id="2_bbylk"]
 [ext_resource type="Texture2D" uid="uid://xuh3jw0m2mm0" path="res://SPRITE/arrow-refresh-reload-icon-29.png" id="3_ytwfj"]
 [ext_resource type="Texture2D" uid="uid://bsf3o06ftdhxm" path="res://SPRITE/61972.png" id="4_opsky"]
 [ext_resource type="Texture2D" uid="uid://csxse6x0778eq" path="res://SPRITE/logout.png" id="5_uanqr"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://crjxwtq1e1gi" path="res://SPRITE/endscreen.png" id="6_4amj7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4uu5m"]
@@ -12,6 +19,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_3846b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xqkg3"]
+=======
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f5tl3"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -20,6 +29,7 @@ shadow_color = Color(0, 0, 0, 0.913725)
 [node name="End_game" type="CanvasLayer"]
 script = ExtResource("1_2fkjc")
 
+<<<<<<< HEAD
 [node name="Retry" type="Button" parent="."]
 offset_left = 282.0
 offset_top = 262.0
@@ -73,6 +83,96 @@ offset_right = 549.0
 offset_bottom = 489.0
 theme_override_fonts/font = ExtResource("2_bbylk")
 theme_override_font_sizes/font_size = 20
+=======
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.678431, 0.678431, 0.678431, 0.517647)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_bbylk")
+theme_override_font_sizes/font_size = 96
+text = "Game Over"
+
+[node name="Retry" type="Button" parent="."]
+offset_left = 413.0
+offset_top = 318.0
+offset_right = 979.0
+offset_bottom = 838.0
+scale = Vector2(0.116162, 0.116162)
+size_flags_vertical = 4
+icon = ExtResource("3_ytwfj")
+
+[node name="Label" type="Label" parent="Retry"]
+layout_mode = 0
+offset_left = 180.782
+offset_top = 542.345
+offset_right = 360.782
+offset_bottom = 625.345
+theme_override_fonts/font = ExtResource("2_bbylk")
+theme_override_font_sizes/font_size = 60
+text = "Retry"
+
+[node name="Home" type="Button" parent="."]
+offset_left = 525.0
+offset_top = 318.0
+offset_right = 1091.0
+offset_bottom = 838.0
+scale = Vector2(0.116162, 0.116162)
+size_flags_vertical = 4
+icon = ExtResource("4_opsky")
+
+[node name="Label" type="Label" parent="Home"]
+offset_left = 180.782
+offset_top = 542.345
+offset_right = 360.782
+offset_bottom = 625.345
+theme_override_fonts/font = ExtResource("2_bbylk")
+theme_override_font_sizes/font_size = 60
+text = "Home"
+
+[node name="Exit" type="Button" parent="."]
+offset_left = 637.0
+offset_top = 318.0
+offset_right = 1203.0
+offset_bottom = 838.0
+scale = Vector2(0.116162, 0.116162)
+size_flags_vertical = 4
+icon = ExtResource("5_uanqr")
+
+[node name="Label" type="Label" parent="Exit"]
+offset_left = 180.782
+offset_top = 542.345
+offset_right = 360.782
+offset_bottom = 625.345
+theme_override_fonts/font = ExtResource("2_bbylk")
+theme_override_font_sizes/font_size = 60
+text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 313.0
+offset_top = 240.0
+offset_right = 353.0
+offset_bottom = 323.0
+theme_override_fonts/font = ExtResource("2_bbylk")
+theme_override_font_sizes/font_size = 50
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 theme_override_styles/normal = SubResource("StyleBoxFlat_f5tl3")
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
@@ -80,16 +180,24 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_f5tl3")
 [node name="Api_good" type="Label" parent="."]
 clip_contents = true
 custom_minimum_size = Vector2(400, 200)
+<<<<<<< HEAD
 offset_left = 400.0
 offset_top = 455.0
 offset_right = 800.0
 offset_bottom = 655.0
+=======
+offset_left = 366.0
+offset_top = 398.0
+offset_right = 766.0
+offset_bottom = 598.0
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 scale = Vector2(0.98128, 0.554801)
 theme_override_fonts/font = ExtResource("2_bbylk")
 theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
 autowrap_mode = 3
 
+<<<<<<< HEAD
 [node name="Endscreen" type="Sprite2D" parent="."]
 position = Vector2(579.833, 325.438)
 scale = Vector2(0.190611, 0.191667)
@@ -111,4 +219,9 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_f5tl3")
 [connection signal="pressed" from="Home/Home" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Exit/Exit" to="." method="_on_exit_pressed"]
+=======
+[connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

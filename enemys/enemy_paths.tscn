@@ -1,6 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://b6u1ifemj4p3c"]
 
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://u00d28q8sbf7" path="res://enemys/square_paths.gd" id="1_lgwl1"]
+=======
+[ext_resource type="Script" path="res://enemys/square_paths.gd" id="1_lgwl1"]
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 [ext_resource type="PackedScene" uid="uid://csq487qhooag1" path="res://enemys/enemy_3.tscn" id="2_ot1ur"]
 
 [sub_resource type="Curve2D" id="Curve2D_r0k1l"]

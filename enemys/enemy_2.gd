@@ -6,8 +6,21 @@ extends CharacterBody2D
 @onready var ray_cast_2d_3: RayCast2D = $RayCast2D3
 @onready var left_side: RayCast2D = $left_side
 @onready var right_side: RayCast2D = $right_side
+<<<<<<< HEAD
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+=======
+<<<<<<< HEAD
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+=======
+<<<<<<< HEAD
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 
 @export var deathPrticle:PackedScene
 @onready var ray_cast_2d_4: RayCast2D = $RayCast2D4
@@ -18,7 +31,14 @@ extends CharacterBody2D
 @onready var up_point_enemy_4: Marker2D = %up_point_enemy4
 @onready var left_2d: Marker2D = $left_2D
 @onready var right_2d: Marker2D = $right_2D
+<<<<<<< HEAD
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+=======
+<<<<<<< HEAD
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+=======
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 
 @export var rotation_speed = 10.0 
 var health:=2
@@ -28,9 +48,18 @@ var follow:=false
 func _ready() -> void:
 	pass
 func _process(delta: float) -> void:
+<<<<<<< HEAD
 	if Global.curr_health<=0:
 		animated_sprite_2d.stop()
 		set_process(false) 
+=======
+<<<<<<< HEAD
+	if Global.curr_health<=0:
+		animated_sprite_2d.stop()
+		set_process(false) 
+=======
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 	kill()
 func _physics_process(delta: float) -> void:
 	if Global.curr_health>0 and follow==false:
@@ -43,8 +72,21 @@ func _physics_process(delta: float) -> void:
 func kill():
 	if health<=0:
 		Global.count += 3
+<<<<<<< HEAD
 		SaveGame.data["Points"]+=3
 		SaveGame.Write_save(SaveGame.data)
+=======
+<<<<<<< HEAD
+		SaveGame.data["Points"]+=3
+		SaveGame.Write_save(SaveGame.data)
+=======
+<<<<<<< HEAD
+		SaveGame.data["Points"]+=3
+		SaveGame.Write_save(SaveGame.data)
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 		explo()
 		queue_free()
 

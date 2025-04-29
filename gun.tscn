@@ -1,6 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://cckfvajgadb36"]
 
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://72moift7xaov" path="res://gun.gd" id="1_st3a4"]
+=======
+[ext_resource type="Script" path="res://gun.gd" id="1_st3a4"]
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1jgxd"]
 

@@ -1,19 +1,56 @@
+<<<<<<< HEAD
 [gd_scene load_steps=4 format=3 uid="uid://v1jm5cperky5"]
 
 [ext_resource type="Script" uid="uid://dvqcjeqqlq3qq" path="res://bullets/rocket_bullets.gd" id="1_khm4p"]
+=======
+<<<<<<< HEAD
+[gd_scene load_steps=5 format=3 uid="uid://v1jm5cperky5"]
+=======
+<<<<<<< HEAD
+[gd_scene load_steps=5 format=3 uid="uid://v1jm5cperky5"]
+=======
+[gd_scene load_steps=4 format=3 uid="uid://v1jm5cperky5"]
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+
+[ext_resource type="Script" path="res://bullets/rocket_bullets.gd" id="1_khm4p"]
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 
 [sub_resource type="SphereMesh" id="SphereMesh_f623w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ut3cf"]
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+[sub_resource type="Environment" id="Environment_k68ve"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 1
+
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 [node name="bullets" type="Area2D"]
 top_level = true
 rotation = 1.55158
 scale = Vector2(0.197954, -0.197483)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+[node name="bullets" type="Area2D"]
+top_level = true
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 collision_mask = 10
 script = ExtResource("1_khm4p")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+<<<<<<< HEAD
 self_modulate = Color(0.87, 0, 0.6525, 1)
 scale = Vector2(17.7502, 18.6302)
 mesh = SubResource("SphereMesh_f623w")
@@ -23,4 +60,35 @@ visible = false
 scale = Vector2(1.10762, 1.10762)
 shape = SubResource("CircleShape2D_ut3cf")
 
+=======
+<<<<<<< HEAD
+self_modulate = Color(12, 12, 12, 1)
+scale = Vector2(17.7502, 18.6302)
+=======
+<<<<<<< HEAD
+self_modulate = Color(12, 12, 12, 1)
+scale = Vector2(17.7502, 18.6302)
+=======
+scale = Vector2(18.6302, 18.6302)
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+mesh = SubResource("SphereMesh_f623w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.10762, 1.10762)
+shape = SubResource("CircleShape2D_ut3cf")
+
+<<<<<<< HEAD
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_k68ve")
+
+=======
+<<<<<<< HEAD
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_k68ve")
+
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

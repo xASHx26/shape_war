@@ -26,7 +26,14 @@ extends CharacterBody2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 @export var rotation_speed = 10.0 
+<<<<<<< HEAD
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+=======
+<<<<<<< HEAD
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+=======
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 
 var follow:=false
 
@@ -34,9 +41,18 @@ var health:=1
 func _ready() -> void:
 	pass
 func _process(delta: float) -> void:
+<<<<<<< HEAD
 	if Global.curr_health<=0:
 		animated_sprite_2d.stop()
 		set_process(false) 
+=======
+<<<<<<< HEAD
+	if Global.curr_health<=0:
+		animated_sprite_2d.stop()
+		set_process(false) 
+=======
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 	kill()
 func _physics_process(delta: float) -> void:
 	if Global.curr_health>0 and follow==false:
@@ -48,8 +64,21 @@ func _physics_process(delta: float) -> void:
 func kill():
 	if health<=0:
 		Global.count += 5
+<<<<<<< HEAD
 		SaveGame.data["Points"]+=5
 		SaveGame.Write_save(SaveGame.data)
+=======
+<<<<<<< HEAD
+		SaveGame.data["Points"]+=5
+		SaveGame.Write_save(SaveGame.data)
+=======
+<<<<<<< HEAD
+		SaveGame.data["Points"]+=5
+		SaveGame.Write_save(SaveGame.data)
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 		explo()
 		queue_free()
 		

@@ -1,16 +1,48 @@
+<<<<<<< HEAD
 [gd_scene load_steps=16 format=3 uid="uid://c4j3s4jlwulqs"]
 
 [ext_resource type="Script" uid="uid://b1hyrs0ymdk2e" path="res://main.gd" id="1_llltd"]
 [ext_resource type="PackedScene" uid="uid://q6hymwm3w6av" path="res://spaceships/spaceship1.tscn" id="2_xs7jt"]
 [ext_resource type="Script" uid="uid://b2d1gn7bk7t5t" path="res://control.gd" id="3_kybmt"]
+=======
+<<<<<<< HEAD
+[gd_scene load_steps=17 format=3 uid="uid://c4j3s4jlwulqs"]
+=======
+<<<<<<< HEAD
+[gd_scene load_steps=16 format=3 uid="uid://c4j3s4jlwulqs"]
+=======
+[gd_scene load_steps=9 format=3 uid="uid://c4j3s4jlwulqs"]
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+
+[ext_resource type="Script" path="res://main.gd" id="1_llltd"]
+[ext_resource type="PackedScene" uid="uid://q6hymwm3w6av" path="res://spaceships/spaceship1.tscn" id="2_xs7jt"]
+[ext_resource type="Script" path="res://control.gd" id="3_kybmt"]
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 [ext_resource type="PackedScene" uid="uid://dcs6k718u2gym" path="res://spaceships/spaceship2.tscn" id="3_q4vk3"]
 [ext_resource type="PackedScene" uid="uid://b2i47oqby6foq" path="res://walls.tscn" id="5_aljtq"]
 [ext_resource type="PackedScene" uid="uid://cjdwac0mv6exv" path="res://audiovis.tscn" id="6_dr5t2"]
 [ext_resource type="PackedScene" uid="uid://c4q8pur2gk84e" path="res://touchcontrol.tscn" id="6_sxmq2"]
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 [ext_resource type="Texture2D" uid="uid://5qud46qbmwi7" path="res://SPRITE/PLAYER/C (4).png" id="8_36xlw"]
 [ext_resource type="Texture2D" uid="uid://88kw37tossbb" path="res://SPRITE/PLAYER/C (5).png" id="9_5r25o"]
 [ext_resource type="Texture2D" uid="uid://degyt2khnp4ia" path="res://SPRITE/PLAYER/glow.png" id="10_j3ney"]
 [ext_resource type="Texture2D" uid="uid://cp2skvwhq1mp7" path="res://SPRITE/PLAYER/Warning.png" id="11_q2mai"]
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+[ext_resource type="PackedScene" uid="uid://c3jjwmqgbprao" path="res://end_game.tscn" id="12_nj303"]
+=======
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 
 [sub_resource type="Curve2D" id="Curve2D_x6b6c"]
 _data = {
@@ -18,6 +50,13 @@ _data = {
 }
 point_count = 6
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 [sub_resource type="Animation" id="Animation_yyds5"]
 length = 0.001
 tracks/0/type = "value"
@@ -51,6 +90,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vespo"]
 _data = {
+<<<<<<< HEAD
 &"RESET": SubResource("Animation_yyds5"),
 &"warning": SubResource("Animation_ou57l")
 }
@@ -58,6 +98,20 @@ _data = {
 [node name="main" type="Node2D"]
 script = ExtResource("1_llltd")
 player = Array[PackedScene]([ExtResource("3_q4vk3"), ExtResource("2_xs7jt"), null, null])
+=======
+"RESET": SubResource("Animation_yyds5"),
+"warning": SubResource("Animation_ou57l")
+}
+
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+[node name="main" type="Node2D"]
+script = ExtResource("1_llltd")
+player = Array[PackedScene]([ExtResource("2_xs7jt"), ExtResource("3_q4vk3"), null, null])
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(575, 323)
@@ -76,12 +130,25 @@ script = ExtResource("3_kybmt")
 [node name="Label" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 0
 offset_left = 47.0
+<<<<<<< HEAD
 offset_top = 184.0
 offset_right = 87.0
 offset_bottom = 207.0
 
 [node name="Top Score" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 0
+=======
+offset_top = 53.0
+offset_right = 87.0
+offset_bottom = 76.0
+
+[node name="Top Score" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 offset_left = 1003.0
 offset_top = 48.0
 offset_right = 1043.0
@@ -93,6 +160,53 @@ offset_left = 944.0
 offset_top = 92.0
 offset_right = 984.0
 offset_bottom = 115.0
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+offset_left = 528.0
+offset_top = 25.0
+offset_right = 568.0
+offset_bottom = 48.0
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 931.0
+offset_top = 44.0
+offset_right = 971.0
+offset_bottom = 67.0
+
+[node name="Label3" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 931.0
+offset_top = 107.0
+offset_right = 971.0
+offset_bottom = 130.0
+
+[node name="Label4" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 931.0
+offset_top = 188.0
+offset_right = 971.0
+offset_bottom = 211.0
+
+[node name="Label5" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 931.0
+offset_top = 329.0
+offset_right = 971.0
+offset_bottom = 352.0
+
+[node name="health" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 207.0
+offset_right = 58.0
+offset_bottom = 230.0
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(-2, -31)
@@ -150,6 +264,13 @@ z_index = -2
 position = Vector2(535, 427)
 scale = Vector2(0.29946, 0.416317)
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 offset_left = 20.0
 offset_top = 8.0
@@ -173,9 +294,22 @@ texture = ExtResource("11_q2mai")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
+<<<<<<< HEAD
 &"": SubResource("AnimationLibrary_vespo")
 }
 
+=======
+"": SubResource("AnimationLibrary_vespo")
+}
+
+<<<<<<< HEAD
+[node name="End_game" parent="." instance=ExtResource("12_nj303")]
+
+=======
+=======
+>>>>>>> 300c7676a22ee73a9530bb4d3e91b595305b503e
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 [connection signal="timeout" from="enemy1_timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="enemy2_timer" to="." method="_on_enemy_2_timer_timeout"]
 [connection signal="timeout" from="3rdenemy" to="." method="_on_rdenemy_timeout"]

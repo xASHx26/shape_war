@@ -1,6 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://cvdhc886iqgv8"]
 
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://bdygu2k8aydhh" path="res://character_body_2d.gd" id="1_36jsh"]
+=======
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_36jsh"]
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 [ext_resource type="PackedScene" uid="uid://v1jm5cperky5" path="res://bullets/rocket_bullets.tscn" id="2_l278s"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gjd46"]

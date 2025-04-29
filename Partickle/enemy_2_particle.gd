@@ -11,7 +11,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Time.get_ticks_msec()-timeCreatrd>1000:
 		queue_free()
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 	if Global.curr_health<=0:
 		set_process(false) 
 	if Global.curr_health<=0:
 		set_process(false) 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 8d055c48b492178c95668b86d3764df2e08ad6f9
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e

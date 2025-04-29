@@ -1,6 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://dmr0fcamx7t56"]
 
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://gavga86xok7w" path="res://addons/virtual_joystick/virtual_joystick.gd" id="1_8x4dy"]
+=======
+[ext_resource type="Script" path="res://addons/virtual_joystick/virtual_joystick.gd" id="1_8x4dy"]
+>>>>>>> 9cfaa71f1dac9b053287b9bd0ca6687662758a5e
 [ext_resource type="Texture2D" uid="uid://chn6sm77duf0v" path="res://SPRITE/joysstick/[CITYPNG.COM]White Outline Circle Transparent Background - 1500x1500.png" id="2_sl3yh"]
 [ext_resource type="Texture2D" uid="uid://bumkn3dfv5tnh" path="res://SPRITE/joysstick/pngwing.com (2).png" id="3_wxfue"]
 
