@@ -1,0 +1,198 @@
+[gd_scene load_steps=10 format=3 uid="uid://dm1y6vnvbhwd5"]
+
+[ext_resource type="Script" uid="uid://bnmdafood10t2" path="res://loading_screen.gd" id="1_n777n"]
+[ext_resource type="Texture2D" uid="uid://cfinn1f7vr3xf" path="res://SPRITE/loading3.png" id="2_41a3d"]
+[ext_resource type="Texture2D" uid="uid://ql37243f50c0" path="res://SPRITE/1.png" id="3_41a3d"]
+
+[sub_resource type="Animation" id="Animation_rfudg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(126, 572)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Label:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/1:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.0431271, 0.0431271)]
+}
+
+[sub_resource type="Animation" id="Animation_wcesk"]
+resource_name = "new_animation"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2.02, 2.49, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(126, 572), Vector2(246, 519), Vector2(376, 573), Vector2(578, 519), Vector2(755, 572), Vector2(933, 516), Vector2(1062, 573)]
+}
+
+[sub_resource type="Animation" id="Animation_41a3d"]
+resource_name = "label"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_uiyc8"]
+resource_name = "new_animation_2"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1062, 573), Vector2(1062, 533), Vector2(1062, 533), Vector2(1062, 559)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/1:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.0431271, 0.0431271), Vector2(0.0311002, 0.047373), Vector2(0.0431271, 0.0431271), Vector2(0.031902, 0.0470899), Vector2(0.0431271, 0.0431271)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uiyc8"]
+_data = {
+&"RESET": SubResource("Animation_rfudg"),
+&"label": SubResource("Animation_41a3d"),
+&"new_animation": SubResource("Animation_wcesk"),
+&"new_animation_2": SubResource("Animation_uiyc8")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_41a3d"]
+
+[node name="Loading_screen" type="CanvasLayer"]
+script = ExtResource("1_n777n")
+next_scene = "uid://c4j3s4jlwulqs"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -51.0
+offset_top = 441.0
+offset_right = -51.0
+offset_bottom = 441.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Loading" type="Sprite2D" parent="Control"]
+position = Vector2(586, 334)
+scale = Vector2(0.193663, 0.212861)
+texture = ExtResource("2_41a3d")
+
+[node name="1" type="Sprite2D" parent="Control"]
+position = Vector2(126, 572)
+scale = Vector2(0.0431271, 0.0431271)
+texture = ExtResource("3_41a3d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_uiyc8")
+}
+autoplay = "new_animation"
+
+[node name="Label" type="Label" parent="Control"]
+offset_left = 520.0
+offset_top = 429.0
+offset_right = 630.0
+offset_bottom = 452.0
+text = "Tap anywhere"
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="loading" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Loading....."
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+z_index = 4
+position = Vector2(575, 318)
+rotation = 3.14159
+scale = Vector2(71.9965, 44.5424)
+shape = SubResource("RectangleShape2D_41a3d")
+shape_visible = false
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

@@ -1,0 +1,114 @@
+[gd_scene load_steps=11 format=3 uid="uid://c3jjwmqgbprao"]
+
+[ext_resource type="Script" uid="uid://b57ic7b1wx3rs" path="res://end_game.gd" id="1_2fkjc"]
+[ext_resource type="FontFile" uid="uid://b4fsryac36o7k" path="res://AlfaSlabOne-Regular.ttf" id="2_bbylk"]
+[ext_resource type="Texture2D" uid="uid://xuh3jw0m2mm0" path="res://SPRITE/arrow-refresh-reload-icon-29.png" id="3_ytwfj"]
+[ext_resource type="Texture2D" uid="uid://bsf3o06ftdhxm" path="res://SPRITE/61972.png" id="4_opsky"]
+[ext_resource type="Texture2D" uid="uid://csxse6x0778eq" path="res://SPRITE/logout.png" id="5_uanqr"]
+[ext_resource type="Texture2D" uid="uid://crjxwtq1e1gi" path="res://SPRITE/endscreen.png" id="6_4amj7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4uu5m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3846b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xqkg3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f5tl3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+shadow_color = Color(0, 0, 0, 0.913725)
+
+[node name="End_game" type="CanvasLayer"]
+script = ExtResource("1_2fkjc")
+
+[node name="Retry" type="Button" parent="."]
+offset_left = 282.0
+offset_top = 262.0
+offset_right = 848.0
+offset_bottom = 782.0
+scale = Vector2(0.25577, 0.25577)
+size_flags_vertical = 4
+icon = ExtResource("3_ytwfj")
+
+[node name="Retry" type="TouchScreenButton" parent="Retry"]
+z_index = 1
+position = Vector2(293.232, 234.586)
+scale = Vector2(38.0236, 38.0236)
+shape = SubResource("CircleShape2D_4uu5m")
+
+[node name="Home" type="Button" parent="."]
+offset_left = 494.0
+offset_top = 253.0
+offset_right = 1060.0
+offset_bottom = 773.0
+scale = Vector2(0.317234, 0.317234)
+size_flags_vertical = 4
+icon = ExtResource("4_opsky")
+
+[node name="Home" type="TouchScreenButton" parent="Home"]
+z_index = 1
+position = Vector2(258.26, 249.651)
+scale = Vector2(32.1233, 32.1233)
+shape = SubResource("CircleShape2D_3846b")
+
+[node name="Exit" type="Button" parent="."]
+offset_left = 726.0
+offset_top = 251.0
+offset_right = 1292.0
+offset_bottom = 771.0
+scale = Vector2(0.281297, 0.281297)
+size_flags_vertical = 4
+icon = ExtResource("5_uanqr")
+
+[node name="Exit" type="TouchScreenButton" parent="Exit"]
+z_index = 1
+position = Vector2(266.623, 259.513)
+scale = Vector2(35.7625, 35.7625)
+shape = SubResource("CircleShape2D_xqkg3")
+
+[node name="Label" type="Label" parent="."]
+z_index = 2
+offset_left = 509.0
+offset_top = 406.0
+offset_right = 549.0
+offset_bottom = 489.0
+theme_override_fonts/font = ExtResource("2_bbylk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_f5tl3")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="Api_good" type="Label" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(400, 200)
+offset_left = 400.0
+offset_top = 455.0
+offset_right = 800.0
+offset_bottom = 655.0
+scale = Vector2(0.98128, 0.554801)
+theme_override_fonts/font = ExtResource("2_bbylk")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Endscreen" type="Sprite2D" parent="."]
+position = Vector2(579.833, 325.438)
+scale = Vector2(0.190611, 0.191667)
+texture = ExtResource("6_4amj7")
+
+[node name="total_point" type="Label" parent="."]
+z_index = 2
+offset_left = 781.0
+offset_top = 406.0
+offset_right = 821.0
+offset_bottom = 489.0
+theme_override_fonts/font = ExtResource("2_bbylk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_f5tl3")
+
+[connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Retry/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="Home/Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Exit/Exit" to="." method="_on_exit_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6u1ifemj4p3c"]
+
+[ext_resource type="Script" uid="uid://u00d28q8sbf7" path="res://enemys/square_paths.gd" id="1_lgwl1"]
+[ext_resource type="PackedScene" uid="uid://csq487qhooag1" path="res://enemys/enemy_3.tscn" id="2_ot1ur"]
+
+[sub_resource type="Curve2D" id="Curve2D_r0k1l"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 542, -676, 0, 0, 0, 0, 534, 71, 91.9239, -24.0416, -91.9239, 24.0416, 151, 76, -77.7818, -41.0122, 77.7818, 41.0122, 155, 568, -74.9533, 57.9828, 74.9533, -57.9828, 1035, 559, 83.4386, 49.4975, -83.4386, -49.4975, 1033, 78, 0, 0, 0, 0, 563, 70, 0, 0, 0, 0, 534, 72)
+}
+point_count = 8
+
+[node name="EnemyPaths" type="Node2D" groups=["enemy3_path"]]
+
+[node name="SquarePaths" type="Path2D" parent="."]
+position = Vector2(0, 2)
+curve = SubResource("Curve2D_r0k1l")
+script = ExtResource("1_lgwl1")
+speed = 0.1
+enemy = ExtResource("2_ot1ur")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="SquarePaths"]
+position = Vector2(534.002, 71.9999)
+rotation = 3.07274
+progress = 3554.31
+loop = false
+
+[node name="Timer" type="Timer" parent="SquarePaths"]
+wait_time = 70.0
+autostart = true
+
+[connection signal="timeout" from="SquarePaths/Timer" to="SquarePaths" method="_on_timer_timeout"]

@@ -1,0 +1,182 @@
+[gd_scene load_steps=16 format=3 uid="uid://c4j3s4jlwulqs"]
+
+[ext_resource type="Script" uid="uid://b1hyrs0ymdk2e" path="res://main.gd" id="1_llltd"]
+[ext_resource type="PackedScene" uid="uid://q6hymwm3w6av" path="res://spaceships/spaceship1.tscn" id="2_xs7jt"]
+[ext_resource type="Script" uid="uid://b2d1gn7bk7t5t" path="res://control.gd" id="3_kybmt"]
+[ext_resource type="PackedScene" uid="uid://dcs6k718u2gym" path="res://spaceships/spaceship2.tscn" id="3_q4vk3"]
+[ext_resource type="PackedScene" uid="uid://b2i47oqby6foq" path="res://walls.tscn" id="5_aljtq"]
+[ext_resource type="PackedScene" uid="uid://cjdwac0mv6exv" path="res://audiovis.tscn" id="6_dr5t2"]
+[ext_resource type="PackedScene" uid="uid://c4q8pur2gk84e" path="res://touchcontrol.tscn" id="6_sxmq2"]
+[ext_resource type="Texture2D" uid="uid://5qud46qbmwi7" path="res://SPRITE/PLAYER/C (4).png" id="8_36xlw"]
+[ext_resource type="Texture2D" uid="uid://88kw37tossbb" path="res://SPRITE/PLAYER/C (5).png" id="9_5r25o"]
+[ext_resource type="Texture2D" uid="uid://degyt2khnp4ia" path="res://SPRITE/PLAYER/glow.png" id="10_j3ney"]
+[ext_resource type="Texture2D" uid="uid://cp2skvwhq1mp7" path="res://SPRITE/PLAYER/Warning.png" id="11_q2mai"]
+
+[sub_resource type="Curve2D" id="Curve2D_x6b6c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -99, -123, 0, 0, 0, 0, -104, 733, 0, 0, 0, 0, 1382, 731, 0, 0, 0, 0, 1362, -120, 0, 0, 0, 0, -101, -123, 0, 0, 0, 0, -126, -129)
+}
+point_count = 6
+
+[sub_resource type="Animation" id="Animation_yyds5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("warning:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ou57l"]
+resource_name = "warning"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("warning:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vespo"]
+_data = {
+&"RESET": SubResource("Animation_yyds5"),
+&"warning": SubResource("Animation_ou57l")
+}
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_llltd")
+player = Array[PackedScene]([ExtResource("3_q4vk3"), ExtResource("2_xs7jt"), null, null])
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(575, 323)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(10, 0)
+transform = Transform2D(1, 0, 0, 1, 10, 0)
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_kybmt")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 184.0
+offset_right = 87.0
+offset_bottom = 207.0
+
+[node name="Top Score" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1003.0
+offset_top = 48.0
+offset_right = 1043.0
+offset_bottom = 71.0
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 944.0
+offset_top = 92.0
+offset_right = 984.0
+offset_bottom = 115.0
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-2, -31)
+curve = SubResource("Curve2D_x6b6c")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(-126, -129)
+rotation = -2.90605
+progress = 4685.31
+
+[node name="enemy1_timer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="enemy2_timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="walls" parent="." instance=ExtResource("5_aljtq")]
+
+[node name="spaceship_spwaner" type="Marker2D" parent="."]
+position = Vector2(575, 320)
+rotation = 3.14462
+
+[node name="3rdenemy" type="Timer" parent="."]
+wait_time = 70.0
+autostart = true
+
+[node name="enemy4_timer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[node name="enemy4_marker" type="Marker2D" parent="."]
+position = Vector2(1236, 219)
+
+[node name="audiovis" parent="." instance=ExtResource("6_dr5t2")]
+modulate = Color(1, 1, 1, 0.6)
+z_index = -1
+offset_left = 578.0
+offset_top = 319.0
+offset_right = 578.0
+offset_bottom = 319.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="touchcontrol" parent="Control" instance=ExtResource("6_sxmq2")]
+
+[node name="RetroSmokeAndRoundLightDesktopWallpapers(1)" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(535, 427)
+scale = Vector2(0.29946, 0.416317)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 20.0
+offset_top = 8.0
+offset_right = 520.0
+offset_bottom = 508.0
+scale = Vector2(0.152527, 0.130979)
+fill_mode = 4
+texture_under = ExtResource("8_36xlw")
+texture_progress = ExtResource("9_5r25o")
+
+[node name="Score" type="Sprite2D" parent="."]
+position = Vector2(769, 349)
+scale = Vector2(0.48391, 0.436319)
+texture = ExtResource("10_j3ney")
+
+[node name="warning" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1097, 200)
+scale = Vector2(0.452229, 0.452229)
+texture = ExtResource("11_q2mai")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_vespo")
+}
+
+[connection signal="timeout" from="enemy1_timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="enemy2_timer" to="." method="_on_enemy_2_timer_timeout"]
+[connection signal="timeout" from="3rdenemy" to="." method="_on_rdenemy_timeout"]
+[connection signal="timeout" from="enemy4_timer" to="." method="_on_enemy_4_timer_timeout"]

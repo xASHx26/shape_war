@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dju2d58v4gsbn"]
+
+[ext_resource type="Script" uid="uid://drvj0asr376ia" path="res://Partickle/enemy_2_particle.gd" id="1_jxoh4"]
+
+[sub_resource type="Gradient" id="Gradient_gmmy6"]
+offsets = PackedFloat32Array(0.406667, 0.966667)
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+amount = 200
+explosiveness = 1.0
+randomness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+angular_velocity_min = 20.0
+angular_velocity_max = 100.0
+linear_accel_min = 30.0
+linear_accel_max = 100.0
+radial_accel_min = 10.0
+radial_accel_max = 100.0
+tangential_accel_min = 10.0
+tangential_accel_max = 100.0
+color_ramp = SubResource("Gradient_gmmy6")
+script = ExtResource("1_jxoh4")

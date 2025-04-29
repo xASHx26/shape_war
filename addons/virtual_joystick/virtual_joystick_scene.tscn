@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmr0fcamx7t56"]
+
+[ext_resource type="Script" uid="uid://gavga86xok7w" path="res://addons/virtual_joystick/virtual_joystick.gd" id="1_8x4dy"]
+[ext_resource type="Texture2D" uid="uid://chn6sm77duf0v" path="res://SPRITE/joysstick/[CITYPNG.COM]White Outline Circle Transparent Background - 1500x1500.png" id="2_sl3yh"]
+[ext_resource type="Texture2D" uid="uid://bumkn3dfv5tnh" path="res://SPRITE/joysstick/pngwing.com (2).png" id="3_wxfue"]
+
+[node name="Virtual Joystick" type="Control"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -308.0
+offset_right = 300.0
+offset_bottom = -8.0
+grow_vertical = 0
+script = ExtResource("1_8x4dy")
+
+[node name="Base" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.0
+offset_top = -174.0
+offset_right = 1269.0
+offset_bottom = 1326.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.161914, 0.161914)
+pivot_offset = Vector2(100, 100)
+mouse_force_pass_scroll_events = false
+texture = ExtResource("2_sl3yh")
+stretch_mode = 5
+
+[node name="Tip" type="TextureRect" parent="Base"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 50)
+texture = ExtResource("3_wxfue")
+stretch_mode = 5
