@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://co5jqt1e2ojp2"]
+
+[ext_resource type="Script" uid="uid://vqp8c73ymvm7" path="res://shop.gd" id="1_viryw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7rdd"]
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.08, 2.08)
+script = ExtResource("1_viryw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="singleAmmo" type="Sprite2D" parent="HBoxContainer"]
+position = Vector2(-130, 0)
+
+[node name="SingleSelect" type="Button" parent="HBoxContainer/singleAmmo"]
+offset_top = 47.0
+offset_right = 8.0
+offset_bottom = 55.0
+text = "Select"
+metadata/_edit_use_anchors_ = true
+
+[node name="Singletouch" type="TouchScreenButton" parent="HBoxContainer/singleAmmo/SingleSelect"]
+position = Vector2(29, 15)
+scale = Vector2(6.49924, 2.65924)
+shape = SubResource("RectangleShape2D_e7rdd")
+
+[node name="DoubleAmmo" type="Sprite2D" parent="HBoxContainer"]
+position = Vector2(122, 0)
+
+[node name="DoubleSelect" type="Button" parent="HBoxContainer/DoubleAmmo"]
+offset_top = 47.0
+offset_right = 8.0
+offset_bottom = 55.0
+text = "Select"
+metadata/_edit_use_anchors_ = true
+
+[node name="DoubleTouch" type="TouchScreenButton" parent="HBoxContainer/DoubleAmmo/DoubleSelect"]
+position = Vector2(29, 15)
+scale = Vector2(6.49924, 2.65924)
+shape = SubResource("RectangleShape2D_e7rdd")
+
+[node name="price" type="Label" parent="HBoxContainer/DoubleAmmo"]
+offset_left = -8.05789
+offset_top = 10.0961
+offset_right = 67.9421
+offset_bottom = 33.0961
+text = "20Points"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = -115.865
+offset_right = 40.0
+offset_bottom = -66.8652
+text = "Shop
+"
+
+[node name="home" type="Button" parent="."]
+layout_mode = 0
+offset_left = -5.76922
+offset_top = 100.961
+offset_right = 49.2308
+offset_bottom = 131.961
+text = "Home"
+
+[node name="home" type="TouchScreenButton" parent="home"]
+
+[connection signal="pressed" from="home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="home/home" to="." method="_on_home_pressed"]

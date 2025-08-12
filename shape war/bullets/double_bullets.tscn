@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc2gxj5ppg2b3"]
+
+[sub_resource type="GDScript" id="GDScript_tiuci"]
+script/source = "extends Area2D
+var  traved_dis=0
+@export var speed=1000
+func _process(delta: float) -> void:
+	if Global.curr_health<=0:
+		set_process(false) 
+
+func _physics_process(delta: float) -> void:
+	
+	var dir =Vector2.RIGHT.rotated(rotation)
+	position+=dir*speed*delta
+	traved_dis+=speed*delta
+	
+	if traved_dis> 1200:
+		queue_free()
+		
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group(\"enemy1\"):
+		Global.count+=1
+		body.queue_free()
+		Global.total_enemy1-=1
+	if body.is_in_group(\"enemy2\"):
+		Global.count+=5
+		body.queue_free()
+		Global.total_enemy2-=1
+	if body.is_in_group(\"enemy3\"):
+		Global.count += 5
+		body.queue_free()
+		
+		Global.total_enemy3-=1
+		
+		
+		
+		
+"
+
+[sub_resource type="BoxMesh" id="BoxMesh_7k40p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_armrp"]
+
+[node name="bullets" type="Area2D"]
+top_level = true
+rotation = 0.0012722
+scale = Vector2(-0.196878, 0.36705)
+collision_mask = 10
+script = SubResource("GDScript_tiuci")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+self_modulate = Color(0.47, 0.646667, 1, 1)
+position = Vector2(-0.0519475, 6.58035e-05)
+rotation = 1.57578
+scale = Vector2(5.02957, 18.6302)
+mesh = SubResource("BoxMesh_7k40p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-0.0571423, 7.34329e-05)
+rotation = 1.60443
+scale = Vector2(0.34762, 1.10762)
+shape = SubResource("RectangleShape2D_armrp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://b37ub6qhdydym"]
+
+[ext_resource type="Script" uid="uid://djq35i8t4j15d" path="res://setiings.gd" id="1_lmm3l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmm3l"]
+
+[node name="setiings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lmm3l")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 361.0
+offset_top = 122.0
+offset_right = 804.97
+offset_bottom = 396.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Volume2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Volume
+"
+
+[node name="Volume" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+rounded = true
+allow_lesser = true
+
+[node name="mute" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+keep_pressed_outside = true
+text = "Mute"
+
+[node name="Fps" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+text = "Fps"
+
+[node name="Main" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Main manu"
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="VBoxContainer/Main"]
+position = Vector2(232, 16)
+scale = Vector2(24.6481, 1.04269)
+shape = SubResource("RectangleShape2D_lmm3l")
+
+[connection signal="value_changed" from="VBoxContainer/Volume" to="." method="_on_volume_value_changed"]
+[connection signal="toggled" from="VBoxContainer/mute" to="." method="_on_mute_toggled"]
+[connection signal="toggled" from="VBoxContainer/Fps" to="." method="_on_fps_toggled"]
+[connection signal="pressed" from="VBoxContainer/Main" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Main/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

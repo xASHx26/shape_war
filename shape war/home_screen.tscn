@@ -1,0 +1,211 @@
+[gd_scene load_steps=10 format=3 uid="uid://d3obu1i6pc5uu"]
+
+[ext_resource type="Script" uid="uid://ff2cnk306pg5" path="res://home_screen.gd" id="1_6batb"]
+[ext_resource type="FontFile" uid="uid://cuqfjgcbkfsmf" path="res://Comic_Neue/ComicNeue-LightItalic.ttf" id="1_llsq5"]
+[ext_resource type="Texture2D" uid="uid://cmjcetaho5y8b" path="res://SPRITE/homescreen.png" id="2_fm0op"]
+[ext_resource type="AudioStream" uid="uid://cgw8ip50kf8lk" path="res://audio/mixkit-space-game-668.mp3" id="4_13n3i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5a80l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fm0op"]
+custom_solver_bias = 0.218
+radius = 91.1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xe7vm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gf7oa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vivg1"]
+
+[node name="HomeScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6batb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PinkAndBlackRetroGamingDesktopWallpaper" type="Sprite2D" parent="."]
+position = Vector2(579, 325)
+scale = Vector2(0.192083, 0.193185)
+texture = ExtResource("2_fm0op")
+
+[node name="Start" type="Button" parent="PinkAndBlackRetroGamingDesktopWallpaper"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4134.0
+offset_top = -1625.5
+offset_right = 12439.0
+offset_bottom = 20166.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.0316713, 0.0228034)
+theme_override_colors/font_hover_color = Color(0.593134, 0.593134, 0.593134, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.93845, 0.93845, 0.93845, 1)
+theme_override_fonts/font = ExtResource("1_llsq5")
+theme_override_font_sizes/font_size = 2500
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5a80l")
+
+[node name="Start" type="TouchScreenButton" parent="PinkAndBlackRetroGamingDesktopWallpaper/Start"]
+position = Vector2(8847.21, 11355.1)
+scale = Vector2(131.471, -129.34)
+shape = SubResource("CircleShape2D_fm0op")
+
+[node name="Option" type="Button" parent="PinkAndBlackRetroGamingDesktopWallpaper"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3292.0
+offset_top = -1651.5
+offset_right = 12226.0
+offset_bottom = 17244.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.0395862, 0.0285021)
+theme_override_colors/font_hover_color = Color(0.593134, 0.593134, 0.593134, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.93845, 0.93845, 0.93845, 1)
+theme_override_fonts/font = ExtResource("1_llsq5")
+theme_override_font_sizes/font_size = 2500
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5a80l")
+
+[node name="Option" type="TouchScreenButton" parent="PinkAndBlackRetroGamingDesktopWallpaper/Option"]
+position = Vector2(7902.36, 8907.33)
+scale = Vector2(895.285, 895.285)
+shape = SubResource("CircleShape2D_xe7vm")
+
+[node name="Credits" type="Button" parent="PinkAndBlackRetroGamingDesktopWallpaper"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -798.0
+offset_top = -336.5
+offset_right = 10820.0
+offset_bottom = 5009.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.0389986, 0.028079)
+theme_override_colors/font_hover_color = Color(0.593134, 0.593134, 0.593134, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.93845, 0.93845, 0.93845, 1)
+theme_override_fonts/font = ExtResource("1_llsq5")
+theme_override_font_sizes/font_size = 2500
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5a80l")
+
+[node name="Exit" type="Button" parent="PinkAndBlackRetroGamingDesktopWallpaper"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2339.0
+offset_top = -1620.5
+offset_right = 12727.0
+offset_bottom = 15980.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.0404534, 0.0291264)
+theme_override_colors/font_hover_color = Color(0.593134, 0.593134, 0.593134, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.93845, 0.93845, 0.93845, 1)
+theme_override_fonts/font = ExtResource("1_llsq5")
+theme_override_font_sizes/font_size = 2500
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5a80l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5a80l")
+text = "
+"
+
+[node name="Exit" type="TouchScreenButton" parent="PinkAndBlackRetroGamingDesktopWallpaper/Exit"]
+position = Vector2(4894.61, 8718.41)
+scale = Vector2(954.404, 954.404)
+shape = SubResource("CircleShape2D_gf7oa")
+
+[node name="Label" type="Label" parent="PinkAndBlackRetroGamingDesktopWallpaper"]
+offset_left = 2191.76
+offset_top = -1226.8
+offset_right = 2231.76
+offset_bottom = -1203.8
+scale = Vector2(7.62155, 7.37592)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+visible = false
+stream = ExtResource("4_13n3i")
+autoplay = true
+parameters/looping = false
+
+[node name="Shop" type="Button" parent="."]
+layout_mode = 0
+offset_left = 927.0
+offset_right = 935.0
+offset_bottom = 8.0
+scale = Vector2(15.6241, 11.0475)
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Shop"]
+position = Vector2(3.88553, 4.36185)
+scale = Vector2(0.385222, 0.385222)
+shape = SubResource("CircleShape2D_vivg1")
+
+[connection signal="pressed" from="PinkAndBlackRetroGamingDesktopWallpaper/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="PinkAndBlackRetroGamingDesktopWallpaper/Start/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="PinkAndBlackRetroGamingDesktopWallpaper/Option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="PinkAndBlackRetroGamingDesktopWallpaper/Option/Option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="PinkAndBlackRetroGamingDesktopWallpaper/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="PinkAndBlackRetroGamingDesktopWallpaper/Exit/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Shop" to="." method="_on_shop_pressed"]
+[connection signal="pressed" from="Shop/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
