@@ -1,25 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://v1jm5cperky5"]
+[gd_scene load_steps=5 format=3 uid="uid://v1jm5cperky5"]
 
 [ext_resource type="Script" uid="uid://dvqcjeqqlq3qq" path="res://bullets/rocket_bullets.gd" id="1_khm4p"]
+[ext_resource type="Shader" path="res://bullets/bullet_sketch.gdshader" id="2_shader"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_f623w"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sketch"]
+shader = ExtResource("2_shader")
+shader_parameter/rocket_color = Color(0.9, 0.9, 0.9, 1)
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/fire_core = Color(1, 0.9, 0.2, 1)
+shader_parameter/fire_edge = Color(1, 0.2, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ut3cf"]
 
 [node name="bullets" type="Area2D"]
 top_level = true
-rotation = 1.55158
-scale = Vector2(0.197954, -0.197483)
 collision_mask = 10
 script = ExtResource("1_khm4p")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-self_modulate = Color(0.87, 0, 0.6525, 1)
-scale = Vector2(17.7502, 18.6302)
-mesh = SubResource("SphereMesh_f623w")
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_sketch")
+offset_left = -10.0
+offset_top = -20.0
+offset_right = 10.0
+offset_bottom = 20.0
+rotation = 1.5708
+pivot_offset = Vector2(10, 20)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 scale = Vector2(1.10762, 1.10762)
 shape = SubResource("CircleShape2D_ut3cf")
 

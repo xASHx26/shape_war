@@ -2,11 +2,16 @@
 
 [ext_resource type="Script" uid="uid://cfgofi7revkar" path="res://enemys/enemy_4.gd" id="1_gywmn"]
 
+[ext_resource type="Texture2D" path="res://SPRITE/AI/enemy_blackhole.png" id="2_new"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pgjjd"]
-albedo_color = Color(2.88785e-07, 0.751208, 0.768837, 1)
+albedo_color = Color(1, 0, 1, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_74s6v"]
 material = SubResource("StandardMaterial3D_pgjjd")
+
+[sub_resource type="BoxMesh" id="BoxMesh_cockpit"]
+size = Vector3(8, 15, 8)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_orm0x"]
 
@@ -16,10 +21,10 @@ collision_layer = 64
 collision_mask = 8203
 script = ExtResource("1_gywmn")
 
-[node name="first" type="MeshInstance2D" parent="."]
+[node name="first" type="Sprite2D" parent="."]
 position = Vector2(-1.39382, -0.342121)
-scale = Vector2(-91.3158, -91.3158)
-mesh = SubResource("SphereMesh_74s6v")
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("2_new")
 
 [node name="first_C" type="CollisionShape2D" parent="."]
 position = Vector2(-1.39382, -0.342121)
@@ -27,10 +32,10 @@ scale = Vector2(4.56, 4.56)
 shape = SubResource("CircleShape2D_orm0x")
 debug_color = Color(0.928008, 0.257225, 0.197489, 0.42)
 
-[node name="2nd" type="MeshInstance2D" parent="."]
+[node name="2nd" type="Sprite2D" parent="."]
 position = Vector2(-1.39382, 98.3158)
-scale = Vector2(-91.3158, -91.3158)
-mesh = SubResource("SphereMesh_74s6v")
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("2_new")
 
 [node name="2nd_C" type="CollisionShape2D" parent="."]
 position = Vector2(0, 98.6579)
@@ -38,10 +43,10 @@ scale = Vector2(4.56, 4.56)
 shape = SubResource("CircleShape2D_orm0x")
 debug_color = Color(0.928008, 0.257225, 0.197489, 0.42)
 
-[node name="3rd" type="MeshInstance2D" parent="."]
+[node name="3rd" type="Sprite2D" parent="."]
 position = Vector2(0, 196.658)
-scale = Vector2(-91.3158, -91.3158)
-mesh = SubResource("SphereMesh_74s6v")
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("2_new")
 
 [node name="3rd_c" type="CollisionShape2D" parent="."]
 position = Vector2(0, 196.658)
@@ -49,10 +54,10 @@ scale = Vector2(4.56, 4.56)
 shape = SubResource("CircleShape2D_orm0x")
 debug_color = Color(0.928008, 0.257225, 0.197489, 0.42)
 
-[node name="4th" type="MeshInstance2D" parent="."]
+[node name="4th" type="Sprite2D" parent="."]
 position = Vector2(0, 296.658)
-scale = Vector2(-91.3158, -91.3158)
-mesh = SubResource("SphereMesh_74s6v")
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("2_new")
 
 [node name="4th_c" type="CollisionShape2D" parent="."]
 position = Vector2(0, 296.658)

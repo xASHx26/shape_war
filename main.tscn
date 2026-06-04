@@ -1,9 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://c4j3s4jlwulqs"]
+[gd_scene format=3 uid="uid://c4j3s4jlwulqs"]
 
 [ext_resource type="Script" uid="uid://b1hyrs0ymdk2e" path="res://main.gd" id="1_llltd"]
-[ext_resource type="PackedScene" uid="uid://q6hymwm3w6av" path="res://spaceships/spaceship1.tscn" id="2_xs7jt"]
 [ext_resource type="Script" uid="uid://b2d1gn7bk7t5t" path="res://control.gd" id="3_kybmt"]
-[ext_resource type="PackedScene" uid="uid://dcs6k718u2gym" path="res://spaceships/spaceship2.tscn" id="3_q4vk3"]
+[ext_resource type="PackedScene" uid="uid://dcs6k718u2gym" path="res://spaceships/spaceship_single_heavy.tscn" id="3_q4vk3"]
+[ext_resource type="PackedScene" uid="uid://cvdhc886iqgv8" path="res://spaceships/spaceship_v_double.tscn" id="4_dg77c"]
 [ext_resource type="PackedScene" uid="uid://b2i47oqby6foq" path="res://walls.tscn" id="5_aljtq"]
 [ext_resource type="PackedScene" uid="uid://cjdwac0mv6exv" path="res://audiovis.tscn" id="6_dr5t2"]
 [ext_resource type="PackedScene" uid="uid://c4q8pur2gk84e" path="res://touchcontrol.tscn" id="6_sxmq2"]
@@ -55,81 +55,80 @@ _data = {
 &"warning": SubResource("Animation_ou57l")
 }
 
-[node name="main" type="Node2D"]
+[node name="main" type="Node2D" unique_id=130357890]
 script = ExtResource("1_llltd")
-player = Array[PackedScene]([ExtResource("3_q4vk3"), ExtResource("2_xs7jt"), null, null])
+player = Array[PackedScene]([ExtResource("4_dg77c"), ExtResource("3_q4vk3")])
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=827093415]
 position = Vector2(575, 323)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1768946531]
 offset = Vector2(10, 0)
 transform = Transform2D(1, 0, 0, 1, 10, 0)
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1755506392]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_kybmt")
 
-[node name="Label" type="Label" parent="CanvasLayer/Control"]
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=762713499]
 layout_mode = 0
 offset_left = 47.0
 offset_top = 184.0
 offset_right = 87.0
 offset_bottom = 207.0
 
-[node name="Top Score" type="Label" parent="CanvasLayer/Control"]
+[node name="Top Score" type="Label" parent="CanvasLayer/Control" unique_id=1893096337]
 layout_mode = 0
 offset_left = 1003.0
 offset_top = 48.0
 offset_right = 1043.0
 offset_bottom = 71.0
 
-[node name="Label2" type="Label" parent="CanvasLayer/Control"]
+[node name="Label2" type="Label" parent="CanvasLayer/Control" unique_id=2080759821]
 layout_mode = 0
 offset_left = 944.0
 offset_top = 92.0
 offset_right = 984.0
 offset_bottom = 115.0
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="Path2D" type="Path2D" parent="." unique_id=1383652588]
 position = Vector2(-2, -31)
 curve = SubResource("Curve2D_x6b6c")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1639755933]
 unique_name_in_owner = true
 position = Vector2(-126, -129)
-rotation = -2.90605
+rotation = -2.9060476
 progress = 4685.31
 
-[node name="enemy1_timer" type="Timer" parent="."]
+[node name="enemy1_timer" type="Timer" parent="." unique_id=190726441]
 wait_time = 4.0
 autostart = true
 
-[node name="enemy2_timer" type="Timer" parent="."]
+[node name="enemy2_timer" type="Timer" parent="." unique_id=88271486]
 wait_time = 5.0
 autostart = true
 
-[node name="walls" parent="." instance=ExtResource("5_aljtq")]
+[node name="walls" parent="." unique_id=264172096 instance=ExtResource("5_aljtq")]
 
-[node name="spaceship_spwaner" type="Marker2D" parent="."]
+[node name="spaceship_spwaner" type="Marker2D" parent="." unique_id=609646299]
 position = Vector2(575, 320)
 rotation = 3.14462
 
-[node name="3rdenemy" type="Timer" parent="."]
-wait_time = 70.0
+[node name="3rdenemy" type="Timer" parent="." unique_id=1513461395]
 autostart = true
 
-[node name="enemy4_timer" type="Timer" parent="."]
+[node name="enemy4_timer" type="Timer" parent="." unique_id=1812106649]
 wait_time = 30.0
 autostart = true
 
-[node name="enemy4_marker" type="Marker2D" parent="."]
+[node name="enemy4_marker" type="Marker2D" parent="." unique_id=811135920]
 position = Vector2(1236, 219)
 
-[node name="audiovis" parent="." instance=ExtResource("6_dr5t2")]
+[node name="audiovis" parent="." unique_id=709372290 instance=ExtResource("6_dr5t2")]
 modulate = Color(1, 1, 1, 0.6)
 z_index = -1
 offset_left = 578.0
@@ -137,20 +136,20 @@ offset_top = 319.0
 offset_right = 578.0
 offset_bottom = 319.0
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1503848081]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="touchcontrol" parent="Control" instance=ExtResource("6_sxmq2")]
+[node name="touchcontrol" parent="Control" unique_id=528938983 instance=ExtResource("6_sxmq2")]
 
-[node name="RetroSmokeAndRoundLightDesktopWallpapers(1)" type="Sprite2D" parent="."]
+[node name="RetroSmokeAndRoundLightDesktopWallpapers(1)" type="Sprite2D" parent="." unique_id=1617861990]
 z_index = -2
 position = Vector2(535, 427)
 scale = Vector2(0.29946, 0.416317)
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=2083739303]
 offset_left = 20.0
 offset_top = 8.0
 offset_right = 520.0
@@ -160,21 +159,19 @@ fill_mode = 4
 texture_under = ExtResource("8_36xlw")
 texture_progress = ExtResource("9_5r25o")
 
-[node name="Score" type="Sprite2D" parent="."]
+[node name="Score" type="Sprite2D" parent="." unique_id=1698154839]
 position = Vector2(769, 349)
 scale = Vector2(0.48391, 0.436319)
 texture = ExtResource("10_j3ney")
 
-[node name="warning" type="Sprite2D" parent="."]
+[node name="warning" type="Sprite2D" parent="." unique_id=731660039]
 visible = false
 position = Vector2(1097, 200)
 scale = Vector2(0.452229, 0.452229)
 texture = ExtResource("11_q2mai")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_vespo")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1636262857]
+libraries/ = SubResource("AnimationLibrary_vespo")
 
 [connection signal="timeout" from="enemy1_timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="enemy2_timer" to="." method="_on_enemy_2_timer_timeout"]

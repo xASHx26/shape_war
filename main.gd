@@ -168,8 +168,6 @@ func _on_enemy_2_timer_timeout() -> void:
 	
 
 func _on_rdenemy_timeout() -> void:
-
-	spawn3_called=false
 	spawn3()
 
 

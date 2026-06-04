@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://q6hymwm3w6av"]
+
+[ext_resource type="Script" uid="uid://dg7e7c5notpew" path="res://spaceships/rocket.gd" id="1_27w0o"]
+[ext_resource type="PackedScene" uid="uid://cc2gxj5ppg2b3" path="res://bullets/double_bullets.tscn" id="2_sjx00"]
+[ext_resource type="Texture2D" uid="uid://buqq2xuplf5oi" path="res://SPRITE/AI/spaceship_double.png" id="3_new"]
+[ext_resource type="Shader" path="res://bullets/bullet_sketch.gdshader" id="4_shader"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gjd46"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0b30h"]
+height = 37.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_kk6xf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wx2jn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aexfy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_thruster"]
+shader = ExtResource("4_shader")
+shader_parameter/rocket_color = Color(0, 0, 0, 0)
+shader_parameter/outline_color = Color(0, 0, 0, 0)
+shader_parameter/fire_core = Color(1, 0.9, 0.2, 1)
+shader_parameter/fire_edge = Color(1, 0.4, 0, 1)
+
+[node name="spaceship" type="Node2D" unique_id=811930852]
+
+[node name="rocket" type="CharacterBody2D" parent="." unique_id=1688964343 groups=["spaceship"]]
+collision_mask = 29
+script = ExtResource("1_27w0o")
+bullet = ExtResource("2_sjx00")
+
+[node name="EngineThrusterLeft" type="ColorRect" parent="rocket"]
+z_index = -1
+material = SubResource("ShaderMaterial_thruster")
+offset_left = -16.0
+offset_top = 18.0
+offset_right = 4.0
+offset_bottom = 68.0
+
+[node name="EngineThrusterRight" type="ColorRect" parent="rocket"]
+z_index = -1
+material = SubResource("ShaderMaterial_thruster")
+offset_left = -4.0
+offset_top = 18.0
+offset_right = 16.0
+offset_bottom = 68.0
+
+[node name="Sprite2D" type="Sprite2D" parent="rocket" unique_id=381871562]
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("3_new")
+
+[node name="body" type="MeshInstance2D" parent="rocket" unique_id=205188844]
+visible = false
+self_modulate = Color(0.1, 1, 1, 1)
+scale = Vector2(27.64, 27.64)
+mesh = SubResource("CapsuleMesh_gjd46")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rocket" unique_id=1833850844]
+scale = Vector2(1.44, 1.44)
+shape = SubResource("CapsuleShape2D_0b30h")
+
+[node name="gun" type="MeshInstance2D" parent="rocket" unique_id=1131667679]
+visible = false
+self_modulate = Color(1, 0, 1, 1)
+z_index = -1
+position = Vector2(-5, -30)
+scale = Vector2(9.02685, 17)
+mesh = SubResource("BoxMesh_kk6xf")
+
+[node name="shotting_point" type="Marker2D" parent="rocket/gun" unique_id=481880786]
+unique_name_in_owner = true
+position = Vector2(0, -0.411765)
+rotation = 10.9936
+scale = Vector2(1, 0.527054)
+
+[node name="gun2" type="MeshInstance2D" parent="rocket" unique_id=1106527340]
+visible = false
+self_modulate = Color(1, 0, 1, 1)
+z_index = -1
+position = Vector2(6, -30)
+scale = Vector2(9.02685, 17)
+mesh = SubResource("BoxMesh_kk6xf")
+
+[node name="shotting_point2" type="Marker2D" parent="rocket/gun2" unique_id=801014222]
+unique_name_in_owner = true
+position = Vector2(0, -0.411765)
+rotation = 10.9973
+scale = Vector2(1, 0.527054)
+
+[node name="RayCast2D" type="RayCast2D" parent="rocket" unique_id=1249479891]
+position = Vector2(0, -26)
+rotation = -3.12993
+scale = Vector2(-0.471355, 2.4347)
+target_position = Vector2(0, 200)
+collision_mask = 10
+
+[node name="RayCast2D2" type="RayCast2D" parent="rocket" unique_id=1204508778]
+position = Vector2(0, -26)
+rotation = -3.02626
+scale = Vector2(-0.471355, 2.4347)
+target_position = Vector2(0, 200)
+collision_mask = 10
+
+[node name="RayCast2D3" type="RayCast2D" parent="rocket" unique_id=2015338874]
+position = Vector2(-8.19564e-08, -26)
+rotation = -3.23849
+scale = Vector2(-0.471355, 2.4347)
+target_position = Vector2(0, 200)
+collision_mask = 10
+
+[node name="Area2D" type="Area2D" parent="rocket" unique_id=548086079]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rocket/Area2D" unique_id=2145414978]
+scale = Vector2(23.9013, 23.9013)
+shape = SubResource("CircleShape2D_wx2jn")
+
+[node name="Area2D2" type="Area2D" parent="rocket" unique_id=614055148 groups=["spaceship"]]
+scale = Vector2(0.171493, 0.247938)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rocket/Area2D2" unique_id=1264734519]
+scale = Vector2(13.3252, 13.3252)
+shape = SubResource("CircleShape2D_aexfy")
+
+[node name="rotation" type="Marker2D" parent="rocket" unique_id=98362032]
+position = Vector2(0, 25)
+
+[node name="Timer" type="Timer" parent="." unique_id=657203609]
+wait_time = 0.7
+autostart = true
+
+[connection signal="body_entered" from="rocket/Area2D" to="rocket" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="rocket/Area2D2" to="rocket" method="_on_area_2d_2_body_entered"]
+[connection signal="timeout" from="Timer" to="rocket" method="_on_timer_timeout"]

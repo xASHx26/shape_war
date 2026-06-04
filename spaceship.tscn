@@ -1,85 +1,74 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvdhc886iqgv8"]
+[gd_scene format=3 uid="uid://dkqovdny8n1ow"]
 
 [ext_resource type="Script" uid="uid://bdygu2k8aydhh" path="res://character_body_2d.gd" id="1_36jsh"]
 [ext_resource type="PackedScene" uid="uid://v1jm5cperky5" path="res://bullets/rocket_bullets.tscn" id="2_l278s"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_gjd46"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0b30h"]
-height = 37.5
-
-[sub_resource type="BoxMesh" id="BoxMesh_kk6xf"]
+[ext_resource type="Texture2D" uid="uid://ccg0b01nml7t6" path="res://SPRITE/AI/spaceship_double_v_shape.png" id="3_new"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wx2jn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aexfy"]
 
-[node name="spaceship" type="Node2D"]
+[node name="spaceship2" type="Node2D" unique_id=2008791092]
 
-[node name="rocket" type="CharacterBody2D" parent="." groups=["spaceship"]]
+[node name="rocket" type="CharacterBody2D" parent="." unique_id=1845669764 groups=["spaceship"]]
 collision_mask = 29
 script = ExtResource("1_36jsh")
 bullet = ExtResource("2_l278s")
 
-[node name="body" type="MeshInstance2D" parent="rocket"]
-scale = Vector2(27.64, 27.64)
-mesh = SubResource("CapsuleMesh_gjd46")
+[node name="Sprite2D" type="Sprite2D" parent="rocket" unique_id=619255762]
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("3_new")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="rocket"]
-scale = Vector2(1.44, 1.44)
-shape = SubResource("CapsuleShape2D_0b30h")
-
-[node name="gun" type="MeshInstance2D" parent="rocket"]
-position = Vector2(0, -30)
-scale = Vector2(17, 17)
-mesh = SubResource("BoxMesh_kk6xf")
-
-[node name="shotting_point" type="Marker2D" parent="rocket/gun"]
+[node name="shotting_point" type="Marker2D" parent="rocket" unique_id=1345054105]
 unique_name_in_owner = true
-position = Vector2(0, -0.411765)
-rotation = 4.71861
-scale = Vector2(1, 0.527054)
+position = Vector2(-12, -25)
+rotation = -1.5708
 
-[node name="RayCast2D" type="RayCast2D" parent="rocket"]
+[node name="shotting_point2" type="Marker2D" parent="rocket" unique_id=1173895373]
+unique_name_in_owner = true
+position = Vector2(12, -25)
+rotation = -1.5708
+
+[node name="RayCast2D" type="RayCast2D" parent="rocket" unique_id=1515259300]
 position = Vector2(0, -26)
 rotation = -3.12993
 scale = Vector2(-0.471355, 2.4347)
 target_position = Vector2(0, 200)
 collision_mask = 10
 
-[node name="RayCast2D2" type="RayCast2D" parent="rocket"]
+[node name="RayCast2D2" type="RayCast2D" parent="rocket" unique_id=899639576]
 position = Vector2(0, -26)
 rotation = -3.02626
 scale = Vector2(-0.471355, 2.4347)
 target_position = Vector2(0, 200)
 collision_mask = 10
 
-[node name="RayCast2D3" type="RayCast2D" parent="rocket"]
+[node name="RayCast2D3" type="RayCast2D" parent="rocket" unique_id=1338374764]
 position = Vector2(-8.19564e-08, -26)
 rotation = -3.23849
 scale = Vector2(-0.471355, 2.4347)
 target_position = Vector2(0, 200)
 collision_mask = 10
 
-[node name="Area2D" type="Area2D" parent="rocket"]
+[node name="Area2D" type="Area2D" parent="rocket" unique_id=1554065805]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="rocket/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rocket/Area2D" unique_id=899835403]
 scale = Vector2(23.9013, 23.9013)
 shape = SubResource("CircleShape2D_wx2jn")
 
-[node name="Area2D2" type="Area2D" parent="rocket" groups=["spaceship"]]
+[node name="Area2D2" type="Area2D" parent="rocket" unique_id=159218708 groups=["spaceship"]]
 scale = Vector2(0.171493, 0.247938)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="rocket/Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rocket/Area2D2" unique_id=1792354970]
 scale = Vector2(13.3252, 13.3252)
 shape = SubResource("CircleShape2D_aexfy")
 
-[node name="rotation" type="Marker2D" parent="rocket"]
+[node name="rotation" type="Marker2D" parent="rocket" unique_id=10701727]
 position = Vector2(0, 25)
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=381151464]
 wait_time = 0.7
 autostart = true
 

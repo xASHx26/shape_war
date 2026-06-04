@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 		
 		# Check if mouse movement is significant
 		if mouse_velocity.length() > dead_zone_threshold:
-			target_angle = (mouse_velocity - global_position).angle()
+			target_angle = mouse_velocity.angle()
 	else:
 		# If mouse is visible, use its global position to rotate
 		pass
@@ -73,25 +73,28 @@ func rslook():
 
 		
 func shoot()->void:
-	
 	var new_bullet=bullet.instantiate()
 	new_bullet.global_position=%shotting_point.global_position
 	new_bullet.global_rotation=%shotting_point.global_rotation
-	
-		
 	%shotting_point.add_child(new_bullet)
-		
+
+func shoot2()->void:
+	var new_bullet=bullet.instantiate()
+	new_bullet.global_position=%shotting_point2.global_position
+	new_bullet.global_rotation=%shotting_point2.global_rotation
+	%shotting_point2.add_child(new_bullet)
 
 
 func _on_timer_timeout() -> void:
-	
 	if ray_cast_2d.is_colliding() :
-		
 		shoot()
+		shoot2()
 	elif  ray_cast_2d_2.is_colliding() :
 		shoot()
+		shoot2()
 	elif  ray_cast_2d_3.is_colliding() :
 		shoot()
+		shoot2()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

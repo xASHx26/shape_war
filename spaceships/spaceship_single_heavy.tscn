@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://dcs6k718u2gym"]
+
+[ext_resource type="Script" uid="uid://cjfs5tqqd61q2" path="res://spaceships/roocket0.gd" id="1_38d05"]
+[ext_resource type="PackedScene" uid="uid://v1jm5cperky5" path="res://bullets/rocket_bullets.tscn" id="2_r6ac6"]
+[ext_resource type="Texture2D" uid="uid://cfh4tn0k8tpol" path="res://SPRITE/AI/spaceship_fighter.png" id="3_jjy8e"]
+[ext_resource type="Shader" path="res://bullets/bullet_sketch.gdshader" id="4_shader"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0b30h"]
+height = 37.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wx2jn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aexfy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_thruster"]
+shader = ExtResource("4_shader")
+shader_parameter/rocket_color = Color(0, 0, 0, 0)
+shader_parameter/outline_color = Color(0, 0, 0, 0)
+shader_parameter/fire_core = Color(0.4, 0.9, 1, 1)
+shader_parameter/fire_edge = Color(0, 0.2, 1, 1)
+
+[node name="spaceship" type="Node2D" unique_id=1900164737]
+
+[node name="rocket" type="CharacterBody2D" parent="." unique_id=1307008601 groups=["spaceship"]]
+collision_mask = 29
+script = ExtResource("1_38d05")
+bullet = ExtResource("2_r6ac6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rocket" unique_id=1457040206]
+scale = Vector2(1.44, 1.44)
+shape = SubResource("CapsuleShape2D_0b30h")
+
+[node name="RayCast2D" type="RayCast2D" parent="rocket" unique_id=1577251368]
+position = Vector2(0, -26)
+rotation = -3.12993
+scale = Vector2(-0.471355, 2.4347)
+target_position = Vector2(0, 200)
+collision_mask = 10
+
+[node name="RayCast2D2" type="RayCast2D" parent="rocket" unique_id=184892833]
+position = Vector2(0, -26)
+rotation = -3.02626
+scale = Vector2(-0.471355, 2.4347)
+target_position = Vector2(0, 200)
+collision_mask = 10
+
+[node name="RayCast2D3" type="RayCast2D" parent="rocket" unique_id=1205786184]
+position = Vector2(-8.19564e-08, -26)
+rotation = -3.23849
+scale = Vector2(-0.471355, 2.4347)
+target_position = Vector2(0, 200)
+collision_mask = 10
+
+[node name="Area2D" type="Area2D" parent="rocket" unique_id=404724920]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rocket/Area2D" unique_id=474263384]
+scale = Vector2(23.9013, 23.9013)
+shape = SubResource("CircleShape2D_wx2jn")
+
+[node name="Area2D2" type="Area2D" parent="rocket" unique_id=24730559 groups=["spaceship"]]
+scale = Vector2(0.171493, 0.247938)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rocket/Area2D2" unique_id=285693019]
+scale = Vector2(13.3252, 13.3252)
+shape = SubResource("CircleShape2D_aexfy")
+
+[node name="rotation" type="Marker2D" parent="rocket" unique_id=501429311]
+position = Vector2(0, 25)
+
+[node name="EngineThrusterLeft" type="ColorRect" parent="rocket" unique_id=1579343763]
+z_index = -1
+material = SubResource("ShaderMaterial_thruster")
+offset_left = -21.0
+offset_top = 20.0
+offset_right = -1.0
+offset_bottom = 70.0
+
+[node name="EngineThrusterRight" type="ColorRect" parent="rocket" unique_id=534723924]
+z_index = -1
+material = SubResource("ShaderMaterial_thruster")
+offset_left = 1.0
+offset_top = 20.0
+offset_right = 21.0
+offset_bottom = 70.0
+
+[node name="Sprite2D" type="Sprite2D" parent="rocket" unique_id=1330170265]
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("3_jjy8e")
+
+[node name="shotting_point" type="Marker2D" parent="rocket" unique_id=496505816]
+unique_name_in_owner = true
+position = Vector2(-28, -5)
+rotation = -1.5708
+
+[node name="shotting_point2" type="Marker2D" parent="rocket" unique_id=748392184]
+unique_name_in_owner = true
+position = Vector2(28, -5)
+rotation = -1.5708
+
+[node name="Timer" type="Timer" parent="." unique_id=1125424877]
+wait_time = 0.7
+autostart = true
+
+[connection signal="body_entered" from="rocket/Area2D" to="rocket" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="rocket/Area2D2" to="rocket" method="_on_area_2d_2_body_entered"]
+[connection signal="timeout" from="Timer" to="rocket" method="_on_timer_timeout"]

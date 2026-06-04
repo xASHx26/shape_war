@@ -4,6 +4,8 @@ extends Path2D
 
 @export var speed = 0.01
 @export var enemy: PackedScene
+var current_enemy: Node2D = null
+@onready var timer: Timer = $Timer
 
 func _ready() -> void:
 	# Spawn the enemy and make it follow the path
@@ -17,8 +19,6 @@ func _process(delta: float) -> void:
 	# Wrap the progress_ratio if it exceeds 1 (for continuous looping)
 	if path_follow_2d.progress_ratio >= 1:
 		path_follow_2d.progress_ratio = 0.2155
-	if enemy.is_queued_for_deletion():
-		path_follow_2d.progress_ratio=0
 func spawn() -> void:
 	var new_enemy = enemy.instantiate()
 	
@@ -27,6 +27,15 @@ func spawn() -> void:
 	
 	# Set enemy position to start at the beginning of the path
 	new_enemy.position = Vector2.ZERO
+	current_enemy = new_enemy
+	
+	# Listen for when the enemy is destroyed
+	new_enemy.tree_exited.connect(_on_enemy_died)
+
+func _on_enemy_died() -> void:
+	path_follow_2d.progress_ratio = 0
+	current_enemy = null
+	timer.start()
 
 
 

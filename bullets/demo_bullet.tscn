@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ddygu2k8axxy0"]
+
+[ext_resource type="Shader" uid="uid://dehtol1tgonr3" path="res://bullets/bullet_sketch.gdshader" id="1_shader"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_demo"]
+shader = ExtResource("1_shader")
+shader_parameter/rocket_color = Color(0.9, 0.9, 0.9, 1)
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/fire_core = Color(1, 0.9, 0.2, 1)
+shader_parameter/fire_edge = Color(1, 0.2, 0, 1)
+
+[node name="DemoBullet" type="Node2D" unique_id=1400605343]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=519338665]
+material = SubResource("ShaderMaterial_demo")
+offset_left = 476.0
+offset_top = 361.0
+offset_right = 527.0
+offset_bottom = 524.0

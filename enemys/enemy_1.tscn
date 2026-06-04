@@ -2,7 +2,15 @@
 
 [ext_resource type="Script" uid="uid://tjuu6kffdmhn" path="res://enemys/enemy_1.gd" id="1_wtnpe"]
 [ext_resource type="Texture2D" uid="uid://buk5kqtkgnyjl" path="res://SPRITE/PLAYER/BOMB.png" id="2_l0bfh"]
+[ext_resource type="Texture2D" path="res://SPRITE/AI/enemy_meteor.png" id="2_new"]
 [ext_resource type="PackedScene" uid="uid://tg55eqghou71" path="res://Partickle/Enemy1DistroyParticle.tscn" id="2_vn48i"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_enemy1"]
+radius = 45.0
+height = 90.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_cockpit"]
+size = Vector3(8, 15, 8)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uitw5"]
 
@@ -51,6 +59,11 @@ collision_mask = 3
 script = ExtResource("1_wtnpe")
 deathPrticle = ExtResource("2_vn48i")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 24)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("2_new")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 24)
 scale = Vector2(2.36, 2.36)
@@ -67,6 +80,7 @@ shape = SubResource("CircleShape2D_vb2cf")
 position = Vector2(-0.327695, 51.999)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(-1.29603, 46.9928)
 scale = Vector2(0.271096, 0.271096)
 sprite_frames = SubResource("SpriteFrames_hsxec")

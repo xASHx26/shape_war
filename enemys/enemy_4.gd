@@ -1,12 +1,12 @@
 extends Area2D
 
-@onready var first: MeshInstance2D = $first
+@onready var first: Sprite2D = $first
 @onready var first_c: CollisionShape2D = $first_C
-@onready var _2_nd: MeshInstance2D = $'2nd'
+@onready var _2_nd: Sprite2D = $'2nd'
 @onready var _2_nd_c: CollisionShape2D = $'2nd_C'
-@onready var _3_rd: MeshInstance2D = $'3rd'
+@onready var _3_rd: Sprite2D = $'3rd'
 @onready var _3_rd_c: CollisionShape2D = $'3rd_c'
-@onready var _4_th: MeshInstance2D = $'4th'
+@onready var _4_th: Sprite2D = $'4th'
 @onready var _4_th_c: CollisionShape2D = $'4th_c'
 @export var speed := 500
 

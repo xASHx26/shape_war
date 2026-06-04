@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://q6utj88rwcgn"]
+
+[ext_resource type="PackedScene" uid="uid://cvdhc886iqgv8" path="res://spaceships/spaceship_v_double.tscn" id="1"]
+[ext_resource type="Script" uid="uid://cva36htks4uh2" path="res://test_enemy/test_scene_init.gd" id="1_init"]
+[ext_resource type="PackedScene" uid="uid://dpbtndpi20kw2" path="res://enemys/enemy_4.tscn" id="2"]
+
+[node name="main" type="Node2D" unique_id=313423253]
+script = ExtResource("1_init")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=977465024]
+position = Vector2(575, 323)
+
+[node name="spaceship" parent="." unique_id=957980886 instance=ExtResource("1")]
+position = Vector2(575, 500)
+
+[node name="ENEMY4" parent="." unique_id=278778216 instance=ExtResource("2")]
+position = Vector2(575, 100)

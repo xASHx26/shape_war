@@ -1,6 +1,7 @@
 extends Area2D
 var  traved_dis=0
 @export var speed=4000
+@export var damage: int = 1
 
 func _process(delta: float) -> void:
 	if Global.curr_health<=0:
@@ -16,18 +17,6 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemy1"):
-		Global.count += 5
-		
-		body.queue_free()
-		
+	if body.has_method("take_damage"):
+		body.take_damage(damage)
 		queue_free()
-	
-	if body.is_in_group("enemy2"):
-		Global.count += 3
-		
-		body.queue_free()
-		
-		queue_free()
-	
-	

@@ -85,6 +85,12 @@ func _process(delta):
 		tween.tween_property(topLeftRect, "size", Vector2(topLeftRect.size.x, height), 0.05)
  
 		tween.tween_property(bottomLeftRect, "size", Vector2(bottomLeftRect.size.x, height), 0.05)
+		
+		var rainbow_color = Color.from_hsv(float(i - 1) / VU_COUNT, 1.0, 1.0)
+		topRightRect.color = rainbow_color
+		bottomRightRect.color = rainbow_color
+		topLeftRect.color = rainbow_color
+		bottomLeftRect.color = rainbow_color
 		var music_choice = SaveGame.data.get("Music")
 
 		var stream: Resource = null

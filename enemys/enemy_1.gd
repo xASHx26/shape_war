@@ -8,7 +8,7 @@ extends CharacterBody2D
 @export var deathPrticle:PackedScene
 @onready var player = get_node("/root/main/spaceship/rocket/rotation")
 @onready var marker_2d: Marker2D = $Marker2D
-var health:=1
+@export var health: int = 1
 func  _process(delta: float) -> void:
 	if Global.curr_health<=0:
 		animated_sprite_2d.stop()
@@ -31,6 +31,9 @@ func _physics_process(delta: float) -> void:
 		velocity = direction * speed*delta	
 		move_and_slide()
 	
+func take_damage(amount: int) -> void:
+	health -= amount
+
 func kill():
 	if health<=0:
 		Global.count += 1

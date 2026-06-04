@@ -21,19 +21,19 @@ lifetime_randomness = 0.5
 particle_flag_disable_z = true
 spread = 180.0
 flatness = 1.0
-initial_velocity_max = 500.0
+initial_velocity_max = 800.0
 gravity = Vector3(0, 0, 0)
-scale_min = 5.0
-scale_max = 13.0
+scale_min = 2.0
+scale_max = 5.0
 scale_curve = SubResource("CurveTexture_x1huv")
 color_ramp = SubResource("GradientTexture1D_te4ey")
 anim_speed_min = 5.2
 anim_speed_max = 5.43
 
 [node name="GPUParticles2D" type="GPUParticles2D"]
-modulate = Color(0.07, 0.07, 0.07, 1)
+modulate = Color(1, 0, 0.1, 1)
 emitting = false
-amount = 50
+amount = 100
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0

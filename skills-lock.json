@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "skills": {
+    "godot-2d-animation": {
+      "source": "thedivergentai/gd-agentic-skills",
+      "sourceType": "github",
+      "skillPath": "skills/godot-2d-animation/SKILL.md",
+      "computedHash": "30a27129bdc3afcf7561172fdd38743f572af15ae121feaf11e26a5c15590e68"
+    },
+    "godot-gdscript-patterns": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/game-development/skills/godot-gdscript-patterns/SKILL.md",
+      "computedHash": "1bc6b34a15aebcb4f64b81d90d2105dee4adda9a93e4d13cd4c905a15f3abad3"
+    },
+    "godot-optimization": {
+      "source": "zate/cc-godot",
+      "sourceType": "github",
+      "skillPath": "plugins/gd/skills/godot-optimization/SKILL.md",
+      "computedHash": "d56e83fae6b3778d9ac20d49e16191ba2d85a7e3b5dae453e5d9654096d0e4da"
+    },
+    "godot-shaders-basics": {
+      "source": "thedivergentai/gd-agentic-skills",
+      "sourceType": "github",
+      "skillPath": "skills/godot-shaders-basics/SKILL.md",
+      "computedHash": "1d6099157cf5f0a5ac457f330c63c07ba6a6e959a0870c61cb23e4066efd3fb5"
+    },
+    "godot-ui": {
+      "source": "zate/cc-godot",
+      "sourceType": "github",
+      "skillPath": "plugins/gd/skills/godot-ui/SKILL.md",
+      "computedHash": "0ed46667be618a59b0f0072f2a6ed98cbe439c71eb300156ad4158b11a5b2c2d"
+    },
+    "godot-ui-theming": {
+      "source": "thedivergentai/gd-agentic-skills",
+      "sourceType": "github",
+      "skillPath": "skills/godot-ui-theming/SKILL.md",
+      "computedHash": "9f7d4285113958279336045d7653fe62156fd1580b322eedaa5bc4f529734e21"
+    }
+  }
+}

@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_8wr7c"]
 
 [node name="bullets" type="Area2D"]
-top_level = true
+top_level = false
 scale = Vector2(0.263885, 0.792676)
 collision_mask = 3
 script = ExtResource("1_v3lde")
@@ -25,3 +25,4 @@ scale = Vector2(0.4708, 0.579251)
 shape = SubResource("CircleShape2D_8wr7c")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

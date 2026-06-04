@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 		
 		# Check if mouse movement is significant
 		if mouse_velocity.length() > dead_zone_threshold:
-			target_angle = (mouse_velocity - global_position).angle()
+			target_angle = mouse_velocity.angle()
 	else:
 		# If mouse is visible, use its global position to rotate
 		pass

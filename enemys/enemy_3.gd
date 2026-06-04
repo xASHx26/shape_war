@@ -1,36 +1,16 @@
 extends CharacterBody2D
 @onready var player=get_node("/root/main/spaceship/rocket")
 @export var speed=4000
-@onready var ray_cast_2d: RayCast2D = $RayCast2D
-@onready var ray_cast_2d_2: RayCast2D = $RayCast2D2
-@onready var ray_cast_2d_3: RayCast2D = $RayCast2D3
-@onready var left_side: RayCast2D = $left_side
-@onready var right_side: RayCast2D = $right_side
-@onready var left_side_2: RayCast2D = $left_side2
-@onready var left_side_3: RayCast2D = $left_side3
-@onready var right_side_2: RayCast2D = $right_side2
-@onready var right_side_3: RayCast2D = $right_side3
 @export var deathPrticle:PackedScene
-@onready var ray_cast_2d_4: RayCast2D = $RayCast2D4
-@onready var ray_cast_2d_5: RayCast2D = $RayCast2D5
-@onready var ray_cast_2d_6: RayCast2D = $RayCast2D6
-@onready var right_point_enemy_2: Marker2D = %right_point_enemy2
-@onready var left_point_enemy_3: Marker2D = %left_point_enemy3
-@onready var up_point_enemy_4: Marker2D = %up_point_enemy4
-@onready var left_2d: Marker2D = $left_2D
-@onready var right_2d: Marker2D = $right_2D
-@onready var up_canon: MeshInstance2D = $up_canon
-@onready var down_canon: MeshInstance2D = $down_canon
-@onready var right_canon: MeshInstance2D = $right_canon
-@onready var left_canon: MeshInstance2D = $left_canon
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var turret: Node2D = $Turret
 
 @export var rotation_speed = 10.0 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var follow:=false
 
-var health:=1		
+@export var health: int = 3		
 func _ready() -> void:
 	pass
 func _process(delta: float) -> void:
@@ -39,12 +19,13 @@ func _process(delta: float) -> void:
 		set_process(false) 
 	kill()
 func _physics_process(delta: float) -> void:
-	if Global.curr_health>0 and follow==false:
-		
-		
-		pass
-		
+	if Global.curr_health>0 and follow==false and player:
+		if turret:
+			turret.look_at(player.global_position)
 	
+func take_damage(amount: int) -> void:
+	health -= amount
+
 func kill():
 	if health<=0:
 		Global.count += 5
@@ -63,71 +44,16 @@ func increase_speed():
 func dec_speed():
 	speed=100
 	
-func canon_look():
-	var Player_direction =player.global_position
-	if ray_cast_2d.is_colliding() and collision_layer ==10:
-			
-		down_canon.look_at(Player_direction)
-			
-	elif  ray_cast_2d_2.is_colliding() and collision_layer ==10:
-		down_canon.look_at(Player_direction)
-	elif  ray_cast_2d_3.is_colliding() and collision_layer ==10:
-		down_canon.look_at(Player_direction)
-	elif  ray_cast_2d_4.is_colliding() and collision_layer ==10:
-		up_canon.look_at(Player_direction)
-	elif  ray_cast_2d_5.is_colliding() and collision_layer ==10:
-		up_canon.look_at(Player_direction)
-	elif  ray_cast_2d_6.is_colliding() and collision_layer ==10:
-		up_canon.look_at(Player_direction)
-	elif  right_side.is_colliding() and collision_layer ==10:
-		left_canon.look_at(Player_direction)
-	elif left_side_2.is_colliding() and collision_layer==10:
-		right_canon.look_at(Player_direction)	
-	elif  left_side.is_colliding() and collision_layer ==10:
-		right_canon.look_at(Player_direction)
-	elif  left_side_3.is_colliding() and collision_layer==10:
-		right_canon.look_at(Player_direction)
-	elif  right_side_2.is_colliding() and collision_layer ==10:
-		left_canon.look_at(Player_direction)
-	elif  right_side_3.is_colliding() and collision_layer ==10:
-		left_canon.look_at(Player_direction)
 func shoot():
-	var new_bullet=preload('res://bullets/enemy2_bullets.tscn').instantiate()
-	new_bullet.global_position=%shotting_point_enemy.global_position
-	new_bullet.global_rotation=%shotting_point_enemy.global_rotation
-	add_child(new_bullet)
-func shoot_up():
-	var new_bullet=preload('res://bullets/enemy2_bullets.tscn').instantiate()
-	new_bullet.global_position=%up_point_enemy4.global_position
-	new_bullet.global_rotation=%up_point_enemy4.global_rotation
-	add_child(new_bullet)	
-func shoot_left():
-	var new_bullet=preload('res://bullets/enemy2_bullets.tscn').instantiate()
-	new_bullet.global_position=%left_2D.global_position
-	new_bullet.global_rotation=%left_2D.global_rotation
-	add_child(new_bullet)	
-	
-func shoot_right():
-	var new_bullet=preload('res://bullets/enemy2_bullets.tscn').instantiate()
-	
-	new_bullet.global_position=%right_2D.global_position
-	new_bullet.global_rotation=%right_2D.global_rotation
-	add_child(new_bullet)	
+	var new_bullet = preload('res://bullets/enemy2_bullets.tscn').instantiate()
+	get_tree().current_scene.add_child(new_bullet)
+	new_bullet.global_position = %shotting_point_enemy.global_position
+	new_bullet.global_rotation = %shotting_point_enemy.global_rotation
 
 func _on_timer_timeout() -> void:
-	if Global.curr_health>0:
-		
-		if  ray_cast_2d_4.is_colliding() and collision_layer ==10:
-			shoot_up()	
-		elif  ray_cast_2d_5.is_colliding() and collision_layer ==10:
-			shoot_up()	
-		elif  ray_cast_2d_6.is_colliding() and collision_layer ==10:
-			shoot_up()	
-		elif  right_side.is_colliding() and collision_layer ==10:
-			
-			shoot_left()
-		elif  left_side.is_colliding() and collision_layer ==10:
-			shoot_right()
+	if Global.curr_health>0 and player:
+		if global_position.distance_to(player.global_position) < 1200:
+			shoot()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

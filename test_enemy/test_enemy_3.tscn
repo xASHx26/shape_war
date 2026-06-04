@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://br0i7gaxm278"]
+
+[ext_resource type="PackedScene" uid="uid://dcs6k718u2gym" path="res://spaceships/spaceship_single_heavy.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://csq487qhooag1" path="res://enemys/enemy_3.tscn" id="2"]
+
+[node name="main2" type="Node2D" unique_id=479121417]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=494754175]
+position = Vector2(575, 323)
+
+[node name="spaceship" parent="." unique_id=1627215067 instance=ExtResource("1")]
+position = Vector2(575, 500)
+
+[node name="ENEMY3" parent="." unique_id=89182009 instance=ExtResource("2")]
+position = Vector2(575, 100)
