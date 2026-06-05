@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var rotation_speed = 5.0
 @export var speed = 4000
 @export var dead_zone_threshold = 0.1 
+@export_range(0.0, 1.0) var powerup_drop_chance: float = 0.2
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @export var deathPrticle:PackedScene
@@ -41,6 +42,16 @@ func kill():
 		SaveGame.Write_save(SaveGame.data)
 		
 		explo()
+		
+		# Drop a powerup based on probability
+		if randf() <= powerup_drop_chance:
+			var powerup_scene = load("res://powerup.tscn")
+			if powerup_scene:
+				var powerup = powerup_scene.instantiate()
+				powerup.global_position = global_position
+				powerup.type = randi() % 2 # Randomly pick Health or Speed
+				get_parent().call_deferred("add_child", powerup)
+				
 		queue_free()
 		
 func explo():

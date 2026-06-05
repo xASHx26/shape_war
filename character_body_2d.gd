@@ -3,6 +3,7 @@ extends CharacterBody2D
 # Adjustable rotation speed for smooth turning
 @export var rotation_speed = 5.0
 @export var dead_zone_threshold = 0  # Minimum mouse velocity length to rotate
+var wall_bounce_strength = 15.0 # Read from main.gd
 @onready var gun: MeshInstance2D = $gun
 @export var bullet:PackedScene
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
@@ -16,6 +17,8 @@ extends CharacterBody2D
 		
 var rs_look = Vector2(0,0)
 var deadzone = 0.2
+var base_speed = 40000.0
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Global.curr_health=Global.max_heath
@@ -31,8 +34,28 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	# Get input direction for movement
 	var direction = Input.get_vector("left", "right", "up", "down")
-	velocity = direction * 40000 * delta
+	velocity = direction * base_speed * delta
 	move_and_slide()
+	
+	# Read the bounce strength from main.gd dynamically so inspector changes take effect instantly
+	var current_bounce = 50.0
+	if get_parent() and "wall_bounce_strength" in get_parent():
+		current_bounce = get_parent().wall_bounce_strength
+		
+	# Invisible boundary box: Keep the spaceship strictly inside the camera with a bounce
+	if global_position.x < 45.0:
+		global_position.x = 45.0 + current_bounce
+	elif global_position.x > 1107.0:
+		global_position.x = 1107.0 - current_bounce
+		
+	if global_position.y < 45.0:
+		global_position.y = 45.0 + current_bounce
+	elif global_position.y > 603.0:
+		global_position.y = 603.0 - current_bounce
+		
+	# Final clamp just in case they set bounce to an insanely high number (like 5000)
+	global_position.x = clamp(global_position.x, 45.0, 1107.0)
+	global_position.y = clamp(global_position.y, 45.0, 603.0)
 	rslook()
 	# Rotate character based on mouse movement direction
 	var target_angle: float = rotation  # Start with current rotation as default
@@ -113,3 +136,46 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	if body  .is_in_group("enemy2"):
 		body.dec_speed()
+
+func apply_speed_buff():
+	# Temporary 50% speed increase for 5 seconds
+	base_speed = 60000.0
+	await get_tree().create_timer(5.0).timeout
+	base_speed = 40000.0
+
+var is_rapid_fire_360 = false
+func apply_rapid_fire_360():
+	if is_rapid_fire_360: return
+	is_rapid_fire_360 = true
+	var end_time = Time.get_ticks_msec() + 2000
+	while Time.get_ticks_msec() < end_time and is_inside_tree():
+		var num_bullets = 16
+		for i in range(num_bullets):
+			var b = bullet.instantiate()
+			b.global_position = global_position
+			b.rotation = i * (TAU / num_bullets)
+			get_parent().add_child(b)
+		await get_tree().create_timer(0.15).timeout
+	is_rapid_fire_360 = false
+
+func apply_shield():
+	Global.is_invincible = true
+	
+	var shield_scene = load("res://spaceships/shield_powerup_aura.tscn")
+	if shield_scene:
+		var shield_aura = shield_scene.instantiate()
+		add_child(shield_aura)
+	
+	await get_tree().create_timer(5.0).timeout
+	Global.is_invincible = false
+
+func apply_death_beam():
+	var death_ray_scene = load("res://bullets/player_deathray.tscn")
+	if death_ray_scene:
+		var ray = death_ray_scene.instantiate()
+		if has_node("%death_ray_point"):
+			%death_ray_point.add_child(ray)
+		else:
+			add_child(ray)
+			ray.position = Vector2(0, -35)
+			ray.rotation = -PI / 2.0

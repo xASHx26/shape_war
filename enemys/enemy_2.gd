@@ -1,6 +1,7 @@
 extends CharacterBody2D
 @onready var player=get_node("/root/main/spaceship/rocket")
 @export var speed=4000
+@export_range(0.0, 1.0) var powerup_drop_chance: float = 0.4
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @export var deathPrticle:PackedScene
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -12,7 +13,7 @@ var follow:=false
 
 		
 func _ready() -> void:
-	pass
+	$Timer.wait_time = 2.0
 func _process(delta: float) -> void:
 	if Global.curr_health<=0:
 		animated_sprite_2d.stop()
@@ -40,6 +41,16 @@ func kill():
 		SaveGame.data["Points"]+=3
 		SaveGame.Write_save(SaveGame.data)
 		explo()
+		
+		# Drop a powerup based on probability
+		if randf() <= powerup_drop_chance:
+			var powerup_scene = load("res://powerup.tscn")
+			if powerup_scene:
+				var powerup = powerup_scene.instantiate()
+				powerup.global_position = global_position
+				powerup.type = (randi() % 3) + 2
+				get_parent().call_deferred("add_child", powerup)
+				
 		queue_free()
 
 func explo():
@@ -54,7 +65,7 @@ func dec_speed():
 	
 
 func shoot():
-	var new_bullet=preload('res://bullets/enemy2_bullets.tscn').instantiate()
+	var new_bullet=preload('res://bullets/enemy2_comet.tscn').instantiate()
 	new_bullet.global_position=%shotting_point_enemy.global_position
 	new_bullet.global_rotation=%shotting_point_enemy.global_rotation
 	get_parent().add_child(new_bullet)

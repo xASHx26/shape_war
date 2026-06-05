@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Shader" path="res://shaders/space_background.gdshader" id="1_shader"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bg"]
+shader = ExtResource("1_shader")
+shader_parameter/nebula_color_1 = Color(0.2, 0.05, 0.35, 1)
+shader_parameter/nebula_color_2 = Color(0.02, 0.08, 0.25, 1)
+shader_parameter/bg_color = Color(0.01, 0.005, 0.03, 1)
+shader_parameter/nebula_speed = 0.012
+shader_parameter/nebula_intensity = 0.85
+shader_parameter/star_twinkle_speed = 2.5
+
+[node name="SpaceBackground" type="CanvasLayer"]
+layer = -10
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_bg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true

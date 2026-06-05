@@ -1,31 +1,70 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdy8vkh4mnv1"]
+[gd_scene format=3 uid="uid://cdy8vkh4mnv1"]
 
-[sub_resource type="Curve" id="Curve_0grpp"]
-_limits = [-360.0, 360.0, 0.0, 1.0]
-_data = [Vector2(0.0393258, 360), 0.0, 0.0, 0, 0, Vector2(1, -360), 0.0, 0.0, 0, 0]
-point_count = 2
+[ext_resource type="Script" uid="uid://dwoakrmval7nb" path="res://Partickle/particle_auto_destroy.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://y1w617p8j4g3" path="res://SPRITE/AI/enemy_mothership.png" id="2_ship"]
+[ext_resource type="Texture2D" uid="uid://d7devcxr3kem" path="res://SPRITE/AI/spaceship_double_gun.png" id="3_gun"]
+[ext_resource type="Texture2D" uid="uid://degyt2khnp4ia" path="res://SPRITE/PLAYER/glow.png" id="4_glow"]
 
-[sub_resource type="Curve" id="Curve_ug7gm"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.054945), 0.0, 0.0, 0, 0]
-point_count = 2
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_add"]
+blend_mode = 1
 
-[node name="CPUParticles2D" type="CPUParticles2D"]
-modulate = Color(0.8, 0.1, 1, 1)
+[node name="BigExplosionFlames" type="CPUParticles2D" unique_id=1457388311]
+material = SubResource("CanvasItemMaterial_add")
 emitting = false
-amount = 300
+amount = 100
+texture = ExtResource("4_glow")
+lifetime = 0.8
 one_shot = true
-explosiveness = 1.0
-emission_shape = 2
-emission_sphere_radius = 1.0
+explosiveness = 0.95
+emission_shape = 1
+emission_sphere_radius = 20.0
+direction = Vector2(0, 0)
 spread = 180.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 200.0
-initial_velocity_max = 400.0
-linear_accel_min = 21.7
-linear_accel_max = 100.0
-damping_min = 10.0
+initial_velocity_min = 150.0
+initial_velocity_max = 600.0
+damping_min = 100.0
 damping_max = 200.0
-angle_curve = SubResource("Curve_0grpp")
-scale_amount_min = 3.0
-scale_amount_max = 6.0
-scale_amount_curve = SubResource("Curve_ug7gm")
+scale_amount_min = 0.1
+scale_amount_max = 0.35
+color = Color(1, 0.35, 0, 1)
+script = ExtResource("1_script")
+
+[node name="ShipChunks" type="CPUParticles2D" parent="." unique_id=1060573643]
+emitting = false
+texture = ExtResource("2_ship")
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 250.0
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+damping_min = 20.0
+damping_max = 40.0
+scale_amount_min = 0.02
+scale_amount_max = 0.06
+color = Color(0.3, 0.3, 0.3, 1)
+
+[node name="GunChunks" type="CPUParticles2D" parent="." unique_id=31114476]
+emitting = false
+amount = 4
+texture = ExtResource("3_gun")
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 120.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+damping_min = 30.0
+damping_max = 60.0
+scale_amount_min = 0.02
+scale_amount_max = 0.05
+color = Color(0.3, 0.3, 0.3, 1)

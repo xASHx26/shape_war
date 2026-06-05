@@ -3,11 +3,9 @@
 [ext_resource type="Script" uid="uid://bdygu2k8aydhh" path="res://character_body_2d.gd" id="1_36jsh"]
 [ext_resource type="PackedScene" uid="uid://v1jm5cperky5" path="res://bullets/rocket_bullets.tscn" id="2_l278s"]
 [ext_resource type="Texture2D" uid="uid://ccg0b01nml7t6" path="res://SPRITE/AI/spaceship_double_v_shape.png" id="3_new"]
-[ext_resource type="Shader" path="res://bullets/bullet_sketch.gdshader" id="4_shader"]
+[ext_resource type="Shader" uid="uid://dehtol1tgonr3" path="res://bullets/bullet_sketch.gdshader" id="4_shader"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wx2jn"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_aexfy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_thruster"]
 shader = ExtResource("4_shader")
@@ -16,6 +14,8 @@ shader_parameter/outline_color = Color(0, 0, 0, 0)
 shader_parameter/fire_core = Color(1, 0.9, 0.2, 1)
 shader_parameter/fire_edge = Color(1, 0.4, 0, 1)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_aexfy"]
+
 [node name="spaceship" type="Node2D" unique_id=2008791092]
 
 [node name="rocket" type="CharacterBody2D" parent="." unique_id=1845669764 groups=["spaceship"]]
@@ -23,7 +23,11 @@ collision_mask = 29
 script = ExtResource("1_36jsh")
 bullet = ExtResource("2_l278s")
 
-[node name="EngineThrusterLeft" type="ColorRect" parent="rocket"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rocket" unique_id=314159265]
+scale = Vector2(2.5, 2.5)
+shape = SubResource("CircleShape2D_wx2jn")
+
+[node name="EngineThrusterLeft" type="ColorRect" parent="rocket" unique_id=1255954541]
 z_index = -1
 material = SubResource("ShaderMaterial_thruster")
 offset_left = -22.0
@@ -31,7 +35,7 @@ offset_top = 10.0
 offset_right = -2.0
 offset_bottom = 60.0
 
-[node name="EngineThrusterRight" type="ColorRect" parent="rocket"]
+[node name="EngineThrusterRight" type="ColorRect" parent="rocket" unique_id=158811215]
 z_index = -1
 material = SubResource("ShaderMaterial_thruster")
 offset_left = 2.0
@@ -45,12 +49,17 @@ texture = ExtResource("3_new")
 
 [node name="shotting_point" type="Marker2D" parent="rocket" unique_id=1345054105]
 unique_name_in_owner = true
-position = Vector2(-12, -25)
+position = Vector2(-24, -6)
+rotation = -1.5708
+
+[node name="death_ray_point" type="Marker2D" parent="rocket" unique_id=123456789]
+unique_name_in_owner = true
+position = Vector2(0, -35)
 rotation = -1.5708
 
 [node name="shotting_point2" type="Marker2D" parent="rocket" unique_id=1173895373]
 unique_name_in_owner = true
-position = Vector2(12, -25)
+position = Vector2(23, -24)
 rotation = -1.5708
 
 [node name="RayCast2D" type="RayCast2D" parent="rocket" unique_id=1515259300]

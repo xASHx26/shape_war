@@ -4,6 +4,8 @@ extends Node2D
 @onready var enemy_2_timer: Timer = $enemy2_timer
 @onready var spaceship_spwaner: Marker2D = $spaceship_spwaner
 @export var player:Array[PackedScene]
+@export var wall_bounce_strength = 50.0
+@export var starting_number: int = 0
 @onready var timer: Timer = $Timer
 @onready var _3_rdenemy: Timer = $'3rdenemy'
 @onready var enemy_4_timer: Timer = $enemy4_timer
@@ -26,13 +28,19 @@ var player2_spawn :=false
 var player1_spawn :=false
 
 var spawn3_called = false 
-var spawn4_called = false 
+var next_blackhole_score = 40 
 var spcaeNumber = 0  # Default value, will be replaced after loading
+var enemy5_timer_counter = 0.0
+
+var vignette_mat: ShaderMaterial
+var last_health: int = 10
 
 func _ready() -> void:
 	print(OS.get_data_dir())
-	Global.count =150
+	Global.count = starting_number
 	Global.curr_health=10
+	last_health = 10
+	setup_vignette()
 	print(SaveGame.data["Points"])
 	var save_data = SaveGame.read_save()  # Read save data from JSON
 	if save_data:
@@ -61,11 +69,22 @@ func _process(delta: float) -> void:
 	player_Health()
 	save_points()
 	
+	if Global.curr_health < last_health:
+		flash_player()
+	last_health = Global.curr_health
+	
 	if Global.curr_health<=0:
 		set_process(false) 
 	# Call player_spawner with the updated spcaeNumber
 	player_spawner(spcaeNumber)
 	deff_manager()
+	spawn4()
+	
+	if Global.count >= 50:
+		enemy5_timer_counter += delta
+		if enemy5_timer_counter >= 10.0:
+			enemy5_timer_counter = 0.0
+			spawn5()
 
 func  _physics_process(delta: float) -> void:
 	if Global.curr_health<=0:
@@ -108,15 +127,19 @@ func spawn3() -> void:
 			spawn3_called = true  # Mark as called to prevent immediate re-trigger
 	
 func spawn4()->void:
-	if Global.count>=40:
-		if not spawn3_called:
-			warning.play("warning")
-			var new_enemy4=preload('res://enemys/enemy_4.tscn').instantiate()
-			new_enemy4.global_position=enemy_4_marker.global_position
-			add_child(new_enemy4)
-			spawn4_called=true
-			
-	
+	if Global.count >= next_blackhole_score:
+		warning.play("warning")
+		var new_enemy4=preload('res://enemys/enemy_4.tscn').instantiate()
+		new_enemy4.global_position=enemy_4_marker.global_position
+		add_child(new_enemy4)
+		next_blackhole_score = Global.count + randi_range(20, 30)
+
+func spawn5()->void:
+	warning.play("warning")
+	var new_enemy5 = preload('res://enemys/enemy_5.tscn').instantiate()
+	%PathFollow2D.progress_ratio = randf()
+	new_enemy5.global_position = %PathFollow2D.global_position
+	add_child(new_enemy5)
 
 func deff_manager() -> void:
 	
@@ -172,11 +195,48 @@ func _on_rdenemy_timeout() -> void:
 
 
 func _on_enemy_4_timer_timeout() -> void:
-	spawn4()
+	pass
 	
 func player_Health():
-	Player_health.max_value=Global.max_heath
-	Player_health.value=Global.curr_health
+	if Player_health:
+		Player_health.max_value=Global.max_heath
+		Player_health.value=Global.curr_health
+	
+	if vignette_mat:
+		var health_ratio = float(Global.curr_health) / float(Global.max_heath)
+		var intensity = clamp(1.0 - health_ratio, 0.0, 1.0)
+		# Start showing blood when health is under 70%
+		if health_ratio < 0.7:
+			vignette_mat.set_shader_parameter("intensity", intensity * 1.2)
+		else:
+			vignette_mat.set_shader_parameter("intensity", 0.0)
+
+func setup_vignette():
+	var canvas = CanvasLayer.new()
+	canvas.layer = 10
+	add_child(canvas)
+	
+	var rect = ColorRect.new()
+	rect.set_anchors_preset(Control.PRESET_FULL_RECT)
+	rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	
+	var shader = load("res://vignette.gdshader")
+	vignette_mat = ShaderMaterial.new()
+	vignette_mat.shader = shader
+	rect.material = vignette_mat
+	
+	canvas.add_child(rect)
+
+func flash_player():
+	var player_node = get_tree().get_first_node_in_group("spaceship")
+	if is_instance_valid(player_node):
+		var tween = get_tree().create_tween()
+		if player_node is CharacterBody2D:
+			player_node.modulate = Color(1, 0, 0) # Red
+			tween.tween_property(player_node, "modulate", Color(1, 1, 1), 0.3)
+		elif player_node.get_parent() is CharacterBody2D:
+			player_node.get_parent().modulate = Color(1, 0, 0)
+			tween.tween_property(player_node.get_parent(), "modulate", Color(1, 1, 1), 0.3)
 func save_points():
 	if Global.curr_health<=0:
 		

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dr1x2y304a5b6"]
+
+[ext_resource type="Script" uid="uid://c23oqjisonuud" path="res://enemys/enemy_5.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://x0054r614duv" path="res://SPRITE/AI/enemy_5_saucer.png" id="2_texture"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ufo"]
+radius = 45.0
+height = 160.0
+
+[node name="Enemy5" type="CharacterBody2D" unique_id=1255031675 groups=["enemy3", "enemy5"]]
+collision_layer = 10
+script = ExtResource("1_script")
+powerup_drop_chance = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=18045592]
+rotation = -1.5707964
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_texture")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=914365829]
+shape = SubResource("CapsuleShape2D_ufo")
+
+[node name="LeftGun" type="Marker2D" parent="." unique_id=876425114]
+position = Vector2(-38, -63)
+
+[node name="RightGun" type="Marker2D" parent="." unique_id=642167081]
+position = Vector2(-38, 65)
+
+[node name="Timer" type="Timer" parent="." unique_id=1369470428]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

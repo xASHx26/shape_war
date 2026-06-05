@@ -72,6 +72,11 @@ position = Vector2(0, -25)
 rotation = -1.56458
 scale = Vector2(17, 8.95992)
 
+[node name="death_ray_point" type="Marker2D" parent="rocket" unique_id=123456792]
+unique_name_in_owner = true
+position = Vector2(0, -35)
+rotation = -1.5708
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="rocket" unique_id=1605653661]
 stream = ExtResource("4_0mw0x")
 

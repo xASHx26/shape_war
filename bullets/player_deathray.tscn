@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp7playerray"]
+
+[ext_resource type="Script" path="res://bullets/player_deathray.gd" id="1_script"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_beam"]
+points = PackedVector2Array(0, 0, 2000, -250, 2000, 250)
+
+[node name="PlayerDeathRay" type="Area2D"]
+collision_layer = 0
+collision_mask = 10
+monitoring = true
+monitorable = true
+script = ExtResource("1_script")
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 0.0
+default_color = Color(0, 0.5, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("ConvexPolygonShape2D_beam")
+disabled = true
+
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]

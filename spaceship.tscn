@@ -15,6 +15,10 @@ collision_mask = 29
 script = ExtResource("1_36jsh")
 bullet = ExtResource("2_l278s")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rocket" unique_id=314159266]
+scale = Vector2(2.5, 2.5)
+shape = SubResource("CircleShape2D_wx2jn")
+
 [node name="Sprite2D" type="Sprite2D" parent="rocket" unique_id=619255762]
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("3_new")
@@ -22,6 +26,11 @@ texture = ExtResource("3_new")
 [node name="shotting_point" type="Marker2D" parent="rocket" unique_id=1345054105]
 unique_name_in_owner = true
 position = Vector2(-12, -25)
+rotation = -1.5708
+
+[node name="death_ray_point" type="Marker2D" parent="rocket" unique_id=123456790]
+unique_name_in_owner = true
+position = Vector2(0, -35)
 rotation = -1.5708
 
 [node name="shotting_point2" type="Marker2D" parent="rocket" unique_id=1173895373]

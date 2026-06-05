@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cjfs5tqqd61q2" path="res://spaceships/roocket0.gd" id="1_38d05"]
 [ext_resource type="PackedScene" uid="uid://v1jm5cperky5" path="res://bullets/rocket_bullets.tscn" id="2_r6ac6"]
-[ext_resource type="Texture2D" uid="uid://cfh4tn0k8tpol" path="res://SPRITE/AI/spaceship_fighter.png" id="3_jjy8e"]
-[ext_resource type="Shader" path="res://bullets/bullet_sketch.gdshader" id="4_shader"]
+[ext_resource type="Texture2D" uid="uid://cfh4tn0k8tpol" path="res://SPRITE/AI/spaceship_2_gun.png" id="3_jjy8e"]
+[ext_resource type="Shader" uid="uid://dehtol1tgonr3" path="res://bullets/bullet_sketch.gdshader" id="4_shader"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0b30h"]
 height = 37.5
@@ -91,12 +91,12 @@ texture = ExtResource("3_jjy8e")
 
 [node name="shotting_point" type="Marker2D" parent="rocket" unique_id=496505816]
 unique_name_in_owner = true
-position = Vector2(-28, -5)
+position = Vector2(0, -35)
 rotation = -1.5708
 
-[node name="shotting_point2" type="Marker2D" parent="rocket" unique_id=748392184]
+[node name="death_ray_point" type="Marker2D" parent="rocket" unique_id=123456791]
 unique_name_in_owner = true
-position = Vector2(28, -5)
+position = Vector2(0, -35)
 rotation = -1.5708
 
 [node name="Timer" type="Timer" parent="." unique_id=1125424877]

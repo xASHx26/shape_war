@@ -76,15 +76,14 @@ func _process(delta):
  
 		var bottomLeftRect = bottomLeftArray[i - 1]
  
-		var tween = get_tree().create_tween()
+		# Snap height to 4-pixel blocks to simulate chunky retro pixels
+		var pixel_height = round(height / 4.0) * 4.0
+		pixel_height = max(pixel_height, 2.0)
  
-		tween.tween_property(topRightRect, "size", Vector2(topRightRect.size.x, height), 0.05)
- 
-		tween.tween_property(bottomRightRect, "size", Vector2(bottomRightRect.size.x, height), 0.05)
- 
-		tween.tween_property(topLeftRect, "size", Vector2(topLeftRect.size.x, height), 0.05)
- 
-		tween.tween_property(bottomLeftRect, "size", Vector2(bottomLeftRect.size.x, height), 0.05)
+		topRightRect.size = Vector2(topRightRect.size.x, pixel_height)
+		bottomRightRect.size = Vector2(bottomRightRect.size.x, pixel_height)
+		topLeftRect.size = Vector2(topLeftRect.size.x, pixel_height)
+		bottomLeftRect.size = Vector2(bottomLeftRect.size.x, pixel_height)
 		
 		var rainbow_color = Color.from_hsv(float(i - 1) / VU_COUNT, 1.0, 1.0)
 		topRightRect.color = rainbow_color

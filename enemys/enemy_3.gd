@@ -1,6 +1,7 @@
 extends CharacterBody2D
 @onready var player=get_node("/root/main/spaceship/rocket")
 @export var speed=4000
+@export_range(0.0, 1.0) var powerup_drop_chance: float = 1.0
 @export var deathPrticle:PackedScene
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var turret: Node2D = $Turret
@@ -12,7 +13,9 @@ var follow:=false
 
 @export var health: int = 3		
 func _ready() -> void:
-	pass
+	# Attach the continuous death ray to the turret
+	var death_ray = preload("res://bullets/enemy3_deathray.tscn").instantiate()
+	%shotting_point_enemy.add_child(death_ray)
 func _process(delta: float) -> void:
 	if Global.curr_health<=0:
 		animated_sprite_2d.stop()
@@ -21,7 +24,9 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if Global.curr_health>0 and follow==false and player:
 		if turret:
-			turret.look_at(player.global_position)
+			# Smoothly interpolate the rotation so the death ray "sweeps" across the screen
+			var target_angle = turret.global_position.angle_to_point(player.global_position)
+			turret.global_rotation = lerp_angle(turret.global_rotation, target_angle, delta * 1.5)
 	
 func take_damage(amount: int) -> void:
 	health -= amount
@@ -32,6 +37,16 @@ func kill():
 		SaveGame.data["Points"]+=5
 		SaveGame.Write_save(SaveGame.data)
 		explo()
+		
+		# Drop a powerup based on probability
+		if randf() <= powerup_drop_chance:
+			var powerup_scene = load("res://powerup.tscn")
+			if powerup_scene:
+				var powerup = powerup_scene.instantiate()
+				powerup.global_position = global_position
+				powerup.type = randi() % 2
+				get_parent().call_deferred("add_child", powerup)
+				
 		queue_free()
 		
 func explo():
@@ -44,16 +59,7 @@ func increase_speed():
 func dec_speed():
 	speed=100
 	
-func shoot():
-	var new_bullet = preload('res://bullets/enemy2_bullets.tscn').instantiate()
-	get_tree().current_scene.add_child(new_bullet)
-	new_bullet.global_position = %shotting_point_enemy.global_position
-	new_bullet.global_rotation = %shotting_point_enemy.global_rotation
-
-func _on_timer_timeout() -> void:
-	if Global.curr_health>0 and player:
-		if global_position.distance_to(player.global_position) < 1200:
-			shoot()
+	speed=100
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

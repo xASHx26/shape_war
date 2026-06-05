@@ -127,6 +127,11 @@ shape = SubResource("CircleShape2D_aexfy")
 [node name="rotation" type="Marker2D" parent="rocket" unique_id=98362032]
 position = Vector2(0, 25)
 
+[node name="death_ray_point" type="Marker2D" parent="rocket" unique_id=123456795]
+unique_name_in_owner = true
+position = Vector2(0, -35)
+rotation = -1.5708
+
 [node name="Timer" type="Timer" parent="." unique_id=657203609]
 wait_time = 0.7
 autostart = true

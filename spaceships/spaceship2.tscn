@@ -81,6 +81,11 @@ position = Vector2(0, -25)
 rotation = -1.56458
 scale = Vector2(17, 8.95992)
 
+[node name="death_ray_point" type="Marker2D" parent="rocket" unique_id=123456793]
+unique_name_in_owner = true
+position = Vector2(0, -35)
+rotation = -1.5708
+
 [node name="Timer" type="Timer" parent="." unique_id=1125424877]
 wait_time = 0.7
 autostart = true

@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://dp72n17482hjw"]
+
+[ext_resource type="Script" path="res://powerup.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://SPRITE/health_powerup.png" id="2_health"]
+[ext_resource type="Shader" path="res://powerup_mask.gdshader" id="3_shader"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mask"]
+shader = ExtResource("3_shader")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(40, 40)
+
+[node name="Powerup" type="Area2D" groups=["powerup"]]
+collision_layer = 0
+collision_mask = 29
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_mask")
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

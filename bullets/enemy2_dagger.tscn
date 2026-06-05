@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://df7k4w6a3233y"]
+
+[ext_resource type="Script" path="res://bullets/enemy2_dagger.gd" id="1_script"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_abc12"]
+points = PackedVector2Array(20, 0, -10, -8, -5, 0, -10, 8)
+
+[node name="Enemy2Dagger" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_script")
+
+[node name="Dagger1" type="Polygon2D" parent="."]
+color = Color(1, 0.2, 0.8, 1)
+polygon = PackedVector2Array(20, 0, -10, -8, -5, 0, -10, 8)
+
+[node name="Dagger1Col" type="CollisionShape2D" parent="."]
+shape = SubResource("ConvexPolygonShape2D_abc12")
+
+[node name="Dagger2" type="Polygon2D" parent="."]
+color = Color(1, 0.2, 0.8, 1)
+polygon = PackedVector2Array(20, 0, -10, -8, -5, 0, -10, 8)
+
+[node name="Dagger2Col" type="CollisionShape2D" parent="."]
+shape = SubResource("ConvexPolygonShape2D_abc12")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
