@@ -7,9 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://b2i47oqby6foq" path="res://walls.tscn" id="5_aljtq"]
 [ext_resource type="PackedScene" uid="uid://cjdwac0mv6exv" path="res://audiovis.tscn" id="6_dr5t2"]
 [ext_resource type="PackedScene" uid="uid://c4q8pur2gk84e" path="res://touchcontrol.tscn" id="6_sxmq2"]
-[ext_resource type="Texture2D" uid="uid://5qud46qbmwi7" path="res://SPRITE/PLAYER/C (4).png" id="8_36xlw"]
-[ext_resource type="Texture2D" uid="uid://88kw37tossbb" path="res://SPRITE/PLAYER/C (5).png" id="9_5r25o"]
-[ext_resource type="Texture2D" uid="uid://degyt2khnp4ia" path="res://SPRITE/PLAYER/glow.png" id="10_j3ney"]
 [ext_resource type="Texture2D" uid="uid://cp2skvwhq1mp7" path="res://SPRITE/PLAYER/Warning.png" id="11_q2mai"]
 [ext_resource type="Shader" uid="uid://b6n27wpwdfcm" path="res://shaders/space_background.gdshader" id="12_shader"]
 [ext_resource type="Texture2D" uid="uid://qkmc7i8no5ta" path="res://SPRITE/deep_space_base.png" id="13_bg_tex"]
@@ -83,27 +80,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_kybmt")
 
-[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=762713499]
-layout_mode = 0
-offset_left = 47.0
-offset_top = 184.0
-offset_right = 87.0
-offset_bottom = 207.0
-
-[node name="Top Score" type="Label" parent="CanvasLayer/Control" unique_id=1893096337]
-layout_mode = 0
-offset_left = 1003.0
-offset_top = 48.0
-offset_right = 1043.0
-offset_bottom = 71.0
-
-[node name="Label2" type="Label" parent="CanvasLayer/Control" unique_id=2080759821]
-layout_mode = 0
-offset_left = 944.0
-offset_top = 92.0
-offset_right = 984.0
-offset_bottom = 115.0
-
 [node name="Path2D" type="Path2D" parent="." unique_id=1383652588]
 position = Vector2(-2, -31)
 curve = SubResource("Curve2D_x6b6c")
@@ -164,21 +140,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=2083739303]
-offset_left = 20.0
-offset_top = 8.0
-offset_right = 520.0
-offset_bottom = 508.0
-scale = Vector2(0.152527, 0.130979)
-fill_mode = 4
-texture_under = ExtResource("8_36xlw")
-texture_progress = ExtResource("9_5r25o")
-
-[node name="Score" type="Sprite2D" parent="." unique_id=1698154839]
-position = Vector2(769, 349)
-scale = Vector2(0.48391, 0.436319)
-texture = ExtResource("10_j3ney")
 
 [node name="warning" type="Sprite2D" parent="." unique_id=731660039]
 visible = false

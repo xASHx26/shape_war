@@ -10,7 +10,6 @@ extends Node2D
 @onready var _3_rdenemy: Timer = $'3rdenemy'
 @onready var enemy_4_timer: Timer = $enemy4_timer
 @onready var enemy_4_marker: Marker2D = $enemy4_marker
-@onready var Player_health: TextureProgressBar = $TextureProgressBar
 @onready var warning: AnimationPlayer = $AnimationPlayer
 @onready var end_game: CanvasLayer = $End_game
 
@@ -198,10 +197,6 @@ func _on_enemy_4_timer_timeout() -> void:
 	pass
 	
 func player_Health():
-	if Player_health:
-		Player_health.max_value=Global.max_heath
-		Player_health.value=Global.curr_health
-	
 	if vignette_mat:
 		var health_ratio = float(Global.curr_health) / float(Global.max_heath)
 		var intensity = clamp(1.0 - health_ratio, 0.0, 1.0)
@@ -242,9 +237,119 @@ func save_points():
 		
 		SaveGame.data["Points"]+=Global.count
 		SaveGame.Write_save(SaveGame.data)
-func  end():
-	if Global.curr_health<=0:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+var is_game_over = false
 
+func end():
+	if Global.curr_health <= 0 and not is_game_over:
+		is_game_over = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		set_process(false)
-		get_tree().change_scene_to_file("res://end_game.tscn")
+		
+		# 1. Slow down time
+		Engine.time_scale = 0.2
+		
+		# 2. Disable touch controls & hide HUD
+		var touch_control = get_node_or_null("CanvasLayer/Control/touchcontrol")
+		if touch_control:
+			touch_control.process_mode = Node.PROCESS_MODE_DISABLED
+			touch_control.hide()
+			
+		var hud_layer = get_node_or_null("CanvasLayer")
+		if hud_layer:
+			hud_layer.hide()
+			
+		if vignette_mat:
+			vignette_mat.set_shader_parameter("intensity", 0.0)
+			
+		# 3. Apply Pixel Fire Explosion to Player
+		var player_node = get_tree().get_first_node_in_group("spaceship")
+		if is_instance_valid(player_node):
+			var sprite = null
+			for child in player_node.get_children():
+				if child is Sprite2D or child is AnimatedSprite2D:
+					sprite = child
+				elif child is ColorRect or child is CPUParticles2D or child is GPUParticles2D:
+					# Hide/destroy the engine thruster flames which look like rockets
+					child.hide()
+					child.queue_free()
+					
+			if sprite:
+				var fire_shader = load("res://shaders/pixel_fire_explosion.gdshader")
+				var mat = ShaderMaterial.new()
+				mat.shader = fire_shader
+				sprite.material = mat
+				
+				# Create a tween to animate the explosion
+				var tween = get_tree().create_tween()
+				tween.tween_method(func(val): mat.set_shader_parameter("explosion_progress", val), 0.0, 1.0, 0.4) # 0.4 scaled seconds = 2.0 real seconds
+
+		# 4. Explode all enemies (skip enemy 4 as requested)
+		var enemies_to_explode = []
+		enemies_to_explode.append_array(get_tree().get_nodes_in_group("enemy1"))
+		enemies_to_explode.append_array(get_tree().get_nodes_in_group("enemy2"))
+		enemies_to_explode.append_array(get_tree().get_nodes_in_group("enemy3"))
+		enemies_to_explode.append_array(get_tree().get_nodes_in_group("enemy5"))
+		
+		for enemy in enemies_to_explode:
+			if is_instance_valid(enemy):
+				if enemy.has_method("explo"):
+					enemy.explo()
+				enemy.queue_free()
+
+		# Shrink Enemy 4 (Black Holes) faster and perfectly clean all bullets
+		_cleanup_screen(get_tree().root)
+
+		# 5. Wait for explosion to finish before showing Game Over
+		await get_tree().create_timer(2.0, false, false, true).timeout
+		
+		# Clean up one more time just in case the player kept shooting during the 2-second death cinematic
+		_cleanup_screen(get_tree().root)
+		
+		# 6. Show Game Over
+		get_tree().paused = true
+		Engine.time_scale = 1.0
+		
+		var end_screen = load("res://end_game.tscn").instantiate()
+		end_screen.process_mode = Node.PROCESS_MODE_ALWAYS
+		add_child(end_screen)
+
+func _cleanup_screen(node: Node) -> void:
+	if not is_instance_valid(node): return
+	
+	if node is Area2D:
+		if node.has_method("create_aura"):
+			node.set_process(false)
+			node.set_physics_process(false)
+			var tween = get_tree().create_tween()
+			tween.set_parallel(true)
+			var found_sprites = false
+			for c in node.get_children():
+				if c is Sprite2D:
+					found_sprites = true
+					var mat = ShaderMaterial.new()
+					mat.shader = preload("res://absorb.gdshader")
+					c.material = mat
+					tween.tween_property(c, "scale", Vector2(0.05, 0.05), 0.3)
+					tween.tween_property(mat, "shader_parameter/absorb_progress", 1.0, 0.3)
+			tween.set_parallel(false)
+			if found_sprites:
+				tween.tween_callback(node.queue_free)
+			else:
+				node.queue_free()
+			return
+			
+		var is_projectile = false
+		var n_name = node.name.to_lower()
+		if "bullet" in n_name or "dagger" in n_name or "ray" in n_name or "laser" in n_name or "rocket" in n_name:
+			is_projectile = true
+		elif node.get_script() != null:
+			var s_path = node.get_script().resource_path.to_lower()
+			if "bullet" in s_path or "dagger" in s_path or "ray" in s_path or "laser" in s_path or "rocket" in s_path:
+				is_projectile = true
+				
+		if is_projectile:
+			node.queue_free()
+			return
+			
+	for child in node.get_children():
+		_cleanup_screen(child)

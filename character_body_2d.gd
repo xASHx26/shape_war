@@ -31,6 +31,10 @@ func take_damage()->void:
 func _process(delta: float) -> void:
 	if Global.curr_health<=0:
 		set_process(false) 	
+	
+	if Global.shield_health <= 0 and has_node("shield_powerup_aura"):
+		get_node("shield_powerup_aura").queue_free()
+
 func _physics_process(delta: float) -> void:
 	# Get input direction for movement
 	var direction = Input.get_vector("left", "right", "up", "down")
@@ -159,15 +163,13 @@ func apply_rapid_fire_360():
 	is_rapid_fire_360 = false
 
 func apply_shield():
-	Global.is_invincible = true
+	Global.shield_health = min(Global.shield_health + 5, Global.max_shield)
 	
 	var shield_scene = load("res://spaceships/shield_powerup_aura.tscn")
-	if shield_scene:
+	if shield_scene and not has_node("shield_powerup_aura"):
 		var shield_aura = shield_scene.instantiate()
+		shield_aura.name = "shield_powerup_aura"
 		add_child(shield_aura)
-	
-	await get_tree().create_timer(5.0).timeout
-	Global.is_invincible = false
 
 func apply_death_beam():
 	var death_ray_scene = load("res://bullets/player_deathray.tscn")
