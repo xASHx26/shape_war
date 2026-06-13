@@ -13,7 +13,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	# Move the path follower along the path
-	path_follow_2d.progress_ratio += delta * speed
+	var current_speed = speed
+	if Global.is_time_frozen:
+		current_speed = 0.0
+	path_follow_2d.progress_ratio += delta * current_speed
 	if Global.curr_health<=0:
 		set_process(false) 
 	# Wrap the progress_ratio if it exceeds 1 (for continuous looping)

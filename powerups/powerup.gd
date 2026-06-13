@@ -1,6 +1,10 @@
 extends Area2D
 
-enum PowerupType { HEALTH, SPEED, RAPID_FIRE_360, SHIELD, DEATH_BEAM }
+enum PowerupType { 
+	HEALTH, SPEED, RAPID_FIRE_360, 
+	SHIELD, DEATH_BEAM,
+	BLACK_HOLE, CHRONO_SHIFT, WINGMEN, EMP, CHAIN_LIGHTNING
+}
 @export var type: PowerupType = PowerupType.HEALTH
 
 var fall_speed = 100.0
@@ -8,16 +12,30 @@ var attract_speed = 60.0
 var player = null
 
 func _ready():
-	if type == PowerupType.HEALTH:
-		$Sprite2D.texture = load("res://SPRITE/health_powerup.png")
-	elif type == PowerupType.SPEED:
-		$Sprite2D.texture = load("res://SPRITE/speed_powerup.png")
-	elif type == PowerupType.RAPID_FIRE_360:
-		$Sprite2D.texture = load("res://SPRITE/AI/icon_rapid_fire.png")
-	elif type == PowerupType.SHIELD:
-		$Sprite2D.texture = load("res://SPRITE/AI/icon_shield.png")
-	elif type == PowerupType.DEATH_BEAM:
-		$Sprite2D.texture = load("res://SPRITE/AI/icon_death_beam.png")
+	var sprite = get_node_or_null("Sprite2D")
+	if sprite:
+		if type == PowerupType.HEALTH:
+			sprite.texture = load("res://SPRITE/health_powerup.png")
+		elif type == PowerupType.SPEED:
+			sprite.texture = load("res://SPRITE/speed_powerup.png")
+		elif type == PowerupType.RAPID_FIRE_360:
+			sprite.texture = load("res://SPRITE/AI/icon_rapid_fire.png")
+		elif type == PowerupType.SHIELD:
+			sprite.texture = load("res://SPRITE/AI/icon_shield.png")
+		elif type == PowerupType.DEATH_BEAM:
+			sprite.texture = load("res://SPRITE/AI/icon_death_beam.png")
+		elif type == PowerupType.BLACK_HOLE:
+			sprite.texture = load("res://SPRITE/AI/icon_black_hole.png")
+		elif type == PowerupType.CHRONO_SHIFT:
+			sprite.texture = load("res://SPRITE/AI/icon_chrono_shift.png")
+		elif type == PowerupType.WINGMEN:
+			sprite.texture = load("res://SPRITE/AI/icon_wingmen.png")
+		elif type == PowerupType.EMP:
+			sprite.texture = load("res://SPRITE/AI/icon_emp_nuke.png")
+		elif type == PowerupType.CHAIN_LIGHTNING:
+			sprite.texture = load("res://SPRITE/AI/icon_chain_lightning.png")
+			
+		# Inherit default size for all powerups
 		
 	player = get_tree().get_first_node_in_group("spaceship")
 
@@ -26,7 +44,10 @@ func _process(delta):
 	
 	if is_instance_valid(player):
 		var direction = global_position.direction_to(player.global_position)
-		velocity += direction * attract_speed
+		var current_attract = attract_speed
+		if type >= 5: # Tier 3 powerups are index 5 and above
+			current_attract = 450.0 # Fast attraction, but reduced slightly by user request
+		velocity += direction * current_attract
 		
 	position += velocity * delta
 	
@@ -53,9 +74,29 @@ func apply_powerup(target: Node2D):
 		if target.has_method("apply_shield"):
 			target.apply_shield()
 	elif type == PowerupType.DEATH_BEAM:
-		flash_color = Color(1.0, 0.0, 0.0) # Red for death beam
+		flash_color = Color(1.0, 0.0, 0.0) # Red
 		if target.has_method("apply_death_beam"):
 			target.apply_death_beam()
+	elif type == PowerupType.BLACK_HOLE:
+		flash_color = Color(0.5, 0.0, 1.0) # Purple
+		if target.has_method("apply_black_hole"):
+			target.apply_black_hole(global_position)
+	elif type == PowerupType.CHRONO_SHIFT:
+		flash_color = Color(0.8, 0.8, 1.0) # Light blue
+		if target.has_method("apply_chrono_shift"):
+			target.apply_chrono_shift()
+	elif type == PowerupType.WINGMEN:
+		flash_color = Color(1.0, 0.5, 0.0) # Orange
+		if target.has_method("apply_wingmen"):
+			target.apply_wingmen()
+	elif type == PowerupType.EMP:
+		flash_color = Color(1.0, 1.0, 1.0) # White
+		if target.has_method("apply_emp"):
+			target.apply_emp(global_position)
+	elif type == PowerupType.CHAIN_LIGHTNING:
+		flash_color = Color(1.0, 1.0, 0.0) # Yellow
+		if target.has_method("apply_chain_lightning"):
+			target.apply_chain_lightning()
 			
 	# Animate the player's color
 	if target is CharacterBody2D:

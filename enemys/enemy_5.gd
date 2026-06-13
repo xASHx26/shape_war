@@ -16,8 +16,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if Global.curr_health > 0 and follow == false and player:
+		var current_speed = speed
+		if Global.is_time_frozen:
+			current_speed = 0.0
 		var direction = global_position.direction_to(player.global_position)
-		velocity = direction * speed * delta
+		velocity = direction * current_speed * delta
 		
 		# Rotate UFO smoothly towards player
 		var target_angle = global_position.angle_to_point(player.global_position)
@@ -35,12 +38,12 @@ func kill():
 		SaveGame.Write_save(SaveGame.data)
 		
 		if randf() <= powerup_drop_chance:
-			var powerup_scene = load("res://powerup.tscn")
+			var powerup_scene = load("res://powerups/powerup.tscn")
 			if powerup_scene:
 				var powerup = powerup_scene.instantiate()
 				powerup.global_position = global_position
 				powerup.type = (randi() % 3) + 2
-				get_parent().call_deferred("add_child", powerup)
+				get_tree().current_scene.call_deferred("add_child", powerup)
 				
 		queue_free()
 
@@ -65,6 +68,6 @@ func shoot():
 	get_parent().add_child(right_bullet)
 
 func _on_timer_timeout() -> void:
-	if Global.curr_health > 0 and player:
+	if Global.curr_health > 0 and player and not Global.is_time_frozen:
 		if global_position.distance_to(player.global_position) < 1500:
 			shoot()

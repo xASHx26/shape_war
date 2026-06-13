@@ -37,8 +37,8 @@ var last_health: int = 10
 func _ready() -> void:
 	print(OS.get_data_dir())
 	Global.count = starting_number
-	Global.curr_health=10
-	last_health = 10
+	Global.curr_health=1000000
+	last_health = 1000000
 	setup_vignette()
 	print(SaveGame.data["Points"])
 	var save_data = SaveGame.read_save()  # Read save data from JSON

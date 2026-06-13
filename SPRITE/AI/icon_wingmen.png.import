@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8sa1h75jxjym"
-path="res://.godot/imported/Warning.png-f9e6eea445c5e089965b1e2fcda1ea4e.ctex"
+uid="uid://b5louhcgxfn1q"
+path="res://.godot/imported/icon_wingmen.png-e4d805401d069133dce8f8815a026754.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SPRITE/PLAYER/Warning.png"
-dest_files=["res://.godot/imported/Warning.png-f9e6eea445c5e089965b1e2fcda1ea4e.ctex"]
+source_file="res://SPRITE/AI/icon_wingmen.png"
+dest_files=["res://.godot/imported/icon_wingmen.png-e4d805401d069133dce8f8815a026754.ctex"]
 
 [params]
 

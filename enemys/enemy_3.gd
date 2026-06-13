@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 	kill()
 func _physics_process(delta: float) -> void:
 	if Global.curr_health>0 and follow==false and player:
+		if Global.is_time_frozen: return
 		if turret:
 			# Smoothly interpolate the rotation so the death ray "sweeps" across the screen
 			var target_angle = turret.global_position.angle_to_point(player.global_position)
@@ -38,14 +39,14 @@ func kill():
 		SaveGame.Write_save(SaveGame.data)
 		explo()
 		
-		# Drop a powerup based on probability
+		# Drop a random Tier 3 powerup
 		if randf() <= powerup_drop_chance:
-			var powerup_scene = load("res://powerup.tscn")
+			var powerup_scene = load("res://powerups/powerup.tscn")
 			if powerup_scene:
 				var powerup = powerup_scene.instantiate()
 				powerup.global_position = global_position
-				powerup.type = randi() % 2
-				get_parent().call_deferred("add_child", powerup)
+				powerup.type = [5, 6, 8].pick_random() # Tier 3: Black Hole, Chrono Shift, EMP (Nuke)
+				get_tree().current_scene.call_deferred("add_child", powerup)
 				
 		queue_free()
 		

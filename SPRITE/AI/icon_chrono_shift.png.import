@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8sa1h75jxjym"
-path="res://.godot/imported/Warning.png-f9e6eea445c5e089965b1e2fcda1ea4e.ctex"
+uid="uid://utn67ih1lv3i"
+path="res://.godot/imported/icon_chrono_shift.png-3c4fdf78827462ffa8d41b4735890868.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SPRITE/PLAYER/Warning.png"
-dest_files=["res://.godot/imported/Warning.png-f9e6eea445c5e089965b1e2fcda1ea4e.ctex"]
+source_file="res://SPRITE/AI/icon_chrono_shift.png"
+dest_files=["res://.godot/imported/icon_chrono_shift.png-3c4fdf78827462ffa8d41b4735890868.ctex"]
 
 [params]
 

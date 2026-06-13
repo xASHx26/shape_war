@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://drone1234567"]
+
+[ext_resource type="Script" path="res://powerups/tier_3/drone.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://SPRITE/PLAYER/player.png" id="2_texture"]
+
+[node name="Drone" type="Node2D" groups=["drones"]]
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_texture")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

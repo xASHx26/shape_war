@@ -165,7 +165,7 @@ func apply_rapid_fire_360():
 func apply_shield():
 	Global.shield_health = min(Global.shield_health + 5, Global.max_shield)
 	
-	var shield_scene = load("res://spaceships/shield_powerup_aura.tscn")
+	var shield_scene = load("res://powerups/tier_2/shield_powerup_aura.tscn")
 	if shield_scene and not has_node("shield_powerup_aura"):
 		var shield_aura = shield_scene.instantiate()
 		shield_aura.name = "shield_powerup_aura"
@@ -181,3 +181,45 @@ func apply_death_beam():
 			add_child(ray)
 			ray.position = Vector2(0, -35)
 			ray.rotation = -PI / 2.0
+
+func apply_black_hole(pos: Vector2):
+	var bh_scene = load("res://powerups/tier_3/black_hole.tscn")
+	if bh_scene:
+		var bh = bh_scene.instantiate()
+		get_tree().current_scene.add_child(bh)
+		bh.global_position = get_viewport_rect().size / 2.0
+
+func apply_chrono_shift():
+	var existing = get_tree().current_scene.get_node_or_null("chrono_shift_controller")
+	if existing and existing.has_method("add_time"):
+		existing.add_time(5.0)
+		return
+		
+	var chrono_scene = load("res://powerups/tier_3/chrono_shift_controller.tscn")
+	if chrono_scene:
+		var chrono = chrono_scene.instantiate()
+		chrono.name = "chrono_shift_controller"
+		get_tree().current_scene.add_child(chrono)
+
+func apply_wingmen():
+	var drone_count = randi_range(2, 5)
+	var drone_scene = load("res://powerups/tier_3/drone.tscn")
+	if drone_scene:
+		for i in range(drone_count):
+			var drone = drone_scene.instantiate()
+			drone.player = self
+			drone.angle = (PI * 2.0 / drone_count) * i
+			get_tree().current_scene.add_child(drone)
+
+func apply_emp(pos: Vector2):
+	var emp_scene = load("res://powerups/tier_3/emp_blast.tscn")
+	if emp_scene:
+		var emp = emp_scene.instantiate()
+		get_tree().current_scene.add_child(emp)
+		emp.global_position = get_viewport_rect().size / 2.0
+
+func apply_chain_lightning():
+	var chain_scene = load("res://powerups/tier_3/chain_lightning.tscn")
+	if chain_scene:
+		var chain = chain_scene.instantiate()
+		get_tree().current_scene.add_child(chain)

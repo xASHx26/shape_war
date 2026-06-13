@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dp72n17482hjw"]
+[gd_scene load_steps=5 format=3 uid="uid://dp72n17482hjw"]
 
-[ext_resource type="Script" path="res://powerup.gd" id="1_script"]
+[ext_resource type="Script" path="res://powerups/powerup.gd" id="1_script"]
 [ext_resource type="Texture2D" path="res://SPRITE/health_powerup.png" id="2_health"]
-[ext_resource type="Shader" path="res://powerup_mask.gdshader" id="3_shader"]
+[ext_resource type="Shader" path="res://powerups/powerup_mask.gdshader" id="3_shader"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mask"]
 shader = ExtResource("3_shader")

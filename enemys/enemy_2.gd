@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @onready var player=get_node("/root/main/spaceship/rocket")
 @export var speed=4000
-@export_range(0.0, 1.0) var powerup_drop_chance: float = 0.4
+@export_range(0.0, 1.0) var powerup_drop_chance: float = 1.0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @export var deathPrticle:PackedScene
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -21,8 +21,11 @@ func _process(delta: float) -> void:
 	kill()
 func _physics_process(delta: float) -> void:
 	if Global.curr_health>0 and follow==false and player:
+		var current_speed = speed
+		if Global.is_time_frozen:
+			current_speed = 0.0
 		var direction =global_position.direction_to(player.global_position)
-		velocity=direction*speed*delta
+		velocity=direction*current_speed*delta
 		
 		if turret:
 			turret.look_at(player.global_position)
@@ -44,12 +47,12 @@ func kill():
 		
 		# Drop a powerup based on probability
 		if randf() <= powerup_drop_chance:
-			var powerup_scene = load("res://powerup.tscn")
+			var powerup_scene = load("res://powerups/powerup.tscn")
 			if powerup_scene:
 				var powerup = powerup_scene.instantiate()
 				powerup.global_position = global_position
-				powerup.type = (randi() % 3) + 2
-				get_parent().call_deferred("add_child", powerup)
+				powerup.type = (randi() % 2) + 3 # Tier 2: Shield, Death Beam
+				get_tree().current_scene.call_deferred("add_child", powerup)
 				
 		queue_free()
 
@@ -71,6 +74,6 @@ func shoot():
 	get_parent().add_child(new_bullet)
 
 func _on_timer_timeout() -> void:
-	if Global.curr_health>0 and player:
+	if Global.curr_health>0 and player and not Global.is_time_frozen:
 		if global_position.distance_to(player.global_position) < 900:
 			shoot()

@@ -61,6 +61,9 @@ func _physics_process(delta: float) -> void:
 	move_objects(delta)
 	
 func move_objects(delta: float) -> void:
+	var current_speed = speed
+	if Global.is_time_frozen:
+		current_speed = 0.0
 	# Create a temporary list to store objects that should be removed
 	var objects_to_remove = []
 	for obj in active_objects:
@@ -68,36 +71,36 @@ func move_objects(delta: float) -> void:
 			"first":
 				# Check if the object still exists
 				if is_instance_valid(first) and is_instance_valid(first_c):
-					first.position.x -= speed * delta
-					first_c.position.x -= speed * delta
-					traveled_distances["first"] += speed * delta
+					first.position.x -= current_speed * delta
+					first_c.position.x -= current_speed * delta
+					traveled_distances["first"] += current_speed * delta
 					if traveled_distances["first"] > distance_limit:
 						first.queue_free()
 						first_c.queue_free()
 						objects_to_remove.append("first")
 			"second":
 				if is_instance_valid(_2_nd) and is_instance_valid(_2_nd_c):
-					_2_nd.position.x -= speed * delta
-					_2_nd_c.position.x -= speed * delta
-					traveled_distances["second"] += speed * delta
+					_2_nd.position.x -= current_speed * delta
+					_2_nd_c.position.x -= current_speed * delta
+					traveled_distances["second"] += current_speed * delta
 					if traveled_distances["second"] > distance_limit:
 						_2_nd.queue_free()
 						_2_nd_c.queue_free()
 						objects_to_remove.append("second")
 			"third":
 				if is_instance_valid(_3_rd) and is_instance_valid(_3_rd_c):
-					_3_rd.position.x -= speed * delta
-					_3_rd_c.position.x -= speed * delta
-					traveled_distances["third"] += speed * delta
+					_3_rd.position.x -= current_speed * delta
+					_3_rd_c.position.x -= current_speed * delta
+					traveled_distances["third"] += current_speed * delta
 					if traveled_distances["third"] > distance_limit:
 						_3_rd.queue_free()
 						_3_rd_c.queue_free()
 						objects_to_remove.append("third")
 			"fourth":
 				if is_instance_valid(_4_th) and is_instance_valid(_4_th_c):
-					_4_th.position.x -= speed * delta
-					_4_th_c.position.x -= speed * delta
-					traveled_distances["fourth"] += speed * delta
+					_4_th.position.x -= current_speed * delta
+					_4_th_c.position.x -= current_speed * delta
+					traveled_distances["fourth"] += current_speed * delta
 					if traveled_distances["fourth"] > distance_limit:
 						_4_th.queue_free()
 						_4_th_c.queue_free()

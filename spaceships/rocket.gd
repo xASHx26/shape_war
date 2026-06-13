@@ -137,7 +137,7 @@ func apply_rapid_fire_360():
 func apply_shield():
 	Global.is_invincible = true
 	
-	var shield_scene = load("res://spaceships/shield_powerup_aura.tscn")
+	var shield_scene = load("res://powerups/tier_2/shield_powerup_aura.tscn")
 	if shield_scene:
 		var shield_aura = shield_scene.instantiate()
 		add_child(shield_aura)
@@ -156,3 +156,38 @@ func apply_death_beam():
 			ray.position = Vector2(0, -35)
 			ray.rotation = -PI / 2.0
 
+func apply_black_hole(pos: Vector2):
+	var bh_scene = load("res://powerups/tier_3/black_hole.tscn")
+	if bh_scene:
+		var bh = bh_scene.instantiate()
+		get_tree().current_scene.add_child(bh)
+		bh.global_position = get_viewport_rect().size / 2.0
+
+func apply_chrono_shift():
+	var chrono_scene = load("res://powerups/tier_3/chrono_shift_controller.tscn")
+	if chrono_scene:
+		var chrono = chrono_scene.instantiate()
+		get_tree().current_scene.add_child(chrono)
+
+func apply_wingmen():
+	var drone_count = randi_range(2, 5)
+	var drone_scene = load("res://powerups/tier_3/drone.tscn")
+	if drone_scene:
+		for i in range(drone_count):
+			var drone = drone_scene.instantiate()
+			drone.player = self
+			drone.angle = (PI * 2.0 / drone_count) * i
+			get_tree().current_scene.add_child(drone)
+
+func apply_emp(pos: Vector2):
+	var emp_scene = load("res://powerups/tier_3/emp_blast.tscn")
+	if emp_scene:
+		var emp = emp_scene.instantiate()
+		get_tree().current_scene.add_child(emp)
+		emp.global_position = pos
+
+func apply_chain_lightning():
+	var chain_scene = load("res://powerups/tier_3/chain_lightning.tscn")
+	if chain_scene:
+		var chain = chain_scene.instantiate()
+		get_tree().current_scene.add_child(chain)

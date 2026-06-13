@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://shieldaura1234"]
 
-[ext_resource type="Script" path="res://spaceships/shield_powerup_aura.gd" id="1_script"]
+[ext_resource type="Script" path="res://powerups/tier_2/shield_powerup_aura.gd" id="1_script"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_outer"]
 radius = 250.0

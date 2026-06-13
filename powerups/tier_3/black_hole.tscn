@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bhole001"]
+
+[ext_resource type="Script" uid="uid://e7qgpswiqtuj" path="res://powerups/tier_3/black_hole.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bn3674hf8wyo0" path="res://SPRITE/AI/icon_black_hole.png" id="2_icon"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_horizon"]
+radius = 450.0
+
+[node name="BlackHole" type="Area2D" unique_id=1079057699]
+collision_layer = 0
+collision_mask = 10
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1965008532]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_icon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1481873269]
+shape = SubResource("CircleShape2D_horizon")
+
+[node name="DamageTimer" type="Timer" parent="." unique_id=1206738471]
+
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]

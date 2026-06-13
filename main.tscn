@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cp2skvwhq1mp7" path="res://SPRITE/PLAYER/Warning.png" id="11_q2mai"]
 [ext_resource type="Shader" uid="uid://b6n27wpwdfcm" path="res://shaders/space_background.gdshader" id="12_shader"]
 [ext_resource type="Texture2D" uid="uid://qkmc7i8no5ta" path="res://SPRITE/deep_space_base.png" id="13_bg_tex"]
+[ext_resource type="Shader" uid="uid://c27g3xcka2vtb" path="res://remove_black.gdshader" id="14_shader"]
 
 [sub_resource type="Curve2D" id="Curve2D_x6b6c"]
 _data = {
@@ -59,6 +60,9 @@ _data = {
 &"RESET": SubResource("Animation_yyds5"),
 &"warning": SubResource("Animation_ou57l")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_warning"]
+shader = ExtResource("14_shader")
 
 [node name="main" type="Node2D" unique_id=130357890]
 script = ExtResource("1_llltd")
@@ -144,7 +148,7 @@ grow_vertical = 2
 [node name="warning" type="Sprite2D" parent="." unique_id=731660039]
 visible = false
 position = Vector2(1097, 200)
-scale = Vector2(0.452229, 0.452229)
+scale = Vector2(0.08, 0.08)
 texture = ExtResource("11_q2mai")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1636262857]

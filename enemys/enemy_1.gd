@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var rotation_speed = 5.0
 @export var speed = 4000
 @export var dead_zone_threshold = 0.1 
-@export_range(0.0, 1.0) var powerup_drop_chance: float = 0.2
+@export_range(0.0, 1.0) var powerup_drop_chance: float = 1.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @export var deathPrticle:PackedScene
@@ -17,6 +17,9 @@ func  _process(delta: float) -> void:
 	kill()
 func _physics_process(delta: float) -> void:
 	if Global.curr_health > 0:
+		var current_speed = speed
+		if Global.is_time_frozen:
+			current_speed = 0.0
 		# Calculate direction vector from the rocket to the player's position
 		var direction = global_position.direction_to(player.global_position)
 
@@ -29,7 +32,7 @@ func _physics_process(delta: float) -> void:
 			rotation = lerp_angle(rotation, target_angle, rotation_speed * delta)
 
 		# Move the rocket towards the player's position
-		velocity = direction * speed*delta	
+		velocity = direction * current_speed * delta	
 		move_and_slide()
 	
 func take_damage(amount: int) -> void:
@@ -45,12 +48,12 @@ func kill():
 		
 		# Drop a powerup based on probability
 		if randf() <= powerup_drop_chance:
-			var powerup_scene = load("res://powerup.tscn")
+			var powerup_scene = load("res://powerups/powerup.tscn")
 			if powerup_scene:
 				var powerup = powerup_scene.instantiate()
 				powerup.global_position = global_position
-				powerup.type = randi() % 2 # Randomly pick Health or Speed
-				get_parent().call_deferred("add_child", powerup)
+				powerup.type = randi() % 3 # Randomly pick Tier 1: Health, Speed, Rapid Fire
+				get_tree().current_scene.call_deferred("add_child", powerup)
 				
 		queue_free()
 		

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8sa1h75jxjym"
-path="res://.godot/imported/Warning.png-f9e6eea445c5e089965b1e2fcda1ea4e.ctex"
+uid="uid://c8naqgay0dmad"
+path="res://.godot/imported/icon_emp_nuke.png-eab3dc8b47215975d817a5e287aff126.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SPRITE/PLAYER/Warning.png"
-dest_files=["res://.godot/imported/Warning.png-f9e6eea445c5e089965b1e2fcda1ea4e.ctex"]
+source_file="res://SPRITE/AI/icon_emp_nuke.png"
+dest_files=["res://.godot/imported/icon_emp_nuke.png-eab3dc8b47215975d817a5e287aff126.ctex"]
 
 [params]
 
